@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SAFTabBarController.h
 //  SoundBomber
 //
 //  Created by Jake Saferstein on 4/6/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SAFTabBarController : UITabBarController <UITabBarControllerDelegate>
 
 @end
-

@@ -1,0 +1,38 @@
+//
+//  PrefixHeader.pch
+//  SoundBomber
+//
+//  Created by Jake Saferstein on 4/6/15.
+//  Copyright (c) 2015 Jake Saferstein. All rights reserved.
+//
+
+#ifndef SoundBomber_PrefixHeader_pch
+#define SoundBomber_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//[StoreManager sharedInstance].adsPurchased;
+//[StoreManger sharedInstance].customPurchased;
+//#define ADS_ON ![StoreManager sharedInstance].adsPurchased
+//#define CUSTOM_MSG_ON [StoreManager sharedInstance].customPurchased
+#define ADS_ON 1
+
+// DLog is almost a drop-in replacement for NSLog
+// DLog();
+// DLog(@"here");
+// DLog(@"value: %d", x);
+#ifdef DEBUG
+#	define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#	define DLog(...)
+#endif
+
+// ALog always displays output regardless of the DEBUG setting
+#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+
+#endif

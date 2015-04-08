@@ -7,8 +7,18 @@
 //
 
 #import "AppDelegate.h"
+#import "SAFTabBarController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <Parse/Parse.h>
+#import "PFFacebookUtils.h"
+#import <MMWormhole/MMWormhole.h>
+#import "OfflineViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic) MMWormhole* wormHole;
+
+@property (nonatomic) UITabBarController* rootCtrlr;
 
 @end
 
@@ -16,7 +26,54 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    /* Start Audio for the app */
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    
+#warning parse later
+    //    [Parse setApplicationId:@"U3jYooMOP5sHRj6R9WYR6cwzE3vQQavKBPF1jJ80" clientKey:@"gVOe8Xxnn1RymITkY7ddbNiP396IvrdMyy8vf4k6"];
+    //    [PFFacebookUtils initializeFacebook];
+    //    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    _rootCtrlr = [[SAFTabBarController alloc] init];
+    
+    /* START THE WORMHOLE (for watch app) */
+    _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.fartbomber"
+                                                     optionalDirectory:@"wormhole"];
+    
+    UIImage* speakerImg = [_wormHole messageWithIdentifier:@"speakerImg"];
+    if (speakerImg.size.width == 0) {
+        speakerImg = [UIImage imageNamed:@"speaker1"];
+        [_wormHole passMessageObject:speakerImg identifier:@"speakerImg"];
+    }
+    
+    UIImage* otherImg = [_wormHole messageWithIdentifier:@"otherImg"];
+    if(otherImg.size.width == 0) {
+        otherImg = [UIImage imageNamed:@"otherImg1.jpg"];
+        [_wormHole passMessageObject:otherImg identifier:@"otherImg"];
+    }
+    
+    
+    OfflineViewController* ctlr1 = [[OfflineViewController alloc] initWithSpeakerImage: speakerImg andOtherImg: otherImg];
+    UIViewController* ctlr2 = [[UIViewController alloc] init];
+    ctlr1.title = @"Foo";
+    ctlr2.title = @"Bar";
+    
+    [_rootCtrlr setViewControllers:@[ctlr1, ctlr2]];
+    [self.window setRootViewController:_rootCtrlr];
+    
+
+    
+    // Register for Push Notitications
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+    
+
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
