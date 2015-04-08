@@ -54,7 +54,7 @@
         otherImg = [UIImage imageNamed:@"otherImg1.jpg"];
         [_wormHole passMessageObject:otherImg identifier:@"otherImg"];
     }
-    
+    //
     
     OfflineViewController* ctlr1 = [[OfflineViewController alloc] initWithSpeakerImage: speakerImg andOtherImg: otherImg];
     UIViewController* ctlr2 = [[UIViewController alloc] init];
