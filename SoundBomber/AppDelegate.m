@@ -32,10 +32,10 @@
     /* Start Audio for the app */
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
-#warning parse later
-    //    [Parse setApplicationId:@"U3jYooMOP5sHRj6R9WYR6cwzE3vQQavKBPF1jJ80" clientKey:@"gVOe8Xxnn1RymITkY7ddbNiP396IvrdMyy8vf4k6"];
-    //    [PFFacebookUtils initializeFacebook];
-    //    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
+                  clientKey:@"egCJvN7YFduMUAijnG7icLW1hlEmwS7bDOwLlodk"];
+//    [PFFacebookUtils initializeFacebook];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     _rootCtrlr = [[SAFTabBarController alloc] init];
     
@@ -75,6 +75,17 @@
 
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
