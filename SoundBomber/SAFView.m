@@ -7,6 +7,7 @@
 //
 
 #import "SAFView.h"
+#import <MMWormhole/MMWormhole.h>
 
 @interface SAFView ()
 
@@ -16,6 +17,8 @@
 @property (nonatomic) UIImage* speakerImg;
 @property (nonatomic) UIImage* otherImg;
 
+@property (nonatomic) MMWormhole* wormHole;
+
 @end
 
 @implementation SAFView
@@ -24,6 +27,8 @@
 {
     if(self = [super init])
     {
+        _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
+                                                                    optionalDirectory:@"wormhole"];
         _otherImg = otherImg;
         _speakerImg = speakerImg;
         
@@ -79,6 +84,11 @@
     
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+
+    //Save this for the watch
+    [_wormHole passMessageObject:newImage identifier:@"blendedImg"];
+    
     
     return newImage;
 }

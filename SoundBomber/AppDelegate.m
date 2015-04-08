@@ -40,7 +40,7 @@
     _rootCtrlr = [[SAFTabBarController alloc] init];
     
     /* START THE WORMHOLE (for watch app) */
-    _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.fartbomber"
+    _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
                                                      optionalDirectory:@"wormhole"];
     
     UIImage* speakerImg = [_wormHole messageWithIdentifier:@"speakerImg"];

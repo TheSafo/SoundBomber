@@ -9,6 +9,8 @@
 #import "OfflineViewController.h"
 #import "SAFView.h"
 #import "AudioHelper.h"
+#import <MMWormhole/MMWormhole.h>
+
 
 @interface OfflineViewController ()
 
@@ -16,6 +18,9 @@
 @property (nonatomic) UIButton* cameraButton;
 @property (nonatomic) SAFView* mainView;
 @property (nonatomic, strong) AudioHelper* audioHelper;
+
+@property (nonatomic) MMWormhole* wormHole;
+
 
 //@property (nonatomic) UIActionSheet* actnSht;
 
@@ -37,6 +42,9 @@
         _cameraButton.tintColor = [UIColor blackColor];
         [_cameraButton addTarget:self action:@selector(camPressed) forControlEvents:UIControlEventTouchUpInside];
 
+        
+        _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
+                                                         optionalDirectory:@"wormhole"];
         
         int w, h;
         w = self.view.frame.size.width;
@@ -107,6 +115,8 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage* temp = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    [_wormHole passMessageObject:temp identifier:@"otherImg"];
     
     [_mainView changeImage: temp];
     
