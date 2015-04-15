@@ -8,11 +8,8 @@
 
 #import "AppDelegate.h"
 #import "SAFTabBarController.h"
-#import <AVFoundation/AVFoundation.h>
-#import <Parse/Parse.h>
-#import "PFFacebookUtils.h"
-#import <MMWormhole/MMWormhole.h>
 #import "OfflineViewController.h"
+#import "OnlineViewController.h"
 
 @interface AppDelegate ()
 
@@ -54,10 +51,9 @@
         otherImg = [UIImage imageNamed:@"otherImg1.jpg"];
         [_wormHole passMessageObject:otherImg identifier:@"otherImg"];
     }
-    //
     
     OfflineViewController* ctlr1 = [[OfflineViewController alloc] initWithSpeakerImage: speakerImg andOtherImg: otherImg];
-    UIViewController* ctlr2 = [[UIViewController alloc] init];
+    OnlineViewController* ctlr2 = [[OnlineViewController alloc] init];
     ctlr1.title = @"Foo";
     ctlr2.title = @"Bar";
     
@@ -76,6 +72,7 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Store the deviceToken in the current installation and save it to Parse.

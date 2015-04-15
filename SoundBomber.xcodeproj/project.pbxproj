@@ -31,6 +31,9 @@
 		436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436EB95E1AD37E8100A404B7 /* Images.xcassets */; };
 		436EB9621AD37E8100A404B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436EB9601AD37E8100A404B7 /* LaunchScreen.xib */; };
 		436EB96E1AD37E8100A404B7 /* SoundBomberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */; };
+		43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43FC78E71ADC17D5007CB16B /* facebookLoading.png */; };
+		43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */; };
+		43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78ED1ADC2CFE007CB16B /* Singleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,11 @@
 		436EB9671AD37E8100A404B7 /* SoundBomberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundBomberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		436EB96C1AD37E8100A404B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundBomberTests.m; sourceTree = "<group>"; };
+		43FC78E71ADC17D5007CB16B /* facebookLoading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookLoading.png; sourceTree = "<group>"; };
+		43FC78E91ADC18A5007CB16B /* SAFParseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFParseHelper.h; sourceTree = "<group>"; };
+		43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFParseHelper.m; sourceTree = "<group>"; };
+		43FC78EC1ADC2CFE007CB16B /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		43FC78ED1ADC2CFE007CB16B /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		EA72B5F94F9184640E24F04D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +114,7 @@
 		432B0C4E1AD3B36F0086B4A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				43FC78E71ADC17D5007CB16B /* facebookLoading.png */,
 				432B0C5D1AD4510A0086B4A3 /* bigSpeaker.jpg */,
 				432B0C511AD3B3A80086B4A3 /* cameraBtn.png */,
 				432B0C5B1AD44B300086B4A3 /* otherImg1.jpg */,
@@ -164,8 +173,12 @@
 				4367B74E1AD3A8B10032C4F8 /* SAFTabBarController.m */,
 				4367B7531AD3ADD70032C4F8 /* OnlineViewController.h */,
 				4367B7541AD3ADD70032C4F8 /* OnlineViewController.m */,
+				43FC78E91ADC18A5007CB16B /* SAFParseHelper.h */,
+				43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */,
 				432B0C5F1AD48A600086B4A3 /* AudioHelper.h */,
 				432B0C601AD48A600086B4A3 /* AudioHelper.m */,
+				43FC78EC1ADC2CFE007CB16B /* Singleton.h */,
+				43FC78ED1ADC2CFE007CB16B /* Singleton.m */,
 				436EB95E1AD37E8100A404B7 /* Images.xcassets */,
 				436EB9601AD37E8100A404B7 /* LaunchScreen.xib */,
 				436EB9511AD37E8100A404B7 /* Supporting Files */,
@@ -321,6 +334,7 @@
 				432B0C531AD3B3A80086B4A3 /* cameraBtn.png in Resources */,
 				436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */,
 				432B0C711AD48B3E0086B4A3 /* fart6.caf in Resources */,
+				43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */,
 				432B0C541AD3B3A80086B4A3 /* settingsBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,11 +386,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */,
 				4367B7521AD3ADC50032C4F8 /* OfflineViewController.m in Sources */,
 				432B0C5A1AD3BBFF0086B4A3 /* SAFView.m in Sources */,
 				436EB9571AD37E8100A404B7 /* AppDelegate.m in Sources */,
 				4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */,
 				436EB9541AD37E8100A404B7 /* main.m in Sources */,
+				43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */,
 				432B0C611AD48A600086B4A3 /* AudioHelper.m in Sources */,
 				4367B7551AD3ADD70032C4F8 /* OnlineViewController.m in Sources */,
 			);
@@ -511,7 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SoundBomber/SoundBomber.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SoundBomber/PrefixHeader.pch;

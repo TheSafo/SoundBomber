@@ -112,6 +112,13 @@
     }];
 }
 
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Cancelling image picker");
+    }];
+}
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage* temp = [info objectForKey:UIImagePickerControllerEditedImage];
