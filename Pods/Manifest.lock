@@ -1,0 +1,72 @@
+PODS:
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/QuickLook
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/QuickLook (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - Bolts (1.1.4)
+  - Facebook-iOS-SDK (3.23.2):
+    - Bolts (~> 1.0)
+  - iCarousel (1.8.1)
+  - JFParseFBFriends (1.0.0):
+    - Facebook-iOS-SDK
+    - Parse
+    - ParseFacebookUtils
+  - MMWormhole (1.1.1):
+    - MMWormhole/Core (= 1.1.1)
+  - MMWormhole/Core (1.1.1)
+  - Parse (1.7.1):
+    - Bolts (~> 1.1)
+  - ParseFacebookUtils (1.7.1):
+    - Facebook-iOS-SDK (~> 3.23)
+    - Parse (~> 1.7.1)
+  - pop (1.0.7)
+  - RKCardView (0.1.0)
+
+DEPENDENCIES:
+  - BlocksKit (from `https://github.com/zwaldowski/BlocksKit.git`)
+  - Facebook-iOS-SDK
+  - iCarousel
+  - JFParseFBFriends
+  - MMWormhole
+  - Parse
+  - ParseFacebookUtils
+  - pop (~> 1.0)
+  - RKCardView
+
+EXTERNAL SOURCES:
+  BlocksKit:
+    :git: https://github.com/zwaldowski/BlocksKit.git
+
+CHECKOUT OPTIONS:
+  BlocksKit:
+    :commit: b0146be59d327fe66a22270a0eeea73add7a0d40
+    :git: https://github.com/zwaldowski/BlocksKit.git
+
+SPEC CHECKSUMS:
+  BlocksKit: fce66219cce8030475a04eae720cdde22f8fc30b
+  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
+  Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
+  iCarousel: dace1cb858e3f4dc2614bee3201041247f82feda
+  JFParseFBFriends: 1734a46f4627e09f3069c9fb7211a32c926c3236
+  MMWormhole: 941cd168b4afd6073f883b82944d6eded4e00203
+  Parse: fa8ec29de6d82035635986c11946299fb1b38316
+  ParseFacebookUtils: fa09adf78372b589163b5a71a34d6ebc7eb83395
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  RKCardView: 80c09d833031dd8506eb4dcbaa820038065c2519
+
+COCOAPODS: 0.35.0

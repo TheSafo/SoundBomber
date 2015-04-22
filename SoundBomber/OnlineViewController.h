@@ -7,6 +7,6 @@
 //
 
 
-@interface OnlineViewController : UIViewController
+@interface OnlineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

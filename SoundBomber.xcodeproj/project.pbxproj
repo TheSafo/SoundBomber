@@ -31,6 +31,7 @@
 		436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436EB95E1AD37E8100A404B7 /* Images.xcassets */; };
 		436EB9621AD37E8100A404B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436EB9601AD37E8100A404B7 /* LaunchScreen.xib */; };
 		436EB96E1AD37E8100A404B7 /* SoundBomberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */; };
+		43801A171AE758FE009B717B /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43801A161AE758FE009B717B /* FriendTableViewCell.m */; };
 		43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43FC78E71ADC17D5007CB16B /* facebookLoading.png */; };
 		43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */; };
 		43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78ED1ADC2CFE007CB16B /* Singleton.m */; };
@@ -84,6 +85,8 @@
 		436EB9671AD37E8100A404B7 /* SoundBomberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundBomberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		436EB96C1AD37E8100A404B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundBomberTests.m; sourceTree = "<group>"; };
+		43801A151AE758FE009B717B /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		43801A161AE758FE009B717B /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		43FC78E71ADC17D5007CB16B /* facebookLoading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookLoading.png; sourceTree = "<group>"; };
 		43FC78E91ADC18A5007CB16B /* SAFParseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFParseHelper.h; sourceTree = "<group>"; };
 		43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFParseHelper.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				4367B74D1AD3A8B10032C4F8 /* SAFTabBarController.h */,
 				4367B74E1AD3A8B10032C4F8 /* SAFTabBarController.m */,
 				4367B7531AD3ADD70032C4F8 /* OnlineViewController.h */,
+				43801A151AE758FE009B717B /* FriendTableViewCell.h */,
+				43801A161AE758FE009B717B /* FriendTableViewCell.m */,
 				4367B7541AD3ADD70032C4F8 /* OnlineViewController.m */,
 				43FC78E91ADC18A5007CB16B /* SAFParseHelper.h */,
 				43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */,
@@ -389,6 +394,7 @@
 				43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */,
 				4367B7521AD3ADC50032C4F8 /* OfflineViewController.m in Sources */,
 				432B0C5A1AD3BBFF0086B4A3 /* SAFView.m in Sources */,
+				43801A171AE758FE009B717B /* FriendTableViewCell.m in Sources */,
 				436EB9571AD37E8100A404B7 /* AppDelegate.m in Sources */,
 				4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */,
 				436EB9541AD37E8100A404B7 /* main.m in Sources */,

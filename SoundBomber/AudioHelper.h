@@ -12,5 +12,15 @@
 
 @property (nonatomic) int dontPlayUntil;
 
+#warning Sound list
+/*
+ 1. Farts
+ 2. Screams
+ 3. Airhorns
+ 4. Toilet Flush
+ 5. Sup
+ 6. Yee
+ 7. Nice La
+ */
 
 @end

@@ -8,9 +8,16 @@
 
 #import "OnlineViewController.h"
 #import "SAFParseHelper.h"
+#import "FriendTableViewCell.h"
 #import <JFParseFBFriends/JFParseFBFriends.h>
 
 @interface OnlineViewController ()
+
+@property (nonatomic) BOOL doneLoggingIn;
+
+@property (nonatomic) NSArray* friendsLists;
+
+@property(nonatomic) UITableView* tableView;
 
 @end
 
@@ -35,17 +42,11 @@
             [self.view addSubview:test];
             [test startAnimating];
             
-            [JFParseFBFriends updateCurrentUserWithCompletion:^(BOOL success, NSError *error) {
-                if(success)
-                {
-                    //Move on
-#warning implement this
-                }
-                if(error)
-                {
-                    NSLog(@"Error with Fielddog's fb shit: %@", error);
-                }
+            [[SAFParseHelper sharedInstance] loginWithBlock:^(NSArray *friendArrs) {
+                //Move on
+                [self showTableViewWithArrs:friendArrs];
             }];
+            
 
         }
         else /* Set up the login screen */
@@ -68,13 +69,79 @@
     return self;
 }
 
+#warning Is this acceptable logic?
+-(void)viewWillDisappear:(BOOL)animated
+{
+    _doneLoggingIn = NO;
+}
+
 -(void)loginPressed
 {
     [[SAFParseHelper sharedInstance] loginWithBlock:^(NSArray *friendArrs) {
        //Move on
-#warning implement this
+        [self showTableViewWithArrs:friendArrs];
     }];
 }
+
+-(void)showTableViewWithArrs: (NSArray *)arrs
+{
+#warning implement this
+    NSLog(@"Logged in success");
+    
+    _doneLoggingIn = YES;
+    
+    _friendsLists = arrs;
+    
+    int w = self.view.frame.size.width;
+    int h = self.view.frame.size.height;
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, w, h) style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    
+    [self.view addSubview:_tableView];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_friendsLists[section] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"Revenge";
+            break;
+        case 1:
+            sectionName = @"Recent";
+            break;
+        case 2:
+            sectionName = @"Friends";
+            break;
+    }
+    return sectionName;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friend"];
+    
+    if(!cell)
+    {
+        cell = [[FriendTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"friend"];
+    }
+    
+    return cell;
+}
+
 
 
 @end

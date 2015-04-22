@@ -16,57 +16,103 @@
 
 SINGLETON_IMPL(SAFParseHelper);
 
+@synthesize recentIds,revengeIds,friendIds;
+
+
+-(id)init
+{
+    if (self = [super init]) {
+        self.revengeIds = [NSMutableArray array];
+        self.recentIds = [NSMutableArray array];
+    }
+    return self;
+}
+
 
 -(void) loginWithBlock:(void (^)(NSArray *friendArrs)) loginCompletion
 {
     
+    if([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */
+    {
+        //If we're logged in just update the friends only
+        [JFParseFBFriends findFriendsAndUpdate:YES completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {
+            
+            NSMutableArray* revUsrs = [NSMutableArray array];
+            
+            for (NSString* usrId in revengeIds) {
+                for (PFUser* usr in pfusers) {
+                    if ([usr.objectId isEqualToString:usrId]) {
+                        [revUsrs addObject:usr];
+                    }
+                }
+            }
+            
+            NSMutableArray* recUsrs = [NSMutableArray array];
+            
+            for (NSString* usrId in recentIds) {
+                for (PFUser* usr in pfusers) {
+                    if ([usr.objectId isEqualToString:usrId]) {
+                        [recUsrs addObject:usr];
+                    }
+                }
+            }
+            
+            loginCompletion(@[revUsrs, recUsrs, pfusers]);
+        }];
+        return;
+    }
+
     
-//    [PFFacebookUtils logInWithPermissions:@[@"public_profile", @"user_friends"] block:^(PFUser *user, NSError *error) {
-//        /* ... */
-//        if (user) {
-//            [JFParseFBFriends updateCurrentUserWithCompletion:^(BOOL success, NSError *error) {
-//                /* ... */
-//            }];
-//        }
-//    }];
+    NSArray* permissions = @[ @"public_profile", @"user_friends", ];
     
-        /* Get friends */
-    
-//        [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-//            if(!error)
-//            {
-//                NSArray* friendObjects= [result objectForKey:@"data"];
-//                NSMutableArray* tempFriendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
-//                for (NSDictionary* friendObject in friendObjects) {
-//                    [tempFriendIds addObject:[friendObject objectForKey:@"id"]];
-//                }
-//                
-//                // Construct a PFUser query that will find friends whose facebook ids
-//                // are contained in the current user's friend list.
-//                PFQuery *friendQuery = [PFUser query];
-//                [friendQuery whereKey:@"fbId" containedIn:tempFriendIds];
-//                
-//                [friendQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//                    for (PFUser* temp in objects) {
-//                        [self.friendIds addObject: temp.objectId];
-//                    }
-//                    NSLog(@"Done adding to friends list");
-//                    
-//                    [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//                        self.revengeIds =  [[PFUser currentUser] objectForKey:@"revenge"]; //= @[@"9oPcwNoSjI"]; //= @[@"xFlcvadOFv"];
-//                        self.recentIds = [PFUser currentUser][@"recent"];
-//                        
-//                        BombingViewController* nextCtrlr = [[BombingViewController alloc] initWithStyle:UITableViewStylePlain andRevengeList:self.revengeIds andRecentList:self.recentIds andFriendsList:self.friendIds];
-//                        [self.navigationController pushViewController:nextCtrlr animated:YES];
-//                        
-//                    }];
-//                }];
-//            }
-//        }];
-    
-    
-    loginCompletion(@[]);
+    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+        
+        //Create Revenge and Recent list if necessary
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+            
+            self.revengeIds = user[@"revenge"] = [NSMutableArray array];
+            self.recentIds = user[@"recent"] = [NSMutableArray array];
+            [user saveInBackground];
+        } else {
+            NSLog(@"User logged in through Facebook!");
+            
+            self.revengeIds = user[@"revenge"];
+            self.recentIds = user[@"recent"];
+        }
+        
+        //Use Fieldlord's Facebook update + friends update if necessary
+        [JFParseFBFriends updateCurrentUserWithCompletion:^(BOOL success, NSError *error) {
+            [JFParseFBFriends findFriendsAndUpdate:YES completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {
+                
+                NSMutableArray* revUsrs = [NSMutableArray array];
+                
+                for (NSString* usrId in revengeIds) {
+                    for (PFUser* usr in pfusers) {
+                        if ([usr.objectId isEqualToString:usrId]) {
+                            [revUsrs addObject:usr];
+                        }
+                    }
+                }
+                
+                NSMutableArray* recUsrs = [NSMutableArray array];
+                
+                for (NSString* usrId in recentIds) {
+                    for (PFUser* usr in pfusers) {
+                        if ([usr.objectId isEqualToString:usrId]) {
+                            [recUsrs addObject:usr];
+                        }
+                    }
+                }
+                
+                loginCompletion(@[revUsrs, recUsrs, pfusers]);
+            }];
+        }];
+    }];
 }
+
 
 
 

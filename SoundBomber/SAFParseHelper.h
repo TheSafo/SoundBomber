@@ -14,9 +14,29 @@
 
 SINGLETON_INTR(SAFParseHelper);
 
+@property (nonatomic) NSMutableArray* revengeIds;
+@property (nonatomic) NSMutableArray* friendIds;
+@property (nonatomic) NSMutableArray* recentIds;
+
 -(void) loginWithBlock:(void (^)(NSArray *friendArrs)) loginCompletion;
 
 //- (void)someMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName;
+
+#warning Parse structure
+/*
+ 1. Login with FB or be logged in
+ 2. Get friends + Revenge/Recent List every time
+ 3. Search through friends for the Revenge/Recent objects
+ 4. Use objects to make TableView
+ 5. Send Farts and stuff
+ 
+ Watch:
+ 1. On activate always reload friends/revenge list
+ 2. Get user + their revenge/recent from phone
+ 3. Make tableviews
+ 4. Update user + their targets with cloud code
+        Stuff must be done locally to ensure local lists are accurate as well
+ */
 
 
 @end
