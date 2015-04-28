@@ -18,7 +18,9 @@ SINGLETON_INTR(SAFParseHelper);
 @property (nonatomic) NSMutableArray* friendIds;
 @property (nonatomic) NSMutableArray* recentIds;
 
--(void) loginWithBlock:(void (^)(NSArray *friendArrs)) loginCompletion;
+-(void) loginWithBlock:(void (^)(NSMutableArray *friendArrs)) loginCompletion;
+
+-(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend;
 
 //- (void)someMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName;
 

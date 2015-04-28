@@ -16,13 +16,13 @@
 		432B0C5E1AD4510A0086B4A3 /* bigSpeaker.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C5D1AD4510A0086B4A3 /* bigSpeaker.jpg */; };
 		432B0C611AD48A600086B4A3 /* AudioHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 432B0C601AD48A600086B4A3 /* AudioHelper.m */; };
 		432B0C6B1AD48B3E0086B4A3 /* airstrike.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C631AD48B3E0086B4A3 /* airstrike.mp3 */; };
-		432B0C6C1AD48B3E0086B4A3 /* fart1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C641AD48B3E0086B4A3 /* fart1.caf */; };
-		432B0C6D1AD48B3E0086B4A3 /* fart2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C651AD48B3E0086B4A3 /* fart2.caf */; };
-		432B0C6E1AD48B3E0086B4A3 /* fart3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C661AD48B3E0086B4A3 /* fart3.caf */; };
-		432B0C6F1AD48B3E0086B4A3 /* fart4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C671AD48B3E0086B4A3 /* fart4.caf */; };
-		432B0C701AD48B3E0086B4A3 /* fart5.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C681AD48B3E0086B4A3 /* fart5.caf */; };
-		432B0C711AD48B3E0086B4A3 /* fart6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C691AD48B3E0086B4A3 /* fart6.caf */; };
-		432B0C721AD48B3E0086B4A3 /* fart7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C6A1AD48B3E0086B4A3 /* fart7.caf */; };
+		432B0C6C1AD48B3E0086B4A3 /* Fart1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C641AD48B3E0086B4A3 /* Fart1.caf */; };
+		432B0C6D1AD48B3E0086B4A3 /* Fart2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C651AD48B3E0086B4A3 /* Fart2.caf */; };
+		432B0C6E1AD48B3E0086B4A3 /* Fart3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C661AD48B3E0086B4A3 /* Fart3.caf */; };
+		432B0C6F1AD48B3E0086B4A3 /* Fart4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C671AD48B3E0086B4A3 /* Fart4.caf */; };
+		432B0C701AD48B3E0086B4A3 /* Fart5.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C681AD48B3E0086B4A3 /* Fart5.caf */; };
+		432B0C711AD48B3E0086B4A3 /* Fart6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C691AD48B3E0086B4A3 /* Fart6.caf */; };
+		432B0C721AD48B3E0086B4A3 /* Fart7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C6A1AD48B3E0086B4A3 /* Fart7.caf */; };
 		4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4367B74E1AD3A8B10032C4F8 /* SAFTabBarController.m */; };
 		4367B7521AD3ADC50032C4F8 /* OfflineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4367B7511AD3ADC50032C4F8 /* OfflineViewController.m */; };
 		4367B7551AD3ADD70032C4F8 /* OnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4367B7541AD3ADD70032C4F8 /* OnlineViewController.m */; };
@@ -32,6 +32,20 @@
 		436EB9621AD37E8100A404B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436EB9601AD37E8100A404B7 /* LaunchScreen.xib */; };
 		436EB96E1AD37E8100A404B7 /* SoundBomberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */; };
 		43801A171AE758FE009B717B /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43801A161AE758FE009B717B /* FriendTableViewCell.m */; };
+		439238EB1AEFF3E300644E1B /* Scream1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E41AEFF3E300644E1B /* Scream1.caf */; };
+		439238EC1AEFF3E300644E1B /* Scream2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E51AEFF3E300644E1B /* Scream2.caf */; };
+		439238ED1AEFF3E300644E1B /* Scream3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E61AEFF3E300644E1B /* Scream3.caf */; };
+		439238EE1AEFF3E300644E1B /* Scream4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E71AEFF3E300644E1B /* Scream4.caf */; };
+		439238EF1AEFF3E300644E1B /* Scream5.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E81AEFF3E300644E1B /* Scream5.caf */; };
+		439238F01AEFF3E300644E1B /* Scream6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E91AEFF3E300644E1B /* Scream6.caf */; };
+		439238F11AEFF3E300644E1B /* Scream7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238EA1AEFF3E300644E1B /* Scream7.caf */; };
+		439238F91AEFF4CE00644E1B /* Horn4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F21AEFF4CE00644E1B /* Horn4.caf */; };
+		439238FA1AEFF4CE00644E1B /* Horn5.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F31AEFF4CE00644E1B /* Horn5.caf */; };
+		439238FB1AEFF4CE00644E1B /* Horn6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F41AEFF4CE00644E1B /* Horn6.caf */; };
+		439238FC1AEFF4CE00644E1B /* Horn7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F51AEFF4CE00644E1B /* Horn7.caf */; };
+		439238FD1AEFF4CE00644E1B /* Horn1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F61AEFF4CE00644E1B /* Horn1.caf */; };
+		439238FE1AEFF4CE00644E1B /* Horn2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F71AEFF4CE00644E1B /* Horn2.caf */; };
+		439238FF1AEFF4CE00644E1B /* Horn3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F81AEFF4CE00644E1B /* Horn3.caf */; };
 		43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43FC78E71ADC17D5007CB16B /* facebookLoading.png */; };
 		43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */; };
 		43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78ED1ADC2CFE007CB16B /* Singleton.m */; };
@@ -61,13 +75,13 @@
 		432B0C5F1AD48A600086B4A3 /* AudioHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioHelper.h; sourceTree = "<group>"; };
 		432B0C601AD48A600086B4A3 /* AudioHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioHelper.m; sourceTree = "<group>"; };
 		432B0C631AD48B3E0086B4A3 /* airstrike.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = airstrike.mp3; sourceTree = "<group>"; };
-		432B0C641AD48B3E0086B4A3 /* fart1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fart1.caf; sourceTree = "<group>"; };
-		432B0C651AD48B3E0086B4A3 /* fart2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fart2.caf; sourceTree = "<group>"; };
-		432B0C661AD48B3E0086B4A3 /* fart3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fart3.caf; sourceTree = "<group>"; };
-		432B0C671AD48B3E0086B4A3 /* fart4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fart4.caf; sourceTree = "<group>"; };
-		432B0C681AD48B3E0086B4A3 /* fart5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fart5.caf; sourceTree = "<group>"; };
-		432B0C691AD48B3E0086B4A3 /* fart6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fart6.caf; sourceTree = "<group>"; };
-		432B0C6A1AD48B3E0086B4A3 /* fart7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fart7.caf; sourceTree = "<group>"; };
+		432B0C641AD48B3E0086B4A3 /* Fart1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart1.caf; sourceTree = "<group>"; };
+		432B0C651AD48B3E0086B4A3 /* Fart2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart2.caf; sourceTree = "<group>"; };
+		432B0C661AD48B3E0086B4A3 /* Fart3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart3.caf; sourceTree = "<group>"; };
+		432B0C671AD48B3E0086B4A3 /* Fart4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart4.caf; sourceTree = "<group>"; };
+		432B0C681AD48B3E0086B4A3 /* Fart5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart5.caf; sourceTree = "<group>"; };
+		432B0C691AD48B3E0086B4A3 /* Fart6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart6.caf; sourceTree = "<group>"; };
+		432B0C6A1AD48B3E0086B4A3 /* Fart7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart7.caf; sourceTree = "<group>"; };
 		432B0C731AD4D4520086B4A3 /* SoundBomber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SoundBomber.entitlements; sourceTree = "<group>"; };
 		4367B74D1AD3A8B10032C4F8 /* SAFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFTabBarController.h; sourceTree = "<group>"; };
 		4367B74E1AD3A8B10032C4F8 /* SAFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFTabBarController.m; sourceTree = "<group>"; };
@@ -87,6 +101,20 @@
 		436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundBomberTests.m; sourceTree = "<group>"; };
 		43801A151AE758FE009B717B /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		43801A161AE758FE009B717B /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		439238E41AEFF3E300644E1B /* Scream1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream1.caf; sourceTree = "<group>"; };
+		439238E51AEFF3E300644E1B /* Scream2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream2.caf; sourceTree = "<group>"; };
+		439238E61AEFF3E300644E1B /* Scream3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream3.caf; sourceTree = "<group>"; };
+		439238E71AEFF3E300644E1B /* Scream4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream4.caf; sourceTree = "<group>"; };
+		439238E81AEFF3E300644E1B /* Scream5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream5.caf; sourceTree = "<group>"; };
+		439238E91AEFF3E300644E1B /* Scream6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream6.caf; sourceTree = "<group>"; };
+		439238EA1AEFF3E300644E1B /* Scream7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream7.caf; sourceTree = "<group>"; };
+		439238F21AEFF4CE00644E1B /* Horn4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn4.caf; sourceTree = "<group>"; };
+		439238F31AEFF4CE00644E1B /* Horn5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn5.caf; sourceTree = "<group>"; };
+		439238F41AEFF4CE00644E1B /* Horn6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn6.caf; sourceTree = "<group>"; };
+		439238F51AEFF4CE00644E1B /* Horn7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn7.caf; sourceTree = "<group>"; };
+		439238F61AEFF4CE00644E1B /* Horn1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn1.caf; sourceTree = "<group>"; };
+		439238F71AEFF4CE00644E1B /* Horn2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn2.caf; sourceTree = "<group>"; };
+		439238F81AEFF4CE00644E1B /* Horn3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn3.caf; sourceTree = "<group>"; };
 		43FC78E71ADC17D5007CB16B /* facebookLoading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookLoading.png; sourceTree = "<group>"; };
 		43FC78E91ADC18A5007CB16B /* SAFParseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFParseHelper.h; sourceTree = "<group>"; };
 		43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFParseHelper.m; sourceTree = "<group>"; };
@@ -130,14 +158,28 @@
 		432B0C621AD48B3E0086B4A3 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				439238F21AEFF4CE00644E1B /* Horn4.caf */,
+				439238F31AEFF4CE00644E1B /* Horn5.caf */,
+				439238F41AEFF4CE00644E1B /* Horn6.caf */,
+				439238F51AEFF4CE00644E1B /* Horn7.caf */,
+				439238F61AEFF4CE00644E1B /* Horn1.caf */,
+				439238F71AEFF4CE00644E1B /* Horn2.caf */,
+				439238F81AEFF4CE00644E1B /* Horn3.caf */,
+				439238E41AEFF3E300644E1B /* Scream1.caf */,
+				439238E51AEFF3E300644E1B /* Scream2.caf */,
+				439238E61AEFF3E300644E1B /* Scream3.caf */,
+				439238E71AEFF3E300644E1B /* Scream4.caf */,
+				439238E81AEFF3E300644E1B /* Scream5.caf */,
+				439238E91AEFF3E300644E1B /* Scream6.caf */,
+				439238EA1AEFF3E300644E1B /* Scream7.caf */,
 				432B0C631AD48B3E0086B4A3 /* airstrike.mp3 */,
-				432B0C641AD48B3E0086B4A3 /* fart1.caf */,
-				432B0C651AD48B3E0086B4A3 /* fart2.caf */,
-				432B0C661AD48B3E0086B4A3 /* fart3.caf */,
-				432B0C671AD48B3E0086B4A3 /* fart4.caf */,
-				432B0C681AD48B3E0086B4A3 /* fart5.caf */,
-				432B0C691AD48B3E0086B4A3 /* fart6.caf */,
-				432B0C6A1AD48B3E0086B4A3 /* fart7.caf */,
+				432B0C641AD48B3E0086B4A3 /* Fart1.caf */,
+				432B0C651AD48B3E0086B4A3 /* Fart2.caf */,
+				432B0C661AD48B3E0086B4A3 /* Fart3.caf */,
+				432B0C671AD48B3E0086B4A3 /* Fart4.caf */,
+				432B0C681AD48B3E0086B4A3 /* Fart5.caf */,
+				432B0C691AD48B3E0086B4A3 /* Fart6.caf */,
+				432B0C6A1AD48B3E0086B4A3 /* Fart7.caf */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -326,20 +368,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				436EB9621AD37E8100A404B7 /* LaunchScreen.xib in Resources */,
+				439238EF1AEFF3E300644E1B /* Scream5.caf in Resources */,
 				432B0C6B1AD48B3E0086B4A3 /* airstrike.mp3 in Resources */,
-				432B0C6E1AD48B3E0086B4A3 /* fart3.caf in Resources */,
-				432B0C701AD48B3E0086B4A3 /* fart5.caf in Resources */,
+				432B0C6E1AD48B3E0086B4A3 /* Fart3.caf in Resources */,
+				439238FB1AEFF4CE00644E1B /* Horn6.caf in Resources */,
+				432B0C701AD48B3E0086B4A3 /* Fart5.caf in Resources */,
 				432B0C5E1AD4510A0086B4A3 /* bigSpeaker.jpg in Resources */,
-				432B0C6C1AD48B3E0086B4A3 /* fart1.caf in Resources */,
-				432B0C6D1AD48B3E0086B4A3 /* fart2.caf in Resources */,
-				432B0C6F1AD48B3E0086B4A3 /* fart4.caf in Resources */,
+				432B0C6C1AD48B3E0086B4A3 /* Fart1.caf in Resources */,
+				432B0C6D1AD48B3E0086B4A3 /* Fart2.caf in Resources */,
+				439238FD1AEFF4CE00644E1B /* Horn1.caf in Resources */,
+				439238FA1AEFF4CE00644E1B /* Horn5.caf in Resources */,
+				439238FE1AEFF4CE00644E1B /* Horn2.caf in Resources */,
+				439238F11AEFF3E300644E1B /* Scream7.caf in Resources */,
+				432B0C6F1AD48B3E0086B4A3 /* Fart4.caf in Resources */,
 				432B0C571AD3BA770086B4A3 /* speaker1.png in Resources */,
-				432B0C721AD48B3E0086B4A3 /* fart7.caf in Resources */,
+				439238F01AEFF3E300644E1B /* Scream6.caf in Resources */,
+				432B0C721AD48B3E0086B4A3 /* Fart7.caf in Resources */,
+				439238FF1AEFF4CE00644E1B /* Horn3.caf in Resources */,
 				432B0C5C1AD44B300086B4A3 /* otherImg1.jpg in Resources */,
 				432B0C531AD3B3A80086B4A3 /* cameraBtn.png in Resources */,
+				439238FC1AEFF4CE00644E1B /* Horn7.caf in Resources */,
 				436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */,
-				432B0C711AD48B3E0086B4A3 /* fart6.caf in Resources */,
+				439238ED1AEFF3E300644E1B /* Scream3.caf in Resources */,
+				439238EB1AEFF3E300644E1B /* Scream1.caf in Resources */,
+				432B0C711AD48B3E0086B4A3 /* Fart6.caf in Resources */,
 				43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */,
+				439238F91AEFF4CE00644E1B /* Horn4.caf in Resources */,
+				439238EC1AEFF3E300644E1B /* Scream2.caf in Resources */,
+				439238EE1AEFF3E300644E1B /* Scream4.caf in Resources */,
 				432B0C541AD3B3A80086B4A3 /* settingsBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

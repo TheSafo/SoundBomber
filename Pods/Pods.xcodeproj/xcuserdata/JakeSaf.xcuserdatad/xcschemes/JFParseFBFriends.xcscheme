@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CDFA89A46B7209A46812074C"
+               BlueprintIdentifier = "184222E6321C173B330D2E57"
                BuildableName = "JFParseFBFriends.bundle"
                BlueprintName = "JFParseFBFriends"
                ReferencedContainer = "container:Pods.xcodeproj">

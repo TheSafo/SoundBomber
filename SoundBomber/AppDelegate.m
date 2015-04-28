@@ -29,6 +29,8 @@
     /* Start Audio for the app */
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
+    
+    [Parse enableLocalDatastore];
     [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
                   clientKey:@"egCJvN7YFduMUAijnG7icLW1hlEmwS7bDOwLlodk"];
     [PFFacebookUtils initializeFacebook];

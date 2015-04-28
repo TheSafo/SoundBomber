@@ -10,17 +10,23 @@
 
 @implementation FriendTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated { 
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
-#warning Can i link to related table cells, is that a good idea????
+-(void)setUser: (PFUser *)user
+{
+//    NSLog(@"Setting user");
+    
+    _user = user;
+    
+    self.textLabel.text = user[@"fullname"];
+    
+    NSData* imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large", user[@"fbId"]]]];
+    self.imageView.image = [UIImage imageWithData:imgData];
+}
+
 
 
 @end

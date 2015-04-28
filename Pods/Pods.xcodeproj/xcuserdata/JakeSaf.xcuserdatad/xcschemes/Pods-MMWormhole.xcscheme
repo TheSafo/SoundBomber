@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE18AA7FE351C0C4FCEB2882"
+               BlueprintIdentifier = "679D0C98EF10DBC5F4A9555E"
                BuildableName = "libPods-MMWormhole.a"
                BlueprintName = "Pods-MMWormhole"
                ReferencedContainer = "container:Pods.xcodeproj">

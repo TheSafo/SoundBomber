@@ -9,15 +9,12 @@
 #import "OnlineViewController.h"
 #import "SAFParseHelper.h"
 #import "FriendTableViewCell.h"
-#import <JFParseFBFriends/JFParseFBFriends.h>
 
 @interface OnlineViewController ()
 
-@property (nonatomic) BOOL doneLoggingIn;
-
-@property (nonatomic) NSArray* friendsLists;
-
+@property (nonatomic) NSMutableArray* friendsLists;
 @property(nonatomic) UITableView* tableView;
+@property(nonatomic) RS3DSegmentedControl* soundPicker;
 
 @end
 
@@ -42,7 +39,7 @@
             [self.view addSubview:test];
             [test startAnimating];
             
-            [[SAFParseHelper sharedInstance] loginWithBlock:^(NSArray *friendArrs) {
+            [[SAFParseHelper sharedInstance] loginWithBlock:^(NSMutableArray *friendArrs) {
                 //Move on
                 [self showTableViewWithArrs:friendArrs];
             }];
@@ -69,38 +66,72 @@
     return self;
 }
 
-#warning Is this acceptable logic?
--(void)viewWillDisappear:(BOOL)animated
-{
-    _doneLoggingIn = NO;
-}
 
 -(void)loginPressed
 {
-    [[SAFParseHelper sharedInstance] loginWithBlock:^(NSArray *friendArrs) {
+    [[SAFParseHelper sharedInstance] loginWithBlock:^(NSMutableArray *friendArrs) {
        //Move on
         [self showTableViewWithArrs:friendArrs];
     }];
 }
 
--(void)showTableViewWithArrs: (NSArray *)arrs
+-(void)showTableViewWithArrs: (NSMutableArray *)arrs
 {
-#warning implement this
     NSLog(@"Logged in success");
     
-    _doneLoggingIn = YES;
-    
     _friendsLists = arrs;
+
+    int w = self.view.bounds.size.width;
+    int h = self.view.bounds.size.height;
     
-    int w = self.view.frame.size.width;
-    int h = self.view.frame.size.height;
-    
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, w, h) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, w, h-60) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
+    _soundPicker = [[RS3DSegmentedControl alloc] initWithFrame:CGRectMake(0, 20, w, 40)];
+    _soundPicker.delegate = self;
+    
+    
+    
     [self.view addSubview:_tableView];
+    [self.view addSubview:_soundPicker];
 }
+
+#pragma mark - Sound Picker
+#warning fix later
+
+
+- (NSUInteger)numberOfSegmentsIn3DSegmentedControl:(RS3DSegmentedControl *)segmentedControl
+{
+    return 3;
+}
+
+- (NSString *)titleForSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl
+{
+    switch (segmentIndex) {
+        case 0:
+            return @"Fart";
+            break;
+        case 1:
+            return @"Scream";
+            break;
+        case 2:
+            return @"Airhorn";
+            break;
+            
+        default:
+            break;
+    }
+    return @"";
+}
+
+- (void)didSelectSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl
+{
+#warning fix this too
+}
+
+
+#pragma mark - TableViewStuff
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -132,14 +163,79 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friend"];
+    FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friend"];
     
     if(!cell)
     {
         cell = [[FriendTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"friend"];
     }
     
+    NSArray* curSection = _friendsLists[indexPath.section];
+    [cell setUser:curSection[indexPath.row]];
+    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /* Needs to do:
+        1. Deselect selected item
+        2. Animate sending
+        3. Send Push
+        4. Update local/online info
+     */
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [self.tableView setUserInteractionEnabled:NO];
+//#warning needs to be re-enabled
+    
+    PFUser* sender = [PFUser currentUser];
+    PFUser* toSend = ((NSArray *)_friendsLists[indexPath.section])[indexPath.row];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[SAFParseHelper sharedInstance] sendPushFromUser:sender touser:toSend];
+    });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateAfterPushTo:toSend];
+    });
+    
+}
+
+-(void)updateAfterPushTo: (PFUser *)toSend
+{
+    NSMutableArray* revenge = _friendsLists[0];
+    NSMutableArray* recent = _friendsLists[1];
+//    NSMutableArray* friends = _friendsLists[2];
+    
+    if([revenge containsObject:toSend])
+    {
+        [revenge removeObject:toSend];
+    }
+    
+    
+    if([recent containsObject:toSend])
+    {
+        [recent removeObject:toSend];
+    }
+    if (recent.count == 5) {
+        [recent removeLastObject];
+    }
+    [recent insertObject:toSend atIndex:0];
+    
+    //Save recent + revenge list
+    
+    NSMutableArray* recentIds = [NSMutableArray array];
+    for (int x = 0; x < recent.count; x++) {
+        recentIds[x] = ((PFUser *)recent[x]).objectId;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:recentIds forKey:@"recent"];
+    [PFUser currentUser][@"revenge"] = revenge;
+    [[PFUser currentUser] saveInBackground];
+    
+    //Update TableView
+    _friendsLists[0] = revenge;
+    _friendsLists[1] = recent;
+    
+    [self.tableView reloadData];
 }
 
 

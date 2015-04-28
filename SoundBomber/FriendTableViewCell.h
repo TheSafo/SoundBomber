@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface FriendTableViewCell : UITableViewCell
+
+
+@property (nonatomic, strong) PFUser* user;
 
 @end

@@ -96,6 +96,12 @@
 #define COCOAPODS_VERSION_MINOR_RKCardView 1
 #define COCOAPODS_VERSION_PATCH_RKCardView 0
 
+// RS3DSegmentedControl
+#define COCOAPODS_POD_AVAILABLE_RS3DSegmentedControl
+#define COCOAPODS_VERSION_MAJOR_RS3DSegmentedControl 0
+#define COCOAPODS_VERSION_MINOR_RS3DSegmentedControl 2
+#define COCOAPODS_VERSION_PATCH_RS3DSegmentedControl 1
+
 // iCarousel
 #define COCOAPODS_POD_AVAILABLE_iCarousel
 #define COCOAPODS_VERSION_MAJOR_iCarousel 1

@@ -30,7 +30,7 @@
 -(int)playRandomApprovedSound
 {
 #warning Use User Defaults or Wormhole later
-    NSDictionary* enabledSounds = @{ @"fart":@YES, @"scream":@NO, @"airhorn":@NO };
+    NSDictionary* enabledSounds = @{ @"Fart":@YES, @"Scream":@NO, @"Horn":@NO };
     
     NSMutableArray* toChooseFrom = [NSMutableArray array];
     for (NSString* str in enabledSounds.allKeys) {
@@ -45,10 +45,7 @@
     int x = arc4random_uniform((int) toChooseFrom.count);
     NSString* chosen = toChooseFrom[x];
     
-    int y; //Number of sounds to choose from
-    if ([chosen isEqualToString:@"fart"]) {
-       y = arc4random_uniform(7) + 1;
-    }
+    int y = arc4random_uniform(7) + 1; //7 random sounds per sound
     
     
     NSString* fileName = [NSString stringWithFormat:@"%@%i", chosen, y];

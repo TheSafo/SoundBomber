@@ -36,6 +36,8 @@ PODS:
     - Parse (~> 1.7.1)
   - pop (1.0.7)
   - RKCardView (0.1.0)
+  - RS3DSegmentedControl (0.2.1):
+    - iCarousel
 
 DEPENDENCIES:
   - BlocksKit (from `https://github.com/zwaldowski/BlocksKit.git`)
@@ -47,6 +49,7 @@ DEPENDENCIES:
   - ParseFacebookUtils
   - pop (~> 1.0)
   - RKCardView
+  - RS3DSegmentedControl
 
 EXTERNAL SOURCES:
   BlocksKit:
@@ -68,5 +71,6 @@ SPEC CHECKSUMS:
   ParseFacebookUtils: fa09adf78372b589163b5a71a34d6ebc7eb83395
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   RKCardView: 80c09d833031dd8506eb4dcbaa820038065c2519
+  RS3DSegmentedControl: cd8226e78738dfe2695e6d9eecf7d79608f36caf
 
 COCOAPODS: 0.35.0
