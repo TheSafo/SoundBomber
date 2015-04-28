@@ -28,9 +28,9 @@ SINGLETON_IMPL(SAFParseHelper);
     return self;
 }
 
--(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend
+-(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundName
 {
-#warning update their revenge list
+#warning update their revenge list with cloud code
 #warning change pushes to online only
     
     
@@ -39,9 +39,8 @@ SINGLETON_IMPL(SAFParseHelper);
     
     NSString* realMsg = [NSString stringWithFormat:@"from %@", sender[@"fullname"]];
     
-#warning change sound later
     int x = arc4random_uniform(7) + 1;
-    NSString* sound = [NSString stringWithFormat:@"fart%i.caf", x]; ///Randomizes sound!!!
+    NSString* sound = [NSString stringWithFormat:@"%@%i.caf", soundName, x]; ///Randomizes sound!!!
     
     NSDictionary *data = @{ @"alert" : realMsg,
                             @"sound" : sound,

@@ -15,6 +15,7 @@
 @property (nonatomic) NSMutableArray* friendsLists;
 @property(nonatomic) UITableView* tableView;
 @property(nonatomic) RS3DSegmentedControl* soundPicker;
+@property (nonatomic) NSString* curSound;
 
 @end
 
@@ -26,9 +27,9 @@
     {
         self.view.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];
         
-        
-        if([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */
-        {
+
+        if([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */ {
+            
             UIImageView* fb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"facebookLoading.png"]];
             fb.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2 - 150, 100, 100);
             [self.view addSubview:fb];
@@ -90,15 +91,13 @@
     
     _soundPicker = [[RS3DSegmentedControl alloc] initWithFrame:CGRectMake(0, 20, w, 40)];
     _soundPicker.delegate = self;
-    
-    
+    [self didSelectSegmentAtIndex:0 segmentedControl:_soundPicker];
     
     [self.view addSubview:_tableView];
     [self.view addSubview:_soundPicker];
 }
 
 #pragma mark - Sound Picker
-#warning fix later
 
 
 - (NSUInteger)numberOfSegmentsIn3DSegmentedControl:(RS3DSegmentedControl *)segmentedControl
@@ -108,28 +107,30 @@
 
 - (NSString *)titleForSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl
 {
-    switch (segmentIndex) {
-        case 0:
-            return @"Fart";
-            break;
-        case 1:
-            return @"Scream";
-            break;
-        case 2:
-            return @"Airhorn";
-            break;
-            
-        default:
-            break;
-    }
-    return @"";
+    NSMutableDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
+
+//
+//    switch (segmentIndex) {
+//        case 0:
+//            return @"Fart";
+//            break;
+//        case 1:
+//            return @"Scream";
+//            break;
+//        case 2:
+//            return @"Horn";
+//            break;
+//            
+//        default:
+//            break;
+//    }
+    return enabledSounds.allKeys[segmentIndex];
 }
 
 - (void)didSelectSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl
 {
-#warning fix this too
+    _curSound = [self titleForSegmentAtIndex:segmentIndex segmentedControl:_soundPicker];
 }
-
 
 #pragma mark - TableViewStuff
 
@@ -191,7 +192,7 @@
     PFUser* sender = [PFUser currentUser];
     PFUser* toSend = ((NSArray *)_friendsLists[indexPath.section])[indexPath.row];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[SAFParseHelper sharedInstance] sendPushFromUser:sender touser:toSend];
+        [[SAFParseHelper sharedInstance] sendPushFromUser:sender touser:toSend withSoundName:_curSound];
     });
     dispatch_async(dispatch_get_main_queue(), ^{
         [self updateAfterPushTo:toSend];

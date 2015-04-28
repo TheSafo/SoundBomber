@@ -62,6 +62,13 @@
     [_rootCtrlr setViewControllers:@[ctlr1, ctlr2]];
     [self.window setRootViewController:_rootCtrlr];
     
+    
+    
+    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"enabledSounds"]) {
+        NSMutableDictionary* enabledSounds = [NSMutableDictionary dictionaryWithDictionary:@{ @"Fart":@YES, @"Scream":@YES, @"Horn":@YES }];
+        [[NSUserDefaults standardUserDefaults] setValue:enabledSounds forKey:@"enabledSounds"];
+    }
+    
 
     
     // Register for Push Notitications

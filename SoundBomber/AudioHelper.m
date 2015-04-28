@@ -29,8 +29,7 @@
 
 -(int)playRandomApprovedSound
 {
-#warning Use User Defaults or Wormhole later
-    NSDictionary* enabledSounds = @{ @"Fart":@YES, @"Scream":@NO, @"Horn":@NO };
+    NSMutableDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
     
     NSMutableArray* toChooseFrom = [NSMutableArray array];
     for (NSString* str in enabledSounds.allKeys) {

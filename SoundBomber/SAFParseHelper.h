@@ -20,11 +20,10 @@ SINGLETON_INTR(SAFParseHelper);
 
 -(void) loginWithBlock:(void (^)(NSMutableArray *friendArrs)) loginCompletion;
 
--(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend;
+-(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundName;
 
 //- (void)someMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName;
 
-#warning Parse structure
 /*
  1. Login with FB or be logged in
  2. Get friends + Revenge/Recent List every time
