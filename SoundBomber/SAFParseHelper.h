@@ -22,6 +22,9 @@ SINGLETON_INTR(SAFParseHelper);
 
 -(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundName;
 
+-(void)updateDataWithBlock:(void (^)(NSMutableArray *friendArrs)) updateCompletion;
+
+
 //- (void)someMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName;
 
 /*

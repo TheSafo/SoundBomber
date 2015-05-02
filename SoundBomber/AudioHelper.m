@@ -27,7 +27,7 @@
     return self;
 }
 
--(int)playRandomApprovedSound
+-(double)playRandomApprovedSound
 {
     NSMutableDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
     
@@ -59,7 +59,7 @@
     [_curPlayer play];
     
     
-    for (float i = 0; i < _curPlayer.duration; i+= .4)
+    for (double i = 0; i < _curPlayer.duration; i+= .4)
     {
         [self performSelector:@selector(vibe:) withObject:self afterDelay:i];
     }

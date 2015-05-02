@@ -19,6 +19,8 @@
 #import <UIKit/UIKit.h>
 #import <iCarousel/iCarousel.h>
 #import <RS3DSegmentedControl/RS3DSegmentedControl.h>
+#import <Blockskit/UIAlertView+BlocksKit.h>
+
 
 
 // Include any system framework and library headers here that should be included in all compilation units.

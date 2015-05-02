@@ -35,7 +35,7 @@
         
         _blendView = [[UIImageView alloc] init];
 
-        _mainView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"bigSpeaker.jpg"]];
+        _mainView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"bigSpeaker"]];
         
         _mainView.frame = self.bounds;
         
@@ -162,12 +162,12 @@
     return newImage;
 }
 
--(void) wubTheSpeakerWithDuration: (int) dur{
-    [self applyEarthquakeToView:_blendView duration:dur delay:0 offset:200];
+-(void) wubTheSpeakerWithDuration: (double) dur{
+    [self applyEarthquakeToView:_blendView duration:dur delay:0 offset:50];
 }
 
 #warning Change this animation later to real wubs
-- (void) applyEarthquakeToView:(UIView*)v duration:(float)duration delay:(float)delay offset:(int)offset {
+- (void) applyEarthquakeToView:(UIView*)v duration:(double)duration delay:(float)delay offset:(int)offset {
     
     CAKeyframeAnimation *transanimation;
     transanimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
@@ -175,7 +175,9 @@
     transanimation.cumulative = YES;
     int offhalf = offset / 2;
     
-    int numFrames = 15;
+//    NSLog(@"%f", duration);
+    
+    int numFrames = duration*24; //Frames per second is multiplied number
     NSMutableArray *positions = [NSMutableArray array];
     NSMutableArray *keytimes  = [NSMutableArray array];
     NSMutableArray *timingfun = [NSMutableArray array];
@@ -183,7 +185,14 @@
     [keytimes addObject:@(0)];
     
     for (int i = 0; i < numFrames; i++) {
-        CATransform3D beforeScale = CATransform3DMakeTranslation(rand()%offset-offhalf, rand()%offset-offhalf,0);
+        
+#define ARC4RANDOM_MAX 0x100000000
+
+//        float randomNumber = ((float)arc4random() / ARC4RANDOM_MAX * (maxRange - minRange)) + minRange;
+        float randomNumber = ((float)arc4random() / ARC4RANDOM_MAX * (1 - -1)) + -1;
+
+
+        CATransform3D beforeScale = CATransform3DMakeTranslation(randomNumber* offset, randomNumber *offset,0);
         
         beforeScale = CATransform3DRotate(beforeScale, M_PI_4/2 * pow(-1, i), 0, 0, 1);
         

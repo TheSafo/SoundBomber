@@ -17,6 +17,8 @@
 @property(nonatomic) RS3DSegmentedControl* soundPicker;
 @property (nonatomic) NSString* curSound;
 
+@property (nonatomic) UIRefreshControl* refreshControl;
+
 @property (nonatomic) BOOL doneLoggingIn;
 
 @end
@@ -112,6 +114,17 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
+    // Initialize the refresh control.
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
+    self.refreshControl.tintColor = [UIColor blackColor];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing Data"];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshData)
+                  forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+
+    
 //    _tableView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
 //    _tableView.layer.borderWidth = 2;
     
@@ -122,6 +135,15 @@
     
     [self.view addSubview:_tableView];
     [self.view addSubview:_soundPicker];
+}
+
+-(void)refreshData
+{
+    [[SAFParseHelper sharedInstance] updateDataWithBlock:^(NSMutableArray *friendArrs) {
+        _friendsLists = friendArrs;
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - Sound Picker

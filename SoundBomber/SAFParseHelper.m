@@ -30,7 +30,7 @@ SINGLETON_IMPL(SAFParseHelper);
 
 -(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundName
 {
-#warning update their revenge list with cloud code and change pushes to online only
+#warning change pushes to online only
     
     PFQuery *qry = [PFInstallation query];
     [qry whereKey:@"user" equalTo:toSend];
@@ -43,12 +43,6 @@ SINGLETON_IMPL(SAFParseHelper);
     NSDictionary *data = @{ @"alert" : realMsg,
                             @"sound" : sound,
                             @"senderID" : sender.objectId,
-//                            @"WatchKit Simulator Actions": @[
-//                                    @{
-//                                        @"title": @"Revenge",
-//                                        @"identifier": @"takeRevenge"
-//                                        }
-//                                    ],
                             };
     
     PFPush *push = [[PFPush alloc] init];
@@ -60,7 +54,58 @@ SINGLETON_IMPL(SAFParseHelper);
             NSLog(@"Push Error: %@", error);
         }
     }];
+    
+    NSMutableArray* sendArr = [toSend objectForKey:@"revenge"];
+    NSString* userStr = sender.objectId;
+    
+    if([sendArr containsObject:userStr])
+    {
+        [sendArr removeObject:userStr];
+    }
+    if (sendArr.count == 5) {
+        [sendArr removeLastObject];
+    }
+    [sendArr insertObject:userStr atIndex:0];
+    
+    [PFCloud callFunctionInBackground:@"updateRevenge" withParameters:@{@"userId": toSend.objectId, @"newRev":sendArr} block:^(id object, NSError *error) {
+        if(error) { NSLog(@"Cloud error: %@", error); }
+    }];
 }
+
+-(void)updateDataWithBlock:(void (^)(NSMutableArray *friendArrs)) updateCompletion
+{
+#warning update User
+    self.revengeIds = [[PFUser currentUser] objectForKey:@"revenge"];
+    self.recentIds = [[NSUserDefaults standardUserDefaults] objectForKey:@"recent"];
+    
+    [JFParseFBFriends findFriendsAndUpdate:NO completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {
+        
+        NSMutableArray* revUsrs = [NSMutableArray array];
+        
+        for (NSString* usrId in self.revengeIds) {
+            for (PFUser* usr in pfusers) {
+                if ([usr.objectId isEqualToString:usrId]) {
+                    [revUsrs addObject:usr];
+                }
+            }
+        }
+        
+        NSMutableArray* recUsrs = [NSMutableArray array];
+        
+        for (NSString* usrId in self.recentIds) {
+            for (PFUser* usr in pfusers) {
+                if ([usr.objectId isEqualToString:usrId]) {
+                    [recUsrs addObject:usr];
+                }
+            }
+        }
+        
+        NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
+        
+        updateCompletion(arr);
+    }];
+}
+
 
 -(void) loginWithBlock:(void (^)(NSMutableArray *friendArrs)) loginCompletion
 {

@@ -94,12 +94,31 @@
     
     NSDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
     
+    
     NSMutableDictionary* mutableSounds = [NSMutableDictionary dictionaryWithDictionary:enabledSounds];
     [mutableSounds setObject:@(cell.isEnabled) forKey:cell.soundName];
     
+    
+    //Check and make sure that at least 1 sound is enabled
+    int numEnabled = 0;
+    for (id x in mutableSounds.allValues) {
+        if([x boolValue]) {
+            numEnabled++;
+        }
+    }
+    
+    //Undo changes if 0 are
+    if(numEnabled < 1) {
+        [UIAlertView bk_showAlertViewWithTitle:@"Cannot disable sound" message:@"You must leave one sound type enabled" cancelButtonTitle:@"Okay" otherButtonTitles:nil handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                //Block code
+        }];
+        
+        [cell setIsEnabled:!cell.isEnabled];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        return;
+    }
+    
     [[NSUserDefaults standardUserDefaults] setObject:mutableSounds forKey:@"enabledSounds"];
-    
-    
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

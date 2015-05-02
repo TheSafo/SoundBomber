@@ -8,9 +8,9 @@
 
 @interface AudioHelper : NSObject
 
--(int)playRandomApprovedSound;
+-(double)playRandomApprovedSound;
 
-@property (nonatomic) int dontPlayUntil;
+@property (nonatomic) double dontPlayUntil;
 
 #warning Sound list
 /*

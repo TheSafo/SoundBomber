@@ -11,7 +11,7 @@
 
 -(id) initWithSpeakerImage: (UIImage*)speakerImg andOtherImg: (UIImage *)otherImg andFrame: (CGRect) frame andCamBut: (UIButton *)but1 andSetBut: (UIButton *)but2;
 
--(void) wubTheSpeakerWithDuration: (int) dur;
+-(void) wubTheSpeakerWithDuration: (double) dur;
 
 -(void) changeImage: (UIImage *)img;
 

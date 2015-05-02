@@ -157,7 +157,7 @@
 
 -(void)speakerPressed
 {
-    int duration = [_audioHelper playRandomApprovedSound];
+    double duration = [_audioHelper playRandomApprovedSound];
     [_mainView wubTheSpeakerWithDuration: duration];
 }
 
