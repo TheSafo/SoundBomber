@@ -165,7 +165,10 @@
 
 -(void)settingsPressed
 {
-    [self presentViewController:[[SettingsViewController alloc] init]  animated:YES completion:^{
+    UINavigationController* navCtrlr = [[UINavigationController alloc] initWithRootViewController:[[SettingsViewController alloc] init]];
+    navCtrlr.navigationBar.backgroundColor = [UIColor yellowColor];
+    
+    [self presentViewController:navCtrlr  animated:YES completion:^{
         NSLog(@"Presented Settings");
     }];
 }

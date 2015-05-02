@@ -177,7 +177,7 @@
     
 //    NSLog(@"%f", duration);
     
-    int numFrames = duration*24; //Frames per second is multiplied number
+    int numFrames = duration*10; //Frames per second is multiplied number
     NSMutableArray *positions = [NSMutableArray array];
     NSMutableArray *keytimes  = [NSMutableArray array];
     NSMutableArray *timingfun = [NSMutableArray array];

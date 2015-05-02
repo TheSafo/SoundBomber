@@ -20,22 +20,32 @@
 -(id)init {
     if(self = [super init]) {
         
+        self.title = @"Setttings";
+        
         int w = self.view.bounds.size.width;
         int h = self.view.bounds.size.height;
         
-        self.view.backgroundColor = [UIColor redColor];
+        UIView* fakeTabBar = [[UIView alloc] initWithFrame:CGRectMake(0, h-49, w, 49)];
+        fakeTabBar.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+        
+//        self.view.backgroundColor = [UIColor redColor];
         
         UIButton* back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        back.frame = CGRectMake(0, 0, 100, 60);
-        back.backgroundColor = [UIColor greenColor];
+        back.frame = CGRectMake(w/4, (h - 49) + 4.5, w/2, 40);
+        back.backgroundColor = [UIColor yellowColor];
+        back.layer.borderWidth = 2;
+        back.layer.cornerRadius = 4;
+        [back setTitle:@"Confirm" forState:UIControlStateNormal];
+        [back setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [back addTarget:self action:@selector(backPressed) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:back];
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, w, h-60) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, w, h-49) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        
+
         [self.view addSubview:_tableView];
+        [self.view addSubview:fakeTabBar];
+        [self.view addSubview:back];
     }
     return self;
 }

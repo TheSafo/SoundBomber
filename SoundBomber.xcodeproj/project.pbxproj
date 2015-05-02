@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		15C1AB3D04D5B0115FA57789 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19920590E97860DB56B1A8D9 /* libPods.a */; };
 		43096DD51AF54B6D00BB817B /* bigSpeaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD41AF54B6D00BB817B /* bigSpeaker.png */; };
+		43096DD71AF594C900BB817B /* AppIcons in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD61AF594C900BB817B /* AppIcons */; };
 		432B0C531AD3B3A80086B4A3 /* cameraBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C511AD3B3A80086B4A3 /* cameraBtn.png */; };
 		432B0C541AD3B3A80086B4A3 /* settingsBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C521AD3B3A80086B4A3 /* settingsBtn.png */; };
 		432B0C571AD3BA770086B4A3 /* speaker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C561AD3BA770086B4A3 /* speaker1.png */; };
@@ -71,6 +72,7 @@
 		19920590E97860DB56B1A8D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		343B2E21D762127757DE397A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43096DD41AF54B6D00BB817B /* bigSpeaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigSpeaker.png; sourceTree = "<group>"; };
+		43096DD61AF594C900BB817B /* AppIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcons; sourceTree = "<group>"; };
 		432B0C511AD3B3A80086B4A3 /* cameraBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraBtn.png; sourceTree = "<group>"; };
 		432B0C521AD3B3A80086B4A3 /* settingsBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsBtn.png; sourceTree = "<group>"; };
 		432B0C551AD3B3D80086B4A3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				43FC78EC1ADC2CFE007CB16B /* Singleton.h */,
 				43FC78ED1ADC2CFE007CB16B /* Singleton.m */,
 				436EB95E1AD37E8100A404B7 /* Images.xcassets */,
+				43096DD61AF594C900BB817B /* AppIcons */,
 				436EB9601AD37E8100A404B7 /* LaunchScreen.xib */,
 				436EB9511AD37E8100A404B7 /* Supporting Files */,
 				432B0C621AD48B3E0086B4A3 /* Sounds */,
@@ -400,6 +403,7 @@
 				432B0C701AD48B3E0086B4A3 /* Fart5.caf in Resources */,
 				432B0C6C1AD48B3E0086B4A3 /* Fart1.caf in Resources */,
 				432B0C6D1AD48B3E0086B4A3 /* Fart2.caf in Resources */,
+				43096DD71AF594C900BB817B /* AppIcons in Resources */,
 				439238FD1AEFF4CE00644E1B /* Horn1.caf in Resources */,
 				439238FA1AEFF4CE00644E1B /* Horn5.caf in Resources */,
 				439238FE1AEFF4CE00644E1B /* Horn2.caf in Resources */,

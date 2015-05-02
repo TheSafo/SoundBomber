@@ -114,6 +114,8 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
+    _tableView.separatorColor = [UIColor yellowColor];
+    
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
