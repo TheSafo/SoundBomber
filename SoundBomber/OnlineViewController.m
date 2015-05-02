@@ -17,6 +17,8 @@
 @property(nonatomic) RS3DSegmentedControl* soundPicker;
 @property (nonatomic) NSString* curSound;
 
+@property (nonatomic) BOOL doneLoggingIn;
+
 @end
 
 @implementation OnlineViewController
@@ -42,7 +44,14 @@
             
             [[SAFParseHelper sharedInstance] loginWithBlock:^(NSMutableArray *friendArrs) {
                 //Move on
+                if(_doneLoggingIn)
+                {
+                    [self.tableView reloadData];
+                    return;
+                }
+                
                 [self showTableViewWithArrs:friendArrs];
+                _doneLoggingIn = YES;
             }];
             
 
@@ -71,14 +80,28 @@
 -(void)loginPressed
 {
     [[SAFParseHelper sharedInstance] loginWithBlock:^(NSMutableArray *friendArrs) {
-       //Move on
+        if(_doneLoggingIn)
+        {
+            [self.tableView reloadData];
+            return;
+        }
+        
         [self showTableViewWithArrs:friendArrs];
+        _doneLoggingIn = YES;
     }];
 }
 
 -(void)showTableViewWithArrs: (NSMutableArray *)arrs
 {
     NSLog(@"Logged in success");
+    
+    for (UIView* vw in self.view.subviews) {
+        [vw removeFromSuperview];
+    }
+    
+    
+    self.view.backgroundColor =  [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+    
     
     _friendsLists = arrs;
 
@@ -89,8 +112,12 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
+//    _tableView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+//    _tableView.layer.borderWidth = 2;
+    
     _soundPicker = [[RS3DSegmentedControl alloc] initWithFrame:CGRectMake(0, 20, w, 40)];
     _soundPicker.delegate = self;
+
     [self didSelectSegmentAtIndex:0 segmentedControl:_soundPicker];
     
     [self.view addSubview:_tableView];

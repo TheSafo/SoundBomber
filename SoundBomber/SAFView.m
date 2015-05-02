@@ -22,7 +22,7 @@
 
 @implementation SAFView
 
--(id) initWithSpeakerImage: (UIImage*)speakerImg andOtherImg: (UIImage *)otherImg andFrame: (CGRect) frame
+-(id) initWithSpeakerImage: (UIImage*)speakerImg andOtherImg: (UIImage *)otherImg andFrame: (CGRect) frame andCamBut: (UIButton *)but1 andSetBut: (UIButton *)but2
 {
     if(self = [super init])
     {
@@ -42,14 +42,39 @@
         int w = _mainView.frame.size.width;
         int h = _mainView.frame.size.height;
         
-        _blendView.frame = CGRectMake(w/16, h*.34, w*7/8, w*7/8);
+        _blendView.frame = CGRectMake(w/16, h*.375, w*7/8, w*7/8);
+        
+        
+        
+        but1.frame = CGRectMake(w/16, w/16, w/8 + 20, w/8 + 20);
+        but2.frame = CGRectMake(w*13/16 - 20, w/16, w/8 + 20, w/8 + 20);
+        
+        but1.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+        but2.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+        
+        but1.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);//UIEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)
+        but2.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);//UIEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)
+        
+        but1.layer.cornerRadius = 5;
+        but2.layer.cornerRadius =5;
+        
+        but1.layer.borderWidth = 2;
+        but2.layer.borderWidth = 2;
+        
+        
+
+        
+        
         
         UIImage* blendImg = [self mergeTwoImages:otherImg and: speakerImg];
         _blendView.image = blendImg;
 
         
         [self addSubview:_mainView];
-        [_mainView addSubview:_blendView];
+        [self addSubview:but1];
+        [self addSubview:but2];
+        
+        [self addSubview:_blendView];
     }
     return self;
 }

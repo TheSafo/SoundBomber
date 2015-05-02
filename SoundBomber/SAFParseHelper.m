@@ -30,9 +30,7 @@ SINGLETON_IMPL(SAFParseHelper);
 
 -(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundName
 {
-#warning update their revenge list with cloud code
-#warning change pushes to online only
-    
+#warning update their revenge list with cloud code and change pushes to online only
     
     PFQuery *qry = [PFInstallation query];
     [qry whereKey:@"user" equalTo:toSend];
@@ -71,6 +69,9 @@ SINGLETON_IMPL(SAFParseHelper);
     {
         self.revengeIds = [PFUser currentUser][@"revenge"];
         self.recentIds = [[NSUserDefaults standardUserDefaults] objectForKey:@"recent"];
+        
+        [PFInstallation currentInstallation][@"user"] = [PFUser currentUser];
+        [[PFInstallation currentInstallation] saveInBackground];
         
         //If we're logged in just update the friends only
         [JFParseFBFriends findFriendsAndUpdate:YES completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {

@@ -9,7 +9,7 @@
 
 @interface SAFView : UIView
 
--(id) initWithSpeakerImage: (UIImage*)speakerImg andOtherImg: (UIImage *)otherImg andFrame: (CGRect) frame;
+-(id) initWithSpeakerImage: (UIImage*)speakerImg andOtherImg: (UIImage *)otherImg andFrame: (CGRect) frame andCamBut: (UIButton *)but1 andSetBut: (UIButton *)but2;
 
 -(void) wubTheSpeakerWithDuration: (int) dur;
 

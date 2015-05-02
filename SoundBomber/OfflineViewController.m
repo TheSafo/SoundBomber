@@ -9,7 +9,7 @@
 #import "OfflineViewController.h"
 #import "SAFView.h"
 #import "AudioHelper.h"
-#import <MMWormhole/MMWormhole.h>
+#import "SettingsViewController.h"
 
 
 @interface OfflineViewController ()
@@ -20,10 +20,6 @@
 @property (nonatomic, strong) AudioHelper* audioHelper;
 
 @property (nonatomic) MMWormhole* wormHole;
-
-
-//@property (nonatomic) UIActionSheet* actnSht;
-
 
 @end
 
@@ -36,6 +32,7 @@
         _settingsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_settingsButton setImage:[UIImage imageNamed:@"settingsBtn"] forState:UIControlStateNormal];
         _settingsButton.tintColor = [UIColor blackColor];
+        [_settingsButton addTarget:self action:@selector(settingsPressed) forControlEvents:UIControlEventTouchUpInside];
         
         _cameraButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_cameraButton setImage:[UIImage imageNamed:@"cameraBtn"] forState:UIControlStateNormal];
@@ -45,7 +42,7 @@
         
         _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
                                                          optionalDirectory:@"wormhole"];
-        
+         
         int w, h;
         w = self.view.frame.size.width;
         //Top 50 of the app will be ad
@@ -58,18 +55,22 @@
             h = self.view.frame.size.height;
         }
         
-        _settingsButton.frame = CGRectMake(w/16, h/32, w/16, w/16);
-        _cameraButton.frame = CGRectMake(w*14/16, h/32, w/16, w/16);
+//        _settingsButton.frame = CGRectMake(w*13/16, 25 + 10, w/16, w/16);
+//        _cameraButton.frame = CGRectMake(w/8, 25 + 10, w/16, w/16);
         
-        _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, h/32 + w/16 + 20, w*7/8, h - (h/32 + w/16 + 20 + 20))];
+        _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, 25 , w*7/8, h - (25 + 10)) andCamBut:_cameraButton andSetBut:_settingsButton];
+
         
-        _mainView.backgroundColor = [UIColor yellowColor];
-        _settingsButton.backgroundColor = [UIColor greenColor];
-        _cameraButton.backgroundColor = [UIColor blueColor];
+//        _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, h/32 + w/16 + 20, w*7/8, h - (h/32 + w/16 + 20 + 20))];
         
-        [self.view addSubview:_settingsButton];
-        [self.view addSubview:_cameraButton];
+//        _mainView.backgroundColor = [UIColor yellowColor];
+//        _settingsButton.backgroundColor = [UIColor greenColor];
+//        _cameraButton.backgroundColor = [UIColor blueColor];
+
         [self.view addSubview:_mainView];
+        
+//        [self.view addSubview:_settingsButton];
+//        [self.view addSubview:_cameraButton];
         
         
         _audioHelper = [[AudioHelper alloc] init];
@@ -158,6 +159,15 @@
 {
     int duration = [_audioHelper playRandomApprovedSound];
     [_mainView wubTheSpeakerWithDuration: duration];
+}
+
+#pragma mark - Settings Section
+
+-(void)settingsPressed
+{
+    [self presentViewController:[[SettingsViewController alloc] init]  animated:YES completion:^{
+        NSLog(@"Presented Settings");
+    }];
 }
 
 @end

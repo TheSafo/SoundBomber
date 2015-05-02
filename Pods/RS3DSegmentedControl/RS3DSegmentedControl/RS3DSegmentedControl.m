@@ -41,13 +41,17 @@
 //        NSString *imagePath = [bundlePath stringByAppendingPathComponent:@"RS3DSegmentedControlBg.png"];
 //        self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
 //        
-//        
-//        [self addSubview:_backgroundImage];
+//
+        
+//        UIView* clearView = [[UIView alloc] initWithFrame:self.bounds];
+//        clearView.backgroundColor =  [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+//        [self addSubview:clearView];
         
 //        self.backgroundColor = [UIColor redColor];
+//        self.layer.borderWidth = 2;
         
         _carousel = [[iCarousel alloc] initWithFrame:self.bounds];
-        _carousel.backgroundColor = [UIColor redColor];
+        _carousel.backgroundColor = [UIColor clearColor]; //[UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
         _carousel.type = iCarouselTypeCustom;
         _carousel.decelerationRate = 0.6f;
         _carousel.scrollSpeed = 0.5f;
@@ -126,7 +130,7 @@
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
         label.backgroundColor = [UIColor clearColor];
-        label.textColor = [UIColor whiteColor];
+        label.textColor = [UIColor blackColor];
         label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
         label.textAlignment = NSTextAlignmentCenter;
         label.tag = 1;

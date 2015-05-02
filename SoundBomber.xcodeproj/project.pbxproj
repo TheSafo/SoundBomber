@@ -31,6 +31,10 @@
 		436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436EB95E1AD37E8100A404B7 /* Images.xcassets */; };
 		436EB9621AD37E8100A404B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436EB9601AD37E8100A404B7 /* LaunchScreen.xib */; };
 		436EB96E1AD37E8100A404B7 /* SoundBomberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */; };
+		437AECA61AF441B0009EE056 /* speakerIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 437AECA41AF441B0009EE056 /* speakerIcon2x.png */; };
+		437AECA71AF441B0009EE056 /* speakerIcon3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 437AECA51AF441B0009EE056 /* speakerIcon3x.png */; };
+		437AECAA1AF44467009EE056 /* bomb2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 437AECA81AF44467009EE056 /* bomb2x.png */; };
+		437AECAB1AF44467009EE056 /* bomb3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 437AECA91AF44467009EE056 /* bomb3x.png */; };
 		43801A171AE758FE009B717B /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43801A161AE758FE009B717B /* FriendTableViewCell.m */; };
 		439238EB1AEFF3E300644E1B /* Scream1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E41AEFF3E300644E1B /* Scream1.caf */; };
 		439238EC1AEFF3E300644E1B /* Scream2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238E51AEFF3E300644E1B /* Scream2.caf */; };
@@ -46,6 +50,8 @@
 		439238FD1AEFF4CE00644E1B /* Horn1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F61AEFF4CE00644E1B /* Horn1.caf */; };
 		439238FE1AEFF4CE00644E1B /* Horn2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F71AEFF4CE00644E1B /* Horn2.caf */; };
 		439238FF1AEFF4CE00644E1B /* Horn3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F81AEFF4CE00644E1B /* Horn3.caf */; };
+		439CC2241AF1440500B74EA1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439CC2231AF1440500B74EA1 /* SettingsViewController.m */; };
+		439CC2271AF15C7600B74EA1 /* SoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 439CC2261AF15C7600B74EA1 /* SoundTableViewCell.m */; };
 		43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43FC78E71ADC17D5007CB16B /* facebookLoading.png */; };
 		43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */; };
 		43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78ED1ADC2CFE007CB16B /* Singleton.m */; };
@@ -99,6 +105,10 @@
 		436EB9671AD37E8100A404B7 /* SoundBomberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundBomberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		436EB96C1AD37E8100A404B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436EB96D1AD37E8100A404B7 /* SoundBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundBomberTests.m; sourceTree = "<group>"; };
+		437AECA41AF441B0009EE056 /* speakerIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speakerIcon2x.png; sourceTree = "<group>"; };
+		437AECA51AF441B0009EE056 /* speakerIcon3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speakerIcon3x.png; sourceTree = "<group>"; };
+		437AECA81AF44467009EE056 /* bomb2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb2x.png; sourceTree = "<group>"; };
+		437AECA91AF44467009EE056 /* bomb3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb3x.png; sourceTree = "<group>"; };
 		43801A151AE758FE009B717B /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		43801A161AE758FE009B717B /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		439238E41AEFF3E300644E1B /* Scream1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Scream1.caf; sourceTree = "<group>"; };
@@ -115,6 +125,10 @@
 		439238F61AEFF4CE00644E1B /* Horn1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn1.caf; sourceTree = "<group>"; };
 		439238F71AEFF4CE00644E1B /* Horn2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn2.caf; sourceTree = "<group>"; };
 		439238F81AEFF4CE00644E1B /* Horn3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn3.caf; sourceTree = "<group>"; };
+		439CC2221AF1440500B74EA1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		439CC2231AF1440500B74EA1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		439CC2251AF15C7600B74EA1 /* SoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundTableViewCell.h; sourceTree = "<group>"; };
+		439CC2261AF15C7600B74EA1 /* SoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundTableViewCell.m; sourceTree = "<group>"; };
 		43FC78E71ADC17D5007CB16B /* facebookLoading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookLoading.png; sourceTree = "<group>"; };
 		43FC78E91ADC18A5007CB16B /* SAFParseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFParseHelper.h; sourceTree = "<group>"; };
 		43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFParseHelper.m; sourceTree = "<group>"; };
@@ -145,6 +159,10 @@
 		432B0C4E1AD3B36F0086B4A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				437AECA81AF44467009EE056 /* bomb2x.png */,
+				437AECA91AF44467009EE056 /* bomb3x.png */,
+				437AECA41AF441B0009EE056 /* speakerIcon2x.png */,
+				437AECA51AF441B0009EE056 /* speakerIcon3x.png */,
 				43FC78E71ADC17D5007CB16B /* facebookLoading.png */,
 				432B0C5D1AD4510A0086B4A3 /* bigSpeaker.jpg */,
 				432B0C511AD3B3A80086B4A3 /* cameraBtn.png */,
@@ -212,6 +230,10 @@
 				436EB9561AD37E8100A404B7 /* AppDelegate.m */,
 				4367B7501AD3ADC50032C4F8 /* OfflineViewController.h */,
 				4367B7511AD3ADC50032C4F8 /* OfflineViewController.m */,
+				439CC2221AF1440500B74EA1 /* SettingsViewController.h */,
+				439CC2231AF1440500B74EA1 /* SettingsViewController.m */,
+				439CC2251AF15C7600B74EA1 /* SoundTableViewCell.h */,
+				439CC2261AF15C7600B74EA1 /* SoundTableViewCell.m */,
 				432B0C581AD3BBFF0086B4A3 /* SAFView.h */,
 				432B0C591AD3BBFF0086B4A3 /* SAFView.m */,
 				4367B74D1AD3A8B10032C4F8 /* SAFTabBarController.h */,
@@ -370,7 +392,10 @@
 				436EB9621AD37E8100A404B7 /* LaunchScreen.xib in Resources */,
 				439238EF1AEFF3E300644E1B /* Scream5.caf in Resources */,
 				432B0C6B1AD48B3E0086B4A3 /* airstrike.mp3 in Resources */,
+				437AECA71AF441B0009EE056 /* speakerIcon3x.png in Resources */,
 				432B0C6E1AD48B3E0086B4A3 /* Fart3.caf in Resources */,
+				437AECAA1AF44467009EE056 /* bomb2x.png in Resources */,
+				437AECAB1AF44467009EE056 /* bomb3x.png in Resources */,
 				439238FB1AEFF4CE00644E1B /* Horn6.caf in Resources */,
 				432B0C701AD48B3E0086B4A3 /* Fart5.caf in Resources */,
 				432B0C5E1AD4510A0086B4A3 /* bigSpeaker.jpg in Resources */,
@@ -388,6 +413,7 @@
 				432B0C5C1AD44B300086B4A3 /* otherImg1.jpg in Resources */,
 				432B0C531AD3B3A80086B4A3 /* cameraBtn.png in Resources */,
 				439238FC1AEFF4CE00644E1B /* Horn7.caf in Resources */,
+				437AECA61AF441B0009EE056 /* speakerIcon2x.png in Resources */,
 				436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */,
 				439238ED1AEFF3E300644E1B /* Scream3.caf in Resources */,
 				439238EB1AEFF3E300644E1B /* Scream1.caf in Resources */,
@@ -455,8 +481,10 @@
 				4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */,
 				436EB9541AD37E8100A404B7 /* main.m in Sources */,
 				43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */,
+				439CC2241AF1440500B74EA1 /* SettingsViewController.m in Sources */,
 				432B0C611AD48A600086B4A3 /* AudioHelper.m in Sources */,
 				4367B7551AD3ADD70032C4F8 /* OnlineViewController.m in Sources */,
+				439CC2271AF15C7600B74EA1 /* SoundTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,10 @@
 {
     [super viewDidLoad];
     
-    self.tabBar.layer.backgroundColor = [UIColor redColor].CGColor;
+    
+    
+    self.tabBar.layer.backgroundColor = [UIColor yellowColor].CGColor;
+    self.tabBar.tintColor = [UIColor blackColor];
 }
 
 @end

@@ -56,12 +56,19 @@
     
     OfflineViewController* ctlr1 = [[OfflineViewController alloc] initWithSpeakerImage: speakerImg andOtherImg: otherImg];
     OnlineViewController* ctlr2 = [[OnlineViewController alloc] init];
-    ctlr1.title = @"Foo";
-    ctlr2.title = @"Bar";
+    ctlr1.title = @"Speaker";
+    ctlr2.title = @"Friends";
+    
+    UIImage* img1 = [UIImage imageNamed:@"speakerIcon"];
+    ctlr1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Speaker" image:img1 tag:0];
+    
+    UIImage* img2 = [UIImage imageNamed:@"bombIcon"];
+    ctlr2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Friends" image:img2 tag:1];
+    
+
     
     [_rootCtrlr setViewControllers:@[ctlr1, ctlr2]];
     [self.window setRootViewController:_rootCtrlr];
-    
     
     
     if(![[NSUserDefaults standardUserDefaults] valueForKey:@"enabledSounds"]) {
