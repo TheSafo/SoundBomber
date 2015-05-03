@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2513" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -22,20 +23,41 @@
                     </items>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </tabBar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigSpeaker.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-Em-iKF">
+                    <rect key="frame" x="30" y="25" width="420" height="396"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Fbl-Em-iKF" firstAttribute="leading" secondItem="0se-Zu-Mio" secondAttribute="leading" id="3SX-QJ-Jep"/>
+                <constraint firstItem="Fbl-Em-iKF" firstAttribute="trailing" secondItem="0se-Zu-Mio" secondAttribute="trailing" id="5S7-sJ-PpB"/>
+                <constraint firstItem="Fbl-Em-iKF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="6YD-hY-sHG"/>
                 <constraint firstAttribute="centerX" secondItem="0se-Zu-Mio" secondAttribute="centerX" id="HlK-YS-u9f"/>
                 <constraint firstItem="0se-Zu-Mio" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Sfp-Yn-b78"/>
                 <constraint firstAttribute="trailing" secondItem="0se-Zu-Mio" secondAttribute="trailing" id="UBB-KW-oRU"/>
+                <constraint firstItem="Fbl-Em-iKF" firstAttribute="width" secondItem="0se-Zu-Mio" secondAttribute="width" multiplier="7/8" id="YDV-HT-uUX"/>
+                <constraint firstItem="Fbl-Em-iKF" firstAttribute="leading" secondItem="0se-Zu-Mio" secondAttribute="leading" id="Zro-eb-T86"/>
+                <constraint firstItem="Fbl-Em-iKF" firstAttribute="trailing" secondItem="0se-Zu-Mio" secondAttribute="trailing" id="aOx-cc-tFW"/>
                 <constraint firstAttribute="bottom" secondItem="0se-Zu-Mio" secondAttribute="bottom" id="ljP-wm-dKa"/>
+                <constraint firstItem="0se-Zu-Mio" firstAttribute="top" secondItem="Fbl-Em-iKF" secondAttribute="bottom" constant="10" id="o0g-qZ-Xab"/>
+                <constraint firstItem="Fbl-Em-iKF" firstAttribute="centerX" secondItem="0se-Zu-Mio" secondAttribute="centerX" id="udW-JW-eIa"/>
             </constraints>
-            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3SX-QJ-Jep"/>
+                    <exclude reference="5S7-sJ-PpB"/>
+                    <exclude reference="Zro-eb-T86"/>
+                    <exclude reference="aOx-cc-tFW"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="577" y="442"/>
         </view>
     </objects>
     <resources>
+        <image name="bigSpeaker.png" width="1053" height="1603"/>
         <image name="bombIcon" width="25" height="25"/>
         <image name="speakerIcon" width="25" height="25"/>
     </resources>
