@@ -26,13 +26,13 @@
         int h = self.view.bounds.size.height;
         
         UIView* fakeTabBar = [[UIView alloc] initWithFrame:CGRectMake(0, h-49, w, 49)];
-        fakeTabBar.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+        fakeTabBar.backgroundColor =[UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:.7];// [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
         
 //        self.view.backgroundColor = [UIColor redColor];
         
         UIButton* back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         back.frame = CGRectMake(w/4, (h - 49) + 4.5, w/2, 40);
-        back.backgroundColor = [UIColor yellowColor];
+        back.backgroundColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1]; //[UIColor yellowColor];
         back.layer.borderWidth = 2;
         back.layer.cornerRadius = 4;
         [back setTitle:@"Confirm" forState:UIControlStateNormal];

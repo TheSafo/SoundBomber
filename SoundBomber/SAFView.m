@@ -49,8 +49,8 @@
         but1.frame = CGRectMake(w/16, w/16, w/8 + 20, w/8 + 20);
         but2.frame = CGRectMake(w*13/16 - 20, w/16, w/8 + 20, w/8 + 20);
         
-        but1.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
-        but2.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+        but1.backgroundColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:.7];//[UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+        but2.backgroundColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:.7];//[UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
         
         but1.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);//UIEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)
         but2.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);//UIEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)

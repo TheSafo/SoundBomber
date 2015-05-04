@@ -18,7 +18,12 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - Bolts (1.1.4)
+  - Bolts (1.1.5):
+    - Bolts/AppLinks (= 1.1.5)
+    - Bolts/Tasks (= 1.1.5)
+  - Bolts/AppLinks (1.1.5):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.1.5)
   - Facebook-iOS-SDK (3.23.2):
     - Bolts (~> 1.0)
   - iCarousel (1.8.1)
@@ -29,11 +34,12 @@ PODS:
   - MMWormhole (1.1.1):
     - MMWormhole/Core (= 1.1.1)
   - MMWormhole/Core (1.1.1)
-  - Parse (1.7.1):
-    - Bolts (~> 1.1)
-  - ParseFacebookUtils (1.7.1):
+  - Parse (1.7.2.1):
+    - Bolts/Tasks (>= 1.1.5)
+  - ParseFacebookUtils (1.7.2.1):
+    - Bolts/Tasks (>= 1.1.5)
     - Facebook-iOS-SDK (~> 3.23)
-    - Parse (~> 1.7.1)
+    - Parse (~> 1.7.2)
   - pop (1.0.7)
   - RKCardView (0.1.0)
   - RS3DSegmentedControl (0.2.1):
@@ -44,7 +50,7 @@ DEPENDENCIES:
   - Facebook-iOS-SDK
   - iCarousel
   - JFParseFBFriends
-  - MMWormhole
+  - MMWormhole (~> 1.1)
   - Parse
   - ParseFacebookUtils
   - pop (~> 1.0)
@@ -62,13 +68,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   BlocksKit: fce66219cce8030475a04eae720cdde22f8fc30b
-  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
+  Bolts: aac24961496d504aa56fc267cde95162a71bac39
   Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
   iCarousel: dace1cb858e3f4dc2614bee3201041247f82feda
   JFParseFBFriends: 1734a46f4627e09f3069c9fb7211a32c926c3236
   MMWormhole: 941cd168b4afd6073f883b82944d6eded4e00203
-  Parse: fa8ec29de6d82035635986c11946299fb1b38316
-  ParseFacebookUtils: fa09adf78372b589163b5a71a34d6ebc7eb83395
+  Parse: 8213b05b52768b34b87e1e41fd9efc88a9933f3f
+  ParseFacebookUtils: 593ab26aea08d3313fccdd2feb3eeb9ebe9f73bd
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   RKCardView: 80c09d833031dd8506eb4dcbaa820038065c2519
   RS3DSegmentedControl: cd8226e78738dfe2695e6d9eecf7d79608f36caf

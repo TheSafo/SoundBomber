@@ -29,7 +29,9 @@
 {
     if(self = [super init])
     {
-        self.view.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];
+        //149 205 222
+
+        self.view.backgroundColor =  [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];//[UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
         
 
         if([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */ {
@@ -102,7 +104,7 @@
     }
     
     
-    self.view.backgroundColor =  [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
+    self.view.backgroundColor =  [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];//[UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
     
     
     _friendsLists = arrs;
@@ -114,11 +116,12 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
-    _tableView.separatorColor = [UIColor yellowColor];
+    _tableView.separatorColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
+    ///[UIColor yellowColor];
     
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
+    self.refreshControl.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1]; //FB blue
     self.refreshControl.tintColor = [UIColor blackColor];
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing Data"];
     [self.refreshControl addTarget:self

@@ -166,7 +166,10 @@
 -(void)settingsPressed
 {
     UINavigationController* navCtrlr = [[UINavigationController alloc] initWithRootViewController:[[SettingsViewController alloc] init]];
-    navCtrlr.navigationBar.backgroundColor = [UIColor yellowColor];
+//    navCtrlr.navigationBar.backgroundColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];//[UIColor yellowColor];
+    navCtrlr.navigationBar.translucent = YES;
+    navCtrlr.navigationBar.barTintColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
+    
     
     [self presentViewController:navCtrlr  animated:YES completion:^{
         NSLog(@"Presented Settings");

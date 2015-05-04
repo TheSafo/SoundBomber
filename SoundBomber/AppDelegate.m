@@ -35,8 +35,14 @@
     /* Start Audio for the app */
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
+    /* START THE WORMHOLE (for watch app) */
+    _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
+                                                     optionalDirectory:@"wormhole"];
+    
+    
     
     [Parse enableLocalDatastore];
+    [Parse enableDataSharingWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"];
     [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
                   clientKey:@"egCJvN7YFduMUAijnG7icLW1hlEmwS7bDOwLlodk"];
     [PFFacebookUtils initializeFacebook];
@@ -44,10 +50,7 @@
 
     _rootCtrlr = [[SAFTabBarController alloc] init];
     
-    /* START THE WORMHOLE (for watch app) */
-    _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
-                                                     optionalDirectory:@"wormhole"];
-    
+
     UIImage* speakerImg = [_wormHole messageWithIdentifier:@"speakerImg"];
     if (speakerImg.size.width == 0) {
         speakerImg = [UIImage imageNamed:@"speaker1"];
@@ -154,6 +157,25 @@
 
 -(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
 {
+    __block UIBackgroundTaskIdentifier identifier = UIBackgroundTaskInvalid;
+    dispatch_block_t endBlock = ^{
+        if (identifier != UIBackgroundTaskInvalid) {
+            [application endBackgroundTask:identifier];
+        }
+        identifier = UIBackgroundTaskInvalid;
+    };
+    
+    identifier = [application beginBackgroundTaskWithExpirationHandler:endBlock];
+    
+    // Wacky but the block will capture the outer reply inside but then later we can still simply call reply - Thanks Dave D!
+    reply = ^(NSDictionary* replyInfo) {
+        reply(replyInfo);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+            endBlock();
+        });
+    };
+    
+    
     if([userInfo[@"operation"] isEqualToString:@"localFart"]) {
         [self localFart];
         reply(@{@"response":@"Farted Locally"});
@@ -161,18 +183,18 @@
     }
     else if([userInfo[@"operation"] isEqualToString:@"getRecent"]) {
         
-        NSArray* recentIDs = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
+        reply(@{@"response":[PFUser currentUser].objectId});
+
         
-        PFQuery* usrQry = [PFUser query];
-        
-        [usrQry whereKey:@"objectId" containedIn:recentIDs];
-        
-        
-        
-        [usrQry findObjectsInBackgroundWithBlock:^(NSArray *PF_NULLABLE_S objects, NSError *PF_NULLABLE_S error) {
-            reply(@{@"recent":objects});
-        }];
-        
+//        NSArray* recentIDs = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
+//        
+//        PFQuery* usrQry = [PFUser query];
+//        
+//        [usrQry whereKey:@"objectId" containedIn:recentIDs];
+//        [usrQry findObjectsInBackgroundWithBlock:^(NSArray * objects, NSError *PF_NULLABLE_S error) {
+//            [_wormHole passMessageObject:objects identifier:@"recentUsers"];
+//        }];
+//        
         return;
     }
 }

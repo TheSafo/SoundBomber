@@ -27,9 +27,31 @@
         <!--Recent Interface Controller-->
         <scene sceneID="Is5-Et-6fo">
             <objects>
-                <controller id="opd-kc-Qhi" customClass="RecentInterfaceController"/>
+                <controller id="opd-kc-Qhi" customClass="RecentInterfaceController">
+                    <items>
+                        <table alignment="left" id="B8f-Jx-og6">
+                            <items>
+                                <tableRow id="sG7-C6-XEe" customClass="SAFRowController">
+                                    <group key="rootItem" width="1" alignment="left" id="kcN-MO-xgS">
+                                        <items>
+                                            <label height="1" alignment="right" verticalAlignment="center" text="Label" numberOfLines="2" minimumScaleFactor="0.50000000000000011" id="1Iv-pG-ABg"/>
+                                            <imageView height="1" alignment="left" verticalAlignment="center" id="6pt-d2-HYD"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabel" destination="1Iv-pG-ABg" id="Rtj-Eh-sC2"/>
+                                        <outlet property="profPicView" destination="6pt-d2-HYD" id="7gu-Xd-Ut5"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="B8f-Jx-og6" id="Jmq-AT-Mot"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="197" y="211"/>
+            <point key="canvasLocation" x="151" y="211"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

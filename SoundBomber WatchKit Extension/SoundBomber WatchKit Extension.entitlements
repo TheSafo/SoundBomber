@@ -6,5 +6,9 @@
 	<array>
 		<string>group.com.gmail.jakesafo.SoundBomber</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.gmail.jakesafo.SoundBomber.watchkitextension</string>
+	</array>
 </dict>
 </plist>

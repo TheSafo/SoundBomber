@@ -51,6 +51,7 @@
 		439238FD1AEFF4CE00644E1B /* Horn1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F61AEFF4CE00644E1B /* Horn1.caf */; };
 		439238FE1AEFF4CE00644E1B /* Horn2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F71AEFF4CE00644E1B /* Horn2.caf */; };
 		439238FF1AEFF4CE00644E1B /* Horn3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F81AEFF4CE00644E1B /* Horn3.caf */; };
+		439C727D1AF7DE1F00ABD158 /* SAFRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439C727C1AF7DE1F00ABD158 /* SAFRowController.m */; };
 		439CC2241AF1440500B74EA1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439CC2231AF1440500B74EA1 /* SettingsViewController.m */; };
 		439CC2271AF15C7600B74EA1 /* SoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 439CC2261AF15C7600B74EA1 /* SoundTableViewCell.m */; };
 		43BD385C1AF7C700001243BF /* speaker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C561AD3BA770086B4A3 /* speaker1.png */; };
@@ -166,6 +167,8 @@
 		439238F61AEFF4CE00644E1B /* Horn1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn1.caf; sourceTree = "<group>"; };
 		439238F71AEFF4CE00644E1B /* Horn2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn2.caf; sourceTree = "<group>"; };
 		439238F81AEFF4CE00644E1B /* Horn3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Horn3.caf; sourceTree = "<group>"; };
+		439C727B1AF7DE1F00ABD158 /* SAFRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFRowController.h; sourceTree = "<group>"; };
+		439C727C1AF7DE1F00ABD158 /* SAFRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFRowController.m; sourceTree = "<group>"; };
 		439CC2221AF1440500B74EA1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		439CC2231AF1440500B74EA1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		439CC2251AF15C7600B74EA1 /* SoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundTableViewCell.h; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 				43DE053D1AF7C30F00BDA4A2 /* InterfaceController.m */,
 				43BD385E1AF7D348001243BF /* RecentInterfaceController.h */,
 				43BD385F1AF7D348001243BF /* RecentInterfaceController.m */,
+				439C727B1AF7DE1F00ABD158 /* SAFRowController.h */,
+				439C727C1AF7DE1F00ABD158 /* SAFRowController.m */,
 				43DE053F1AF7C30F00BDA4A2 /* NotificationController.h */,
 				43DE05401AF7C30F00BDA4A2 /* NotificationController.m */,
 				43DE05421AF7C30F00BDA4A2 /* Images.xcassets */,
@@ -506,6 +511,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 						};
 					};
 					436EB9661AD37E8100A404B7 = {
@@ -517,6 +525,9 @@
 						DevelopmentTeam = EYAM5ZUJCY;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
 								enabled = 1;
 							};
 						};
@@ -717,6 +728,7 @@
 				43DE05411AF7C30F00BDA4A2 /* NotificationController.m in Sources */,
 				43DE053E1AF7C30F00BDA4A2 /* InterfaceController.m in Sources */,
 				43BD38601AF7D348001243BF /* RecentInterfaceController.m in Sources */,
+				439C727D1AF7DE1F00ABD158 /* SAFRowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,7 +871,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SoundBomber/SoundBomber.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SoundBomber/PrefixHeader.pch;

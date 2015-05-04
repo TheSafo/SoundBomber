@@ -7,6 +7,7 @@
 //
 
 #import "InterfaceController.h"
+#import <Parse/Parse.h>
 #import <MMWormhole/MMWormhole.h>
 
 
@@ -25,8 +26,11 @@
 
     // Configure interface objects here.
     
-    _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
-                                                     optionalDirectory:@"wormhole"];
+    [Parse enableDataSharingWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
+                                     containingApplication:@"com.gmail.jakesafo.SoundBomber"];
+    
+    [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
+                  clientKey:@"egCJvN7YFduMUAijnG7icLW1hlEmwS7bDOwLlodk"];
     
     
     
@@ -37,13 +41,9 @@
         [self.mainButton setBackgroundImage: img];
     }
     
-    
     [_wormHole listenForMessageWithIdentifier:@"blendedImg" listener:^(id messageObject) {
-        
-        UIImage* newImg = (UIImage *) messageObject;
-        [self.mainButton setBackgroundImage:newImg];
+        [self.mainButton setBackgroundImage:(UIImage *)messageObject];
     }];
-    
 }
 - (IBAction)speakerPressed {
     

@@ -7,9 +7,16 @@
 //
 
 #import <Parse/Parse.h>
+#import "SAFRowController.h"
 #import "RecentInterfaceController.h"
+#import <MMWormhole/MMWormhole.h>
 
 @interface RecentInterfaceController ()
+
+@property (nonatomic) NSMutableArray* userList;
+@property (strong, nonatomic) IBOutlet WKInterfaceTable *table;
+@property (nonatomic) MMWormhole* wormHole;
+
 
 @end
 
@@ -18,18 +25,39 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
-                  clientKey:@"egCJvN7YFduMUAijnG7icLW1hlEmwS7bDOwLlodk"];
+
     
-    // Configure interface objects here.
+
+}
+
+
+
+-(void)showPlaceholder
+{
     
-//    NSArray* friendIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
-    
-    NSDictionary* message = @{@"operation":@"getRecent"};
-    
-    [WKInterfaceController openParentApplication:message reply:^(NSDictionary *replyInfo, NSError *error) {
+}
+
+-(void) loadTable
+{
+    if(_userList.count == 0) {
         
+        [self showPlaceholder];
+        return;
+    }
+    
+    [self.table setNumberOfRows:_userList.count withRowType:@"SAFRowController"];
+    
+    [_userList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        SAFRowController* row = [self.table rowControllerAtIndex:idx];
         
+        PFUser* usr = (PFUser *)obj;
+        
+        NSString* name = usr[@"fullname"];
+        NSData* imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large", usr[@"fbId"]]]];
+        UIImage* img = [UIImage imageWithData:imgData];
+        
+        [row.profPicView setImage:img];
+        [row.nameLabel setText:name];
     }];
 }
 
