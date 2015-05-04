@@ -74,36 +74,47 @@ SINGLETON_IMPL(SAFParseHelper);
 
 -(void)updateDataWithBlock:(void (^)(NSMutableArray *friendArrs)) updateCompletion
 {
-#warning update User
-    self.revengeIds = [[PFUser currentUser] objectForKey:@"revenge"];
-    self.recentIds = [[NSUserDefaults standardUserDefaults] objectForKey:@"recent"];
-    
-    [JFParseFBFriends findFriendsAndUpdate:NO completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {
+//    [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        self.revengeIds =  [[PFUser currentUser] objectForKey:@"revenge"]; //= @[@"9oPcwNoSjI"]; //= @[@"xFlcvadOFv"];
+//        self.recentIds = [PFUser currentUser][@"recent"];
+//        
+//        BombingViewController* nextCtrlr = [[BombingViewController alloc] initWithStyle:UITableViewStylePlain andRevengeList:self.revengeIds andRecentList:self.recentIds andFriendsList:self.friendIds];
+//        [self.navigationController pushViewController:nextCtrlr animated:YES];
+//        
+//    }];
+//    
+    [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        self.revengeIds = [[PFUser currentUser] objectForKey:@"revenge"];
+        self.recentIds = [[NSUserDefaults standardUserDefaults] objectForKey:@"recent"];
         
-        NSMutableArray* revUsrs = [NSMutableArray array];
-        
-        for (NSString* usrId in self.revengeIds) {
-            for (PFUser* usr in pfusers) {
-                if ([usr.objectId isEqualToString:usrId]) {
-                    [revUsrs addObject:usr];
+        [JFParseFBFriends findFriendsAndUpdate:NO completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {
+            
+            NSMutableArray* revUsrs = [NSMutableArray array];
+            
+            for (NSString* usrId in self.revengeIds) {
+                for (PFUser* usr in pfusers) {
+                    if ([usr.objectId isEqualToString:usrId]) {
+                        [revUsrs addObject:usr];
+                    }
                 }
             }
-        }
-        
-        NSMutableArray* recUsrs = [NSMutableArray array];
-        
-        for (NSString* usrId in self.recentIds) {
-            for (PFUser* usr in pfusers) {
-                if ([usr.objectId isEqualToString:usrId]) {
-                    [recUsrs addObject:usr];
+            
+            NSMutableArray* recUsrs = [NSMutableArray array];
+            
+            for (NSString* usrId in self.recentIds) {
+                for (PFUser* usr in pfusers) {
+                    if ([usr.objectId isEqualToString:usrId]) {
+                        [recUsrs addObject:usr];
+                    }
                 }
             }
-        }
-        
-        NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
-        
-        updateCompletion(arr);
+            
+            NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
+            
+            updateCompletion(arr);
+        }];
     }];
+    
 }
 
 
