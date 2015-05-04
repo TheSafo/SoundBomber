@@ -32,6 +32,9 @@
     [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
                   clientKey:@"egCJvN7YFduMUAijnG7icLW1hlEmwS7bDOwLlodk"];
     
+    _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
+                                                     optionalDirectory:@"wormhole"];
+    
     
     
     UIImage* img = [_wormHole messageWithIdentifier:@"blendedImg"];

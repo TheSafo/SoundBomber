@@ -154,6 +154,8 @@ SINGLETON_IMPL(SAFParseHelper);
             
             NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
             
+#warning SORT PFUSERS
+            
             loginCompletion(arr);
         }];
         return;
@@ -211,6 +213,8 @@ SINGLETON_IMPL(SAFParseHelper);
                 }
                 
                 NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
+                
+#warning SORT PFUSERS
                 
                 loginCompletion(arr);
             }];

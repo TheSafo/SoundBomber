@@ -31,7 +31,7 @@
     {
         //149 205 222
 
-        self.view.backgroundColor =  [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];//[UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
+        self.view.backgroundColor =  [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];//FB blue
         
 
         if([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */ {

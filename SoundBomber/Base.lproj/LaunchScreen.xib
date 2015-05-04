@@ -11,9 +11,9 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0se-Zu-Mio">
+                <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0se-Zu-Mio">
                     <rect key="frame" x="0.0" y="431" width="480" height="49"/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.58431372549019611" green="0.80392156862745101" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="rIO-oy-M0c"/>
                     </constraints>
@@ -22,6 +22,7 @@
                         <tabBarItem title="Friends" image="bombIcon" id="Ppv-mC-tGU"/>
                     </items>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.58431372550000005" green="0.80392156859999997" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                 </tabBar>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigSpeaker.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-Em-iKF">
                     <rect key="frame" x="30" y="25" width="420" height="396"/>
