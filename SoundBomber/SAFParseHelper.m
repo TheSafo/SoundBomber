@@ -85,9 +85,9 @@ SINGLETON_IMPL(SAFParseHelper);
 //    
     [[PFUser currentUser] fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         self.revengeIds = [[PFUser currentUser] objectForKey:@"revenge"];
-        self.recentIds = [[NSUserDefaults standardUserDefaults] objectForKey:@"recent"];
+        self.recentIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
         
-        [JFParseFBFriends findFriendsAndUpdate:NO completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {
+        [JFParseFBFriends findFriendsAndUpdate:YES completion:^(BOOL success, BOOL localStore, NSArray *pfusers, NSError *error) {
             
             NSMutableArray* revUsrs = [NSMutableArray array];
             
@@ -124,7 +124,7 @@ SINGLETON_IMPL(SAFParseHelper);
     if([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */
     {
         self.revengeIds = [PFUser currentUser][@"revenge"];
-        self.recentIds = [[NSUserDefaults standardUserDefaults] objectForKey:@"recent"];
+        self.recentIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
         
         [PFInstallation currentInstallation][@"user"] = [PFUser currentUser];
         [[PFInstallation currentInstallation] saveInBackground];
@@ -174,13 +174,13 @@ SINGLETON_IMPL(SAFParseHelper);
             self.revengeIds = user[@"revenge"] = [NSMutableArray array];
             self.recentIds = [NSMutableArray array];
             
-            [[NSUserDefaults standardUserDefaults] setObject:self.recentIds forKey:@"recent"];
+            [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setObject:self.recentIds forKey:@"recent"];
             [user saveInBackground];
         } else {
             NSLog(@"User logged in through Facebook!");
             
             self.revengeIds = user[@"revenge"];
-            self.recentIds = [[NSUserDefaults standardUserDefaults] valueForKey:@"recent"];
+            self.recentIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] valueForKey:@"recent"];
         }
         
         [PFInstallation currentInstallation][@"user"] = [PFUser currentUser];

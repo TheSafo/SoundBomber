@@ -12,6 +12,7 @@
 @interface OfflineViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 -(id) initWithSpeakerImage: (UIImage*)speakerImg andOtherImg: (UIImage *)otherImg;
+-(void)speakerPressed;
 
 @end
 

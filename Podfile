@@ -1,4 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
+link_with 'SoundBomber', 'SoundBomber WatchKit Extension'
 pod 'BlocksKit', :git => 'https://github.com/zwaldowski/BlocksKit.git'
 pod 'pop', '~> 1.0'
 pod 'RKCardView'

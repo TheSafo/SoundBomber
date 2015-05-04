@@ -53,9 +53,20 @@
 		439238FF1AEFF4CE00644E1B /* Horn3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 439238F81AEFF4CE00644E1B /* Horn3.caf */; };
 		439CC2241AF1440500B74EA1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439CC2231AF1440500B74EA1 /* SettingsViewController.m */; };
 		439CC2271AF15C7600B74EA1 /* SoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 439CC2261AF15C7600B74EA1 /* SoundTableViewCell.m */; };
+		43BD385C1AF7C700001243BF /* speaker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C561AD3BA770086B4A3 /* speaker1.png */; };
+		43BD385D1AF7C701001243BF /* speaker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C561AD3BA770086B4A3 /* speaker1.png */; };
+		43BD38601AF7D348001243BF /* RecentInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BD385F1AF7D348001243BF /* RecentInterfaceController.m */; };
+		43DE053E1AF7C30F00BDA4A2 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE053D1AF7C30F00BDA4A2 /* InterfaceController.m */; };
+		43DE05411AF7C30F00BDA4A2 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE05401AF7C30F00BDA4A2 /* NotificationController.m */; };
+		43DE05431AF7C30F00BDA4A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05421AF7C30F00BDA4A2 /* Images.xcassets */; };
+		43DE05471AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05461AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app */; };
+		43DE054F1AF7C30F00BDA4A2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DE054D1AF7C30F00BDA4A2 /* Interface.storyboard */; };
+		43DE05511AF7C30F00BDA4A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05501AF7C30F00BDA4A2 /* Images.xcassets */; };
+		43DE05541AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 43DE05371AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43FC78E71ADC17D5007CB16B /* facebookLoading.png */; };
 		43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */; };
 		43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78ED1ADC2CFE007CB16B /* Singleton.m */; };
+		8C148D5DC5AD85692101C924 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19920590E97860DB56B1A8D9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +77,35 @@
 			remoteGlobalIDString = 436EB94D1AD37E8100A404B7;
 			remoteInfo = SoundBomber;
 		};
+		43DE05481AF7C30F00BDA4A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 436EB9461AD37E8100A404B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43DE05451AF7C30F00BDA4A2;
+			remoteInfo = "SoundBomber WatchKit App";
+		};
+		43DE05521AF7C30F00BDA4A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 436EB9461AD37E8100A404B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43DE05361AF7C30F00BDA4A2;
+			remoteInfo = "SoundBomber WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		43DE055B1AF7C30F00BDA4A2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				43DE05541AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		19920590E97860DB56B1A8D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +170,21 @@
 		439CC2231AF1440500B74EA1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		439CC2251AF15C7600B74EA1 /* SoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundTableViewCell.h; sourceTree = "<group>"; };
 		439CC2261AF15C7600B74EA1 /* SoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundTableViewCell.m; sourceTree = "<group>"; };
+		43BD385B1AF7C545001243BF /* SoundBomber WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SoundBomber WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		43BD385E1AF7D348001243BF /* RecentInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentInterfaceController.h; sourceTree = "<group>"; };
+		43BD385F1AF7D348001243BF /* RecentInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentInterfaceController.m; sourceTree = "<group>"; };
+		43DE05371AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SoundBomber WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43DE053A1AF7C30F00BDA4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43DE053B1AF7C30F00BDA4A2 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		43DE053C1AF7C30F00BDA4A2 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		43DE053D1AF7C30F00BDA4A2 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		43DE053F1AF7C30F00BDA4A2 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		43DE05401AF7C30F00BDA4A2 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		43DE05421AF7C30F00BDA4A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		43DE05461AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoundBomber WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43DE054C1AF7C30F00BDA4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43DE054E1AF7C30F00BDA4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		43DE05501AF7C30F00BDA4A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		43FC78E71ADC17D5007CB16B /* facebookLoading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookLoading.png; sourceTree = "<group>"; };
 		43FC78E91ADC18A5007CB16B /* SAFParseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFParseHelper.h; sourceTree = "<group>"; };
 		43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFParseHelper.m; sourceTree = "<group>"; };
@@ -152,6 +206,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43DE05341AF7C30F00BDA4A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C148D5DC5AD85692101C924 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				436EB9501AD37E8100A404B7 /* SoundBomber */,
+				43DE054A1AF7C30F00BDA4A2 /* SoundBomber WatchKit App */,
+				43DE05381AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension */,
 				436EB96A1AD37E8100A404B7 /* SoundBomberTests */,
 				436EB94F1AD37E8100A404B7 /* Products */,
 				78A4B492C005D306B3C781D4 /* Pods */,
@@ -220,6 +284,8 @@
 			children = (
 				436EB94E1AD37E8100A404B7 /* SoundBomber.app */,
 				436EB9671AD37E8100A404B7 /* SoundBomberTests.xctest */,
+				43DE05371AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex */,
+				43DE05461AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,6 +353,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		43DE05381AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				43BD385B1AF7C545001243BF /* SoundBomber WatchKit Extension.entitlements */,
+				43DE053C1AF7C30F00BDA4A2 /* InterfaceController.h */,
+				43DE053D1AF7C30F00BDA4A2 /* InterfaceController.m */,
+				43BD385E1AF7D348001243BF /* RecentInterfaceController.h */,
+				43BD385F1AF7D348001243BF /* RecentInterfaceController.m */,
+				43DE053F1AF7C30F00BDA4A2 /* NotificationController.h */,
+				43DE05401AF7C30F00BDA4A2 /* NotificationController.m */,
+				43DE05421AF7C30F00BDA4A2 /* Images.xcassets */,
+				43DE05391AF7C30F00BDA4A2 /* Supporting Files */,
+			);
+			path = "SoundBomber WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		43DE05391AF7C30F00BDA4A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43DE053A1AF7C30F00BDA4A2 /* Info.plist */,
+				43DE053B1AF7C30F00BDA4A2 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43DE054A1AF7C30F00BDA4A2 /* SoundBomber WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				43DE054D1AF7C30F00BDA4A2 /* Interface.storyboard */,
+				43DE05501AF7C30F00BDA4A2 /* Images.xcassets */,
+				43DE054B1AF7C30F00BDA4A2 /* Supporting Files */,
+			);
+			path = "SoundBomber WatchKit App";
+			sourceTree = "<group>";
+		};
+		43DE054B1AF7C30F00BDA4A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43DE054C1AF7C30F00BDA4A2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		73BD695C09EB528C8AD5C341 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,10 +425,12 @@
 				436EB94B1AD37E8100A404B7 /* Frameworks */,
 				436EB94C1AD37E8100A404B7 /* Resources */,
 				B28FB651374F47AF3832A905 /* Copy Pods Resources */,
+				43DE055B1AF7C30F00BDA4A2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				43DE05531AF7C30F00BDA4A2 /* PBXTargetDependency */,
 			);
 			name = SoundBomber;
 			productName = SoundBomber;
@@ -344,6 +455,41 @@
 			productReference = 436EB9671AD37E8100A404B7 /* SoundBomberTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		43DE05361AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43DE055A1AF7C30F00BDA4A2 /* Build configuration list for PBXNativeTarget "SoundBomber WatchKit Extension" */;
+			buildPhases = (
+				AD6BC16F5BD585C31812FEA7 /* Check Pods Manifest.lock */,
+				43DE05331AF7C30F00BDA4A2 /* Sources */,
+				43DE05341AF7C30F00BDA4A2 /* Frameworks */,
+				43DE05351AF7C30F00BDA4A2 /* Resources */,
+				F8137E203BEB4604E70A488E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43DE05491AF7C30F00BDA4A2 /* PBXTargetDependency */,
+			);
+			name = "SoundBomber WatchKit Extension";
+			productName = "SoundBomber WatchKit Extension";
+			productReference = 43DE05371AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		43DE05451AF7C30F00BDA4A2 /* SoundBomber WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43DE05591AF7C30F00BDA4A2 /* Build configuration list for PBXNativeTarget "SoundBomber WatchKit App" */;
+			buildPhases = (
+				43DE05441AF7C30F00BDA4A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SoundBomber WatchKit App";
+			productName = "SoundBomber WatchKit App";
+			productReference = 43DE05461AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -366,6 +512,18 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 436EB94D1AD37E8100A404B7;
 					};
+					43DE05361AF7C30F00BDA4A2 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = EYAM5ZUJCY;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					43DE05451AF7C30F00BDA4A2 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 436EB9491AD37E8100A404B7 /* Build configuration list for PBXProject "SoundBomber" */;
@@ -383,6 +541,8 @@
 			targets = (
 				436EB94D1AD37E8100A404B7 /* SoundBomber */,
 				436EB9661AD37E8100A404B7 /* SoundBomberTests */,
+				43DE05361AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension */,
+				43DE05451AF7C30F00BDA4A2 /* SoundBomber WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -437,6 +597,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		43DE05351AF7C30F00BDA4A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43DE05431AF7C30F00BDA4A2 /* Images.xcassets in Resources */,
+				43BD385D1AF7C701001243BF /* speaker1.png in Resources */,
+				43DE05471AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43DE05441AF7C30F00BDA4A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43DE054F1AF7C30F00BDA4A2 /* Interface.storyboard in Resources */,
+				43BD385C1AF7C700001243BF /* speaker1.png in Resources */,
+				43DE05511AF7C30F00BDA4A2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -455,7 +635,37 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		AD6BC16F5BD585C31812FEA7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		B28FB651374F47AF3832A905 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8137E203BEB4604E70A488E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,6 +710,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		43DE05331AF7C30F00BDA4A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43DE05411AF7C30F00BDA4A2 /* NotificationController.m in Sources */,
+				43DE053E1AF7C30F00BDA4A2 /* InterfaceController.m in Sources */,
+				43BD38601AF7D348001243BF /* RecentInterfaceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -507,6 +727,16 @@
 			isa = PBXTargetDependency;
 			target = 436EB94D1AD37E8100A404B7 /* SoundBomber */;
 			targetProxy = 436EB9681AD37E8100A404B7 /* PBXContainerItemProxy */;
+		};
+		43DE05491AF7C30F00BDA4A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43DE05451AF7C30F00BDA4A2 /* SoundBomber WatchKit App */;
+			targetProxy = 43DE05481AF7C30F00BDA4A2 /* PBXContainerItemProxy */;
+		};
+		43DE05531AF7C30F00BDA4A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43DE05361AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension */;
+			targetProxy = 43DE05521AF7C30F00BDA4A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -517,6 +747,14 @@
 				436EB9611AD37E8100A404B7 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		43DE054D1AF7C30F00BDA4A2 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43DE054E1AF7C30F00BDA4A2 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -666,6 +904,82 @@
 			};
 			name = Release;
 		};
+		43DE05551AF7C30F00BDA4A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA72B5F94F9184640E24F04D /* Pods.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SoundBomber WatchKit Extension/SoundBomber WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SoundBomber WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		43DE05561AF7C30F00BDA4A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 343B2E21D762127757DE397A /* Pods.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SoundBomber WatchKit Extension/SoundBomber WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "SoundBomber WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		43DE05571AF7C30F00BDA4A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = SoundBomber_WatchKit_Extension;
+				INFOPLIST_FILE = "SoundBomber WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		43DE05581AF7C30F00BDA4A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = SoundBomber_WatchKit_Extension;
+				INFOPLIST_FILE = "SoundBomber WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -692,6 +1006,24 @@
 			buildConfigurations = (
 				436EB9751AD37E8100A404B7 /* Debug */,
 				436EB9761AD37E8100A404B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43DE05591AF7C30F00BDA4A2 /* Build configuration list for PBXNativeTarget "SoundBomber WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43DE05571AF7C30F00BDA4A2 /* Debug */,
+				43DE05581AF7C30F00BDA4A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43DE055A1AF7C30F00BDA4A2 /* Build configuration list for PBXNativeTarget "SoundBomber WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43DE05551AF7C30F00BDA4A2 /* Debug */,
+				43DE05561AF7C30F00BDA4A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

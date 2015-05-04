@@ -17,6 +17,8 @@
 
 @implementation AudioHelper
 
+SINGLETON_IMPL(AudioHelper);
+
 -(id)init
 {
     if(self = [super init])
@@ -27,9 +29,9 @@
     return self;
 }
 
--(double)playRandomApprovedSound
++(NSString *)randomSoundName
 {
-    NSMutableDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
+    NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
     
     NSMutableArray* toChooseFrom = [NSMutableArray array];
     for (NSString* str in enabledSounds.allKeys) {
@@ -46,8 +48,32 @@
     
     int y = arc4random_uniform(7) + 1; //7 random sounds per sound
     
-    
     NSString* fileName = [NSString stringWithFormat:@"%@%i", chosen, y];
+    
+    return fileName;
+}
+
+-(double)playRandomApprovedSound
+{
+//    NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
+//    
+//    NSMutableArray* toChooseFrom = [NSMutableArray array];
+//    for (NSString* str in enabledSounds.allKeys) {
+//        id isEnabled = enabledSounds[str];
+//        
+//        if([isEnabled boolValue])
+//        {
+//            [toChooseFrom addObject:str];
+//        }
+//    }
+//    
+//    int x = arc4random_uniform((int) toChooseFrom.count);
+//    NSString* chosen = toChooseFrom[x];
+//    
+//    int y = arc4random_uniform(7) + 1; //7 random sounds per sound
+    
+    
+    NSString* fileName = [AudioHelper randomSoundName];
     NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"];
     NSURL* fileURL = [NSURL fileURLWithPath:filePath];
     _curPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];

@@ -10,8 +10,13 @@
 #import "SAFTabBarController.h"
 #import "OfflineViewController.h"
 #import "OnlineViewController.h"
+#import "AudioHelper.h"
+#import "SAFParseHelper.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic) BOOL  isActive;
+
 
 @property (nonatomic) MMWormhole* wormHole;
 
@@ -23,6 +28,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -71,9 +77,9 @@
     [self.window setRootViewController:_rootCtrlr];
     
     
-    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"enabledSounds"]) {
+    if(![[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] valueForKey:@"enabledSounds"]) {
         NSMutableDictionary* enabledSounds = [NSMutableDictionary dictionaryWithDictionary:@{ @"Fart":@YES, @"Scream":@YES, @"Horn":@YES }];
-        [[NSUserDefaults standardUserDefaults] setValue:enabledSounds forKey:@"enabledSounds"];
+        [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setValue:enabledSounds forKey:@"enabledSounds"];
     }
     
 
@@ -116,22 +122,96 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    
+    _isActive = NO;
+    
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
+    _isActive = NO;
+
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    _isActive = YES;
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    
+    _isActive = NO;
+
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - WatchKit Handling
+
+-(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
+{
+    if([userInfo[@"operation"] isEqualToString:@"localFart"]) {
+        [self localFart];
+        reply(@{@"response":@"Farted Locally"});
+        return;
+    }
+    else if([userInfo[@"operation"] isEqualToString:@"getRecent"]) {
+        
+        NSArray* recentIDs = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
+        
+        PFQuery* usrQry = [PFUser query];
+        
+        [usrQry whereKey:@"objectId" containedIn:recentIDs];
+        
+        
+        
+        [usrQry findObjectsInBackgroundWithBlock:^(NSArray *PF_NULLABLE_S objects, NSError *PF_NULLABLE_S error) {
+            reply(@{@"recent":objects});
+        }];
+        
+        return;
+    }
+}
+
+
+-(void)localFart
+{
+    UIViewController* ctrlr =  ((UITabBarController*)self.window.rootViewController).selectedViewController;
+    
+    if(_isActive && [ctrlr respondsToSelector:@selector(speakerPressed)]) {
+        
+        NSLog(@"Pressing speaker manually");
+        [(OfflineViewController *)ctrlr speakerPressed];
+    }
+    else if(_isActive) {
+        
+        NSLog(@"Playing fart sound");
+        [[AudioHelper sharedInstance] playRandomApprovedSound];
+    }
+    else {
+        
+        NSLog(@"Sending local notification");
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.fireDate = [NSDate date];
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.alertBody = @"from iWatch";
+        notification.soundName = [AudioHelper randomSoundName];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    }
+}
+
+
+
+
+
+
+
+
 
 @end

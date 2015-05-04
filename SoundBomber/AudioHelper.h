@@ -6,11 +6,17 @@
 //  Copyright (c) 2015 Jake Saferstein. All rights reserved.
 //
 
+#import "Singleton.h"
+
 @interface AudioHelper : NSObject
 
+SINGLETON_INTR(AudioHelper);
+
 -(double)playRandomApprovedSound;
++(NSString *)randomSoundName;
 
 @property (nonatomic) double dontPlayUntil;
+
 
 #warning Sound list
 /*

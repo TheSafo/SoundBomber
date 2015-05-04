@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Notification - SoundBomber WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>SoundBomber WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>SoundBomber.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>436EB9661AD37E8100A404B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43DE05451AF7C30F00BDA4A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

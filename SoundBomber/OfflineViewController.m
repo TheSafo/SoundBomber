@@ -17,7 +17,7 @@
 @property (nonatomic) UIButton* settingsButton;
 @property (nonatomic) UIButton* cameraButton;
 @property (nonatomic) SAFView* mainView;
-@property (nonatomic, strong) AudioHelper* audioHelper;
+//@property (nonatomic, strong) AudioHelper* audioHelper;
 
 @property (nonatomic) MMWormhole* wormHole;
 
@@ -73,7 +73,7 @@
 //        [self.view addSubview:_cameraButton];
         
         
-        _audioHelper = [[AudioHelper alloc] init];
+//        _audioHelper = [[AudioHelper alloc] init];
     }
     
     return self;
@@ -141,7 +141,7 @@
     
     CGPoint loc = [touch locationInView:_mainView];
     
-    if(CFAbsoluteTimeGetCurrent() < _audioHelper.dontPlayUntil)
+    if(CFAbsoluteTimeGetCurrent() < [AudioHelper sharedInstance].dontPlayUntil)
     {
         //        NSLog(@"TOO SOON");
     }
@@ -157,7 +157,7 @@
 
 -(void)speakerPressed
 {
-    double duration = [_audioHelper playRandomApprovedSound];
+    double duration = [[AudioHelper sharedInstance ]playRandomApprovedSound];
     [_mainView wubTheSpeakerWithDuration: duration];
 }
 

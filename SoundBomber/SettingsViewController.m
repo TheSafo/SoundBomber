@@ -63,7 +63,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSMutableDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
+    NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
     
 //    NSMutableArray* toChooseFrom = [NSMutableArray array];
 //    for (NSString* str in enabledSounds.allKeys) {
@@ -86,7 +86,7 @@
         cell = [[SoundTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"sound"];
     }
     
-    NSMutableDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
+    NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
     NSString* soundName = enabledSounds.allKeys[indexPath.row];
     
     [cell setSoundName:soundName];
@@ -102,7 +102,7 @@
     
     [cell setIsEnabled: !cell.isEnabled]; //Toggle the cell
     
-    NSDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
+    NSDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
     
     
     NSMutableDictionary* mutableSounds = [NSMutableDictionary dictionaryWithDictionary:enabledSounds];
@@ -128,7 +128,7 @@
         return;
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:mutableSounds forKey:@"enabledSounds"];
+    [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setObject:mutableSounds forKey:@"enabledSounds"];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

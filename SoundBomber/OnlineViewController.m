@@ -158,7 +158,7 @@
 
 - (NSString *)titleForSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl
 {
-    NSMutableDictionary* enabledSounds = [[NSUserDefaults standardUserDefaults] objectForKey:@"enabledSounds"];
+    NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
 
 //
 //    switch (segmentIndex) {
@@ -279,7 +279,7 @@
         recentIds[x] = ((PFUser *)recent[x]).objectId;
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:recentIds forKey:@"recent"];
+    [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setObject:recentIds forKey:@"recent"];
     [PFUser currentUser][@"revenge"] = revenge;
     [[PFUser currentUser] saveInBackground];
     

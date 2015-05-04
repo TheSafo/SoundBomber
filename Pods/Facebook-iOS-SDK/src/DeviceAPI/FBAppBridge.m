@@ -493,7 +493,9 @@ forFailedAppCall:(FBAppCall *)appCall
 }
 
 + (NSString *)symmetricKeyAndForceRefresh:(BOOL)forceRefresh {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"];
     NSString *symmetricKey = [defaults objectForKey:FBBridgeURLParams.cipherKey];
     if (!symmetricKey || forceRefresh) {
         // Generate keys
