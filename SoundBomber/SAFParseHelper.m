@@ -152,9 +152,13 @@ SINGLETON_IMPL(SAFParseHelper);
                 }
             }
             
+//            pfusers = [pfusers sortedArrayUsingSelector:@selector(compare:)];
+            
+//            pfusers = [self sortUserArray:pfusers];
+
+
             NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
             
-#warning SORT PFUSERS
             
             loginCompletion(arr);
         }];
@@ -212,9 +216,11 @@ SINGLETON_IMPL(SAFParseHelper);
                     }
                 }
                 
-                NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
+//                pfusers = [pfusers sortedArrayUsingSelector:@selector(compare:)];//Sort alphabetically
                 
-#warning SORT PFUSERS
+//                pfusers = [self sortUserArray:pfusers];
+                
+                NSMutableArray* arr = [NSMutableArray arrayWithObjects:revUsrs, recUsrs, pfusers, nil];
                 
                 loginCompletion(arr);
             }];
@@ -222,6 +228,35 @@ SINGLETON_IMPL(SAFParseHelper);
     }];
 }
 
+#warning FIX FUCKING ALPHABETICAL ORDER
+
+//-(NSMutableArray *)sortUserArray: (NSArray *)arr
+//{
+//    NSMutableArray* toReturn = [NSMutableArray arrayWithArray:arr];
+//    
+//    for (int x = 0; x < toReturn.count; x++) {
+//        int iMin = x;
+//
+//        for (int y = x + 1; y < toReturn.count; y++) {
+//            
+//            PFUser* usr1 = toReturn[y];
+//            PFUser* usr2 = toReturn[iMin];
+//            
+//            if ([usr1.objectId compare: usr2.objectId] <= 0) {
+//                /* found new minimum; remember its index */
+//                iMin = x;
+//            }
+//        }
+//        
+//        if(iMin != x) {
+//            id xObj = toReturn[x];
+//            toReturn[x] = toReturn[iMin];
+//            toReturn[iMin] = xObj;
+//        }
+//    }
+//    
+//    return toReturn;
+//}
 
 
 

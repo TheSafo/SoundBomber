@@ -16,6 +16,7 @@
 @property (nonatomic) NSMutableArray* userList;
 @property (strong, nonatomic) IBOutlet WKInterfaceTable *table;
 @property (nonatomic) MMWormhole* wormHole;
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *placeholderLabel;
 
 
 @end
@@ -25,16 +26,28 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-
+    NSArray* recentIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] valueForKey:@"recent"];
     
+    if(recentIds.count == 0) {
+        [self showPlaceholder];
+        return;
+    }
+    
+    PFQuery* usrQry = [PFUser query];
+    [usrQry whereKey:@"objectId" containedIn:recentIds];
+    
+    [usrQry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        _userList = [NSMutableArray arrayWithArray:objects];
+//        [self loadTable];
+    }];
 
 }
 
-
-
 -(void)showPlaceholder
 {
-    
+    [self.placeholderLabel setHidden:NO];
+    [self.table setHidden:YES];
 }
 
 -(void) loadTable
@@ -44,6 +57,9 @@
         [self showPlaceholder];
         return;
     }
+    
+    [self.placeholderLabel setHidden:YES];
+    [self.table setHidden:NO];
     
     [self.table setNumberOfRows:_userList.count withRowType:@"SAFRowController"];
     
@@ -64,6 +80,13 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    
+    if (_userList.count == 0) {
+        [self showPlaceholder];
+    }
+    else {
+        [self loadTable];
+    }
 }
 
 - (void)didDeactivate {

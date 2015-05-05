@@ -31,11 +31,11 @@
                     <items>
                         <table alignment="left" id="B8f-Jx-og6">
                             <items>
-                                <tableRow id="sG7-C6-XEe" customClass="SAFRowController">
+                                <tableRow identifier="SAFRowController" id="sG7-C6-XEe" customClass="SAFRowController">
                                     <group key="rootItem" width="1" alignment="left" id="kcN-MO-xgS">
                                         <items>
-                                            <label height="1" alignment="right" verticalAlignment="center" text="Label" numberOfLines="2" minimumScaleFactor="0.50000000000000011" id="1Iv-pG-ABg"/>
-                                            <imageView height="1" alignment="left" verticalAlignment="center" id="6pt-d2-HYD"/>
+                                            <label height="1" alignment="right" verticalAlignment="center" text="Label" textAlignment="right" numberOfLines="2" minimumScaleFactor="0.50000000000000011" id="1Iv-pG-ABg"/>
+                                            <imageView width="40" height="1" alignment="left" verticalAlignment="center" id="6pt-d2-HYD"/>
                                         </items>
                                     </group>
                                     <connections>
@@ -45,8 +45,10 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <label width="1" alignment="center" verticalAlignment="center" text="No users in recent list." textAlignment="center" numberOfLines="3" id="w8q-UZ-5M1"/>
                     </items>
                     <connections>
+                        <outlet property="placeholderLabel" destination="w8q-UZ-5M1" id="kxg-NP-mi6"/>
                         <outlet property="table" destination="B8f-Jx-og6" id="Jmq-AT-Mot"/>
                     </connections>
                 </controller>
