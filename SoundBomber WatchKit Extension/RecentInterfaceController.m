@@ -44,11 +44,13 @@
 
 }
 
+
 -(void)showPlaceholder
 {
     [self.placeholderLabel setHidden:NO];
     [self.table setHidden:YES];
 }
+
 
 -(void) loadTable
 {
@@ -88,6 +90,76 @@
         [self loadTable];
     }
 }
+
++(NSString *)randomSoundName
+{
+    NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
+    
+    NSMutableArray* toChooseFrom = [NSMutableArray array];
+    for (NSString* str in enabledSounds.allKeys) {
+        id isEnabled = enabledSounds[str];
+        
+        if([isEnabled boolValue])
+        {
+            [toChooseFrom addObject:str];
+        }
+    }
+    
+    int x = arc4random_uniform((int) toChooseFrom.count);
+    NSString* chosen = toChooseFrom[x];
+    
+    int y = arc4random_uniform(7) + 1; //7 random sounds per sound
+    
+    NSString* fileName = [NSString stringWithFormat:@"%@%i", chosen, y];
+    
+    return fileName;
+}
+
+-(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
+{
+#warning change pushes to online only
+    PFUser* sender = [PFUser currentUser];
+    PFUser* toSend = (PFUser *) _userList[rowIndex];
+    
+    PFQuery *qry = [PFInstallation query];
+    [qry whereKey:@"user" equalTo:toSend];
+    
+    NSString* realMsg = [NSString stringWithFormat:@"from %@", sender[@"fullname"]];
+    
+    int x = arc4random_uniform(7) + 1;
+    NSString* sound = [NSString stringWithFormat:@"%@%i.caf", [RecentInterfaceController randomSoundName], x]; ///Randomizes sound!!!
+    NSDictionary *data = @{ @"alert" : realMsg,
+                            @"sound" : sound,
+                            @"senderID" : sender.objectId,
+                            };
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setQuery:qry];
+    [push setData:data];
+    [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(error)
+        {
+            NSLog(@"Push Error: %@", error);
+        }
+    }];
+    
+    NSMutableArray* sendArr = [toSend objectForKey:@"revenge"];
+    NSString* userStr = sender.objectId;
+    
+    if([sendArr containsObject:userStr])
+    {
+        [sendArr removeObject:userStr];
+    }
+    if (sendArr.count == 5) {
+        [sendArr removeLastObject];
+    }
+    [sendArr insertObject:userStr atIndex:0];
+    
+    [PFCloud callFunctionInBackground:@"updateRevenge" withParameters:@{@"userId": toSend.objectId, @"newRev":sendArr} block:^(id object, NSError *error) {
+        if(error) { NSLog(@"Cloud error: %@", error); }
+    }];
+}
+
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
