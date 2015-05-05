@@ -63,7 +63,6 @@
 		43DE05471AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05461AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app */; };
 		43DE054F1AF7C30F00BDA4A2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DE054D1AF7C30F00BDA4A2 /* Interface.storyboard */; };
 		43DE05511AF7C30F00BDA4A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05501AF7C30F00BDA4A2 /* Images.xcassets */; };
-		43DE05541AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 43DE05371AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		43FC78E81ADC17D5007CB16B /* facebookLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = 43FC78E71ADC17D5007CB16B /* facebookLoading.png */; };
 		43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */; };
 		43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC78ED1ADC2CFE007CB16B /* Singleton.m */; };
@@ -85,28 +84,7 @@
 			remoteGlobalIDString = 43DE05451AF7C30F00BDA4A2;
 			remoteInfo = "SoundBomber WatchKit App";
 		};
-		43DE05521AF7C30F00BDA4A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 436EB9461AD37E8100A404B7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 43DE05361AF7C30F00BDA4A2;
-			remoteInfo = "SoundBomber WatchKit Extension";
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		43DE055B1AF7C30F00BDA4A2 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				43DE05541AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		19920590E97860DB56B1A8D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -430,12 +408,10 @@
 				436EB94B1AD37E8100A404B7 /* Frameworks */,
 				436EB94C1AD37E8100A404B7 /* Resources */,
 				B28FB651374F47AF3832A905 /* Copy Pods Resources */,
-				43DE055B1AF7C30F00BDA4A2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				43DE05531AF7C30F00BDA4A2 /* PBXTargetDependency */,
 			);
 			name = SoundBomber;
 			productName = SoundBomber;
@@ -744,11 +720,6 @@
 			isa = PBXTargetDependency;
 			target = 43DE05451AF7C30F00BDA4A2 /* SoundBomber WatchKit App */;
 			targetProxy = 43DE05481AF7C30F00BDA4A2 /* PBXContainerItemProxy */;
-		};
-		43DE05531AF7C30F00BDA4A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 43DE05361AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension */;
-			targetProxy = 43DE05521AF7C30F00BDA4A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
