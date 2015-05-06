@@ -1,16 +1,15 @@
 {
     "aps": {
         "alert": {
-            "body": "Test message",
-            "title": "Optional title"
+            "body": "from Jake Saferstein",
         },
-        "category": "myCategory"
+        "category": "revenge"
     },
     
     "WatchKit Simulator Actions": [
         {
-            "title": "First Button",
-            "identifier": "firstButtonAction"
+            "title": "Take Revenge",
+            "identifier": "revenge"
         }
     ],
     

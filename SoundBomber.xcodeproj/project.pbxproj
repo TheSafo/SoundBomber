@@ -24,9 +24,12 @@
 		432B0C701AD48B3E0086B4A3 /* Fart5.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C681AD48B3E0086B4A3 /* Fart5.caf */; };
 		432B0C711AD48B3E0086B4A3 /* Fart6.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C691AD48B3E0086B4A3 /* Fart6.caf */; };
 		432B0C721AD48B3E0086B4A3 /* Fart7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C6A1AD48B3E0086B4A3 /* Fart7.caf */; };
+		4344BAB41AFA622000E6C3B1 /* bomber.png in Resources */ = {isa = PBXBuildFile; fileRef = 4344BAB31AFA622000E6C3B1 /* bomber.png */; };
+		4344BAB71AFA703600E6C3B1 /* UIView+Explode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4344BAB61AFA703600E6C3B1 /* UIView+Explode.m */; };
 		4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4367B74E1AD3A8B10032C4F8 /* SAFTabBarController.m */; };
 		4367B7521AD3ADC50032C4F8 /* OfflineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4367B7511AD3ADC50032C4F8 /* OfflineViewController.m */; };
 		4367B7551AD3ADD70032C4F8 /* OnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4367B7541AD3ADD70032C4F8 /* OnlineViewController.m */; };
+		436DEBE81AF91E6D00DD5B9E /* SoundBomber WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 43DE05371AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		436EB9541AD37E8100A404B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 436EB9531AD37E8100A404B7 /* main.m */; };
 		436EB9571AD37E8100A404B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 436EB9561AD37E8100A404B7 /* AppDelegate.m */; };
 		436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436EB95E1AD37E8100A404B7 /* Images.xcassets */; };
@@ -70,6 +73,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		436DEBE91AF91E6D00DD5B9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 436EB9461AD37E8100A404B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43DE05361AF7C30F00BDA4A2;
+			remoteInfo = "SoundBomber WatchKit Extension";
+		};
 		436EB9681AD37E8100A404B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 436EB9461AD37E8100A404B7 /* Project object */;
@@ -85,6 +95,20 @@
 			remoteInfo = "SoundBomber WatchKit App";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		436DEBEB1AF91E6E00DD5B9E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				436DEBE81AF91E6D00DD5B9E /* SoundBomber WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		19920590E97860DB56B1A8D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +133,9 @@
 		432B0C691AD48B3E0086B4A3 /* Fart6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart6.caf; sourceTree = "<group>"; };
 		432B0C6A1AD48B3E0086B4A3 /* Fart7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fart7.caf; sourceTree = "<group>"; };
 		432B0C731AD4D4520086B4A3 /* SoundBomber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SoundBomber.entitlements; sourceTree = "<group>"; };
+		4344BAB31AFA622000E6C3B1 /* bomber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomber.png; sourceTree = "<group>"; };
+		4344BAB51AFA703600E6C3B1 /* UIView+Explode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Explode.h"; sourceTree = "<group>"; };
+		4344BAB61AFA703600E6C3B1 /* UIView+Explode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Explode.m"; sourceTree = "<group>"; };
 		4367B74D1AD3A8B10032C4F8 /* SAFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFTabBarController.h; sourceTree = "<group>"; };
 		4367B74E1AD3A8B10032C4F8 /* SAFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFTabBarController.m; sourceTree = "<group>"; };
 		4367B7501AD3ADC50032C4F8 /* OfflineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineViewController.h; sourceTree = "<group>"; };
@@ -204,6 +231,7 @@
 		432B0C4E1AD3B36F0086B4A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4344BAB31AFA622000E6C3B1 /* bomber.png */,
 				43096DD41AF54B6D00BB817B /* bigSpeaker.png */,
 				437AECA81AF44467009EE056 /* bomb2x.png */,
 				437AECA91AF44467009EE056 /* bomb3x.png */,
@@ -275,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				432B0C731AD4D4520086B4A3 /* SoundBomber.entitlements */,
+				4344BAB51AFA703600E6C3B1 /* UIView+Explode.h */,
+				4344BAB61AFA703600E6C3B1 /* UIView+Explode.m */,
 				436EB9551AD37E8100A404B7 /* AppDelegate.h */,
 				436EB9561AD37E8100A404B7 /* AppDelegate.m */,
 				4367B7501AD3ADC50032C4F8 /* OfflineViewController.h */,
@@ -408,10 +438,12 @@
 				436EB94B1AD37E8100A404B7 /* Frameworks */,
 				436EB94C1AD37E8100A404B7 /* Resources */,
 				B28FB651374F47AF3832A905 /* Copy Pods Resources */,
+				436DEBEB1AF91E6E00DD5B9E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				436DEBEA1AF91E6D00DD5B9E /* PBXTargetDependency */,
 			);
 			name = SoundBomber;
 			productName = SoundBomber;
@@ -559,6 +591,7 @@
 				432B0C571AD3BA770086B4A3 /* speaker1.png in Resources */,
 				439238F01AEFF3E300644E1B /* Scream6.caf in Resources */,
 				432B0C721AD48B3E0086B4A3 /* Fart7.caf in Resources */,
+				4344BAB41AFA622000E6C3B1 /* bomber.png in Resources */,
 				439238FF1AEFF4CE00644E1B /* Horn3.caf in Resources */,
 				432B0C5C1AD44B300086B4A3 /* otherImg1.jpg in Resources */,
 				432B0C531AD3B3A80086B4A3 /* cameraBtn.png in Resources */,
@@ -677,6 +710,7 @@
 				43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */,
 				4367B7521AD3ADC50032C4F8 /* OfflineViewController.m in Sources */,
 				432B0C5A1AD3BBFF0086B4A3 /* SAFView.m in Sources */,
+				4344BAB71AFA703600E6C3B1 /* UIView+Explode.m in Sources */,
 				43801A171AE758FE009B717B /* FriendTableViewCell.m in Sources */,
 				436EB9571AD37E8100A404B7 /* AppDelegate.m in Sources */,
 				4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */,
@@ -711,6 +745,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		436DEBEA1AF91E6D00DD5B9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43DE05361AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension */;
+			targetProxy = 436DEBE91AF91E6D00DD5B9E /* PBXContainerItemProxy */;
+		};
 		436EB9691AD37E8100A404B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 436EB94D1AD37E8100A404B7 /* SoundBomber */;

@@ -123,6 +123,9 @@ SINGLETON_IMPL(SAFParseHelper);
     
     if([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */
     {
+        [PFInstallation currentInstallation][@"user"] = [PFUser currentUser];
+        [[PFInstallation currentInstallation] saveInBackground];
+        
         self.revengeIds = [PFUser currentUser][@"revenge"];
         self.recentIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
         
@@ -188,6 +191,12 @@ SINGLETON_IMPL(SAFParseHelper);
             self.revengeIds = user[@"revenge"];
             self.recentIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] valueForKey:@"recent"];
         }
+        
+        MMWormhole* wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber" optionalDirectory:@"wormhole"];
+        
+        [wormHole passMessageObject:[PFUser currentUser].sessionToken identifier:@"sessionToken"];
+        
+
         
         [PFInstallation currentInstallation][@"user"] = [PFUser currentUser];
         [[PFInstallation currentInstallation] saveInBackground];

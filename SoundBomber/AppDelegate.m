@@ -40,6 +40,47 @@
                                                      optionalDirectory:@"wormhole"];
     
     
+    UIMutableUserNotificationAction *revenge = [[UIMutableUserNotificationAction alloc] init];
+    
+    // Define an ID string to be passed back to your app when you handle the action
+    revenge.identifier = @"revenge";
+    
+    // Localized string displayed in the action button
+    revenge.title = @"Get Revenge!";
+    
+    // If you need to show UI, choose foreground
+    revenge.activationMode = UIUserNotificationActivationModeForeground;
+    
+    // Destructive actions display in red
+    revenge.destructive = NO;
+    
+    // Set whether the action requires the user to authenticate
+    revenge.authenticationRequired = NO;
+    
+    // First create the category
+    UIMutableUserNotificationCategory *soundCategory = [[UIMutableUserNotificationCategory alloc] init];
+    
+    // Identifier to include in your push payload and local notification
+    soundCategory.identifier = @"revenge";
+    
+    // Add the actions to the category and set the action context
+    [soundCategory setActions:@[revenge] forContext:UIUserNotificationActionContextDefault];
+    
+    // Set the actions to present in a minimal context
+    [soundCategory setActions:@[revenge] forContext:UIUserNotificationActionContextMinimal];
+    
+    
+    NSSet *categories = [NSSet setWithObject:soundCategory];
+    
+    
+    // Register for Push Notitications
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:categories];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+    
+    
+    
     
     [Parse enableLocalDatastore];
     [Parse enableDataSharingWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"];
@@ -86,13 +127,7 @@
     }
     
 
-    
-    // Register for Push Notitications
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
-    
+
 
     [self.window makeKeyAndVisible];
     return YES;

@@ -11,4 +11,6 @@
 
 @interface RecentInterfaceController : WKInterfaceController
 
+@property (strong, nonatomic) IBOutlet WKInterfaceTable *table;
+
 @end

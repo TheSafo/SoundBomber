@@ -20,6 +20,7 @@
 #import <iCarousel/iCarousel.h>
 #import <RS3DSegmentedControl/RS3DSegmentedControl.h>
 #import <Blockskit/UIAlertView+BlocksKit.h>
+#import <Pop/POP.h>
 
 
 

@@ -9,6 +9,7 @@
 #import "OnlineViewController.h"
 #import "SAFParseHelper.h"
 #import "FriendTableViewCell.h"
+#import "UIView+Explode.h"
 
 @interface OnlineViewController ()
 
@@ -233,16 +234,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /* Needs to do:
-        1. Deselect selected item
-        2. Animate sending
-        3. Send Push
-        4. Update local/online info
-     */
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    [self.tableView setUserInteractionEnabled:NO];
-//#warning needs to be re-enabled
-    
     PFUser* sender = [PFUser currentUser];
     PFUser* toSend = ((NSArray *)_friendsLists[indexPath.section])[indexPath.row];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -252,7 +243,86 @@
         [self updateAfterPushTo:toSend];
     });
     
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UIBlurEffect* blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurredEffectView.frame = self.view.bounds;
+    
+    [self.view addSubview:blurredEffectView];
+    
+    int w = self.view.frame.size.width;
+    int h = self.view.frame.size.height;
+    
+    
+    NSData* imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large", toSend[@"fbId"]]]];
+    UIImage* faceImg = [UIImage imageWithData:imgData];
+    UIImageView* faceView = [[UIImageView alloc] initWithImage:faceImg];
+    faceView.frame = CGRectMake(w/8, h*3/4 - 50, 100, 100);
+    
+    [blurredEffectView addSubview:faceView];
+    
+    void (^block)(BOOL)  = ^(BOOL completed) {
+//        NSLog(@"test");
+    };
+    
+    [blurredEffectView performSelector:@selector(lp_explodeWithCompletion:) withObject:block afterDelay:1.5];
+    
+    
+    UIImageView* plane = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomber.png"]];
+    UIImageView* bomb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomb3x.png"]];
+    
+
+    
+    plane.frame = CGRectMake(w, h/4, 100, 100);
+    bomb.frame = CGRectMake(w, h/4, 40, 40);
+    
+    [self.view addSubview:bomb];
+    [self.view addSubview:plane];
+    
+    UIBezierPath* bombPath = [[UIBezierPath alloc] init];
+    [bombPath moveToPoint:CGPointMake(w, h/4)];
+    [bombPath addLineToPoint:CGPointMake(w*14/16, h/4)];
+    [bombPath addQuadCurveToPoint:CGPointMake(w/4, h*3/4) controlPoint:CGPointMake(w/2, h/4+50)];
+    
+    
+    double delay = 0;
+    
+    CAKeyframeAnimation *bombAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    bombAnim.path = bombPath.CGPath;
+    bombAnim.rotationMode = kCAAnimationRotateAutoReverse;
+    bombAnim.repeatCount = 0;
+    bombAnim.duration = 1.5;
+    bombAnim.beginTime = CACurrentMediaTime() + delay;
+    bombAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
+    UIBezierPath* planePath = [[UIBezierPath alloc] init];
+    [planePath moveToPoint:CGPointMake(w, h/4)];
+    [planePath addLineToPoint:CGPointMake(-100, h/4)];
+    
+    CAKeyframeAnimation* planeAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    planeAnim.path = planePath.CGPath;
+    planeAnim.repeatCount = 0;
+    planeAnim.duration = 2;
+    planeAnim.beginTime = CACurrentMediaTime();
+    planeAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    [plane.layer addAnimation:planeAnim forKey:@"planeAnim"];
+    [bomb.layer addAnimation:bombAnim forKey:@"bombAnim"];
 }
+
+- (UIImage *)imageFromLayer:(CALayer *)layer
+{
+    UIGraphicsBeginImageContext([layer frame].size);
+    
+    [layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return outputImage;
+}
+
 
 -(void)updateAfterPushTo: (PFUser *)toSend
 {

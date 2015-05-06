@@ -18,16 +18,16 @@
                     </items>
                     <connections>
                         <outlet property="mainButton" destination="L1g-wU-2PQ" id="AFf-9f-WBU"/>
-                        <segue destination="opd-kc-Qhi" kind="relationship" relationship="nextPage" id="uzc-Aa-n9L"/>
+                        <segue destination="opd-kc-Qhi" kind="relationship" relationship="nextPage" id="u3t-hA-QS4"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-104" y="211"/>
+            <point key="canvasLocation" x="-183" y="166"/>
         </scene>
-        <!--Recent Interface Controller-->
+        <!--RecentInterfaceController-->
         <scene sceneID="Is5-Et-6fo">
             <objects>
-                <controller id="opd-kc-Qhi" customClass="RecentInterfaceController">
+                <controller identifier="RecentInterfaceController" id="opd-kc-Qhi" customClass="RecentInterfaceController">
                     <items>
                         <table alignment="left" id="B8f-Jx-og6">
                             <items>
@@ -49,11 +49,11 @@
                     </items>
                     <connections>
                         <outlet property="placeholderLabel" destination="w8q-UZ-5M1" id="kxg-NP-mi6"/>
-                        <outlet property="table" destination="B8f-Jx-og6" id="Jmq-AT-Mot"/>
+                        <outlet property="table" destination="B8f-Jx-og6" id="4ch-MB-Yyo"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="151" y="211"/>
+            <point key="canvasLocation" x="-96" y="481"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -62,21 +62,15 @@
                     <items>
                         <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" identifier="revenge" descriptionFormat="Test" id="JfB-70-Muf">
+                        <color key="sashColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                    </notificationCategory>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
-        </scene>
-        <!--Notification Controller-->
-        <scene sceneID="ZPc-GJ-vnh">
-            <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="208" y="481"/>
         </scene>
     </scenes>
 </document>

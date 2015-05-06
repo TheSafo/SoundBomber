@@ -14,7 +14,6 @@
 @interface RecentInterfaceController ()
 
 @property (nonatomic) NSMutableArray* userList;
-@property (strong, nonatomic) IBOutlet WKInterfaceTable *table;
 @property (nonatomic) MMWormhole* wormHole;
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *placeholderLabel;
 
@@ -26,12 +25,18 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
+//    self.table.is
+//    
+//    [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
+//                  clientKey:@"egCJvN7YFduMUAijnG7icLW1hlEmwS7bDOwLlodk"];
+    
     NSArray* recentIds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] valueForKey:@"recent"];
     
     if(recentIds.count == 0) {
         [self showPlaceholder];
         return;
     }
+    
     
     PFQuery* usrQry = [PFUser query];
     [usrQry whereKey:@"objectId" containedIn:recentIds];
@@ -117,47 +122,8 @@
 
 -(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
 {
-#warning change pushes to online only
-    PFUser* sender = [PFUser currentUser];
-    PFUser* toSend = (PFUser *) _userList[rowIndex];
-    
-    PFQuery *qry = [PFInstallation query];
-    [qry whereKey:@"user" equalTo:toSend];
-    
-    NSString* realMsg = [NSString stringWithFormat:@"from %@", sender[@"fullname"]];
-    
-    int x = arc4random_uniform(7) + 1;
-    NSString* sound = [NSString stringWithFormat:@"%@%i.caf", [RecentInterfaceController randomSoundName], x]; ///Randomizes sound!!!
-    NSDictionary *data = @{ @"alert" : realMsg,
-                            @"sound" : sound,
-                            @"senderID" : sender.objectId,
-                            };
-    
-    PFPush *push = [[PFPush alloc] init];
-    [push setQuery:qry];
-    [push setData:data];
-    [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(error)
-        {
-            NSLog(@"Push Error: %@", error);
-        }
-    }];
-    
-    NSMutableArray* sendArr = [toSend objectForKey:@"revenge"];
-    NSString* userStr = sender.objectId;
-    
-    if([sendArr containsObject:userStr])
-    {
-        [sendArr removeObject:userStr];
-    }
-    if (sendArr.count == 5) {
-        [sendArr removeLastObject];
-    }
-    [sendArr insertObject:userStr atIndex:0];
-    
-    [PFCloud callFunctionInBackground:@"updateRevenge" withParameters:@{@"userId": toSend.objectId, @"newRev":sendArr} block:^(id object, NSError *error) {
-        if(error) { NSLog(@"Cloud error: %@", error); }
-    }];
+#warning send push online pls
+        
 }
 
 

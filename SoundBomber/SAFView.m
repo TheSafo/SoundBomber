@@ -173,7 +173,7 @@
     transanimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     transanimation.duration = duration;
     transanimation.cumulative = YES;
-    int offhalf = offset / 2;
+//    int offhalf = offset / 2;
     
 //    NSLog(@"%f", duration);
     
