@@ -166,7 +166,6 @@
     [self applyEarthquakeToView:_blendView duration:dur delay:0 offset:50];
 }
 
-#warning Change this animation later to real wubs
 - (void) applyEarthquakeToView:(UIView*)v duration:(double)duration delay:(float)delay offset:(int)offset {
     
     CAKeyframeAnimation *transanimation;
@@ -178,6 +177,11 @@
 //    NSLog(@"%f", duration);
     
     int numFrames = duration*10; //Frames per second is multiplied number
+    
+    if(numFrames < 2) {
+        numFrames = 4;
+    }
+    
     NSMutableArray *positions = [NSMutableArray array];
     NSMutableArray *keytimes  = [NSMutableArray array];
     NSMutableArray *timingfun = [NSMutableArray array];
