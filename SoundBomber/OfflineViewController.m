@@ -43,23 +43,13 @@
         _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
                                                          optionalDirectory:@"wormhole"];
          
-        int w, h;
-        w = self.view.frame.size.width;
-        //Top 50 of the app will be ad
-        if(ADS_ON)
-        {
-            h = self.view.frame.size.height - 50;
-        }
-        else
-        {
-            h = self.view.frame.size.height;
-        }
+        int w = self.view.frame.size.width;
+        int h = self.view.frame.size.height - 49;
         
 //        _settingsButton.frame = CGRectMake(w*13/16, 25 + 10, w/16, w/16);
 //        _cameraButton.frame = CGRectMake(w/8, 25 + 10, w/16, w/16);
         
         _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, 25 , w*7/8, h - (25 + 10)) andCamBut:_cameraButton andSetBut:_settingsButton];
-
         
 //        _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, h/32 + w/16 + 20, w*7/8, h - (h/32 + w/16 + 20 + 20))];
         

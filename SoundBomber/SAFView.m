@@ -184,7 +184,17 @@
     [positions addObject:[NSValue valueWithCATransform3D:CATransform3DIdentity]];
     [keytimes addObject:@(0)];
     
-    for (int i = 0; i < numFrames; i++) {
+    
+    double firstRotate = M_PI_4/2;
+
+    int x = arc4random_uniform(2);
+    
+    if(x == 1)
+    {
+        firstRotate *= -1;
+    }
+    
+    for (int i = 2; i < numFrames; i++) {
         
 #define ARC4RANDOM_MAX 0x100000000
 
@@ -194,7 +204,7 @@
 
         CATransform3D beforeScale = CATransform3DMakeTranslation(randomNumber* offset, randomNumber *offset,0);
         
-        beforeScale = CATransform3DRotate(beforeScale, M_PI_4/2 * pow(-1, i), 0, 0, 1);
+        beforeScale = CATransform3DRotate(beforeScale, firstRotate* pow(-1, i), 0, 0, 1);
         
         CATransform3D final = CATransform3DScale(beforeScale, i/2, i/2, 0);
         
