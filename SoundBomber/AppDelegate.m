@@ -39,7 +39,6 @@
     _wormHole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:@"group.com.gmail.jakesafo.SoundBomber"
                                                      optionalDirectory:@"wormhole"];
     
-    
     UIMutableUserNotificationAction *revenge = [[UIMutableUserNotificationAction alloc] init];
     
     // Define an ID string to be passed back to your app when you handle the action

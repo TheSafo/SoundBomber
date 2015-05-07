@@ -14,19 +14,28 @@ SINGLETON_INTR(AudioHelper);
 
 -(double)playRandomApprovedSound;
 +(NSString *)randomSoundName;
+-(void)playBombingSound;
 
 @property (nonatomic) double dontPlayUntil;
 
 
-#warning Sound list
+#warning TODO
 /*
- 1. Farts
- 2. Screams
- 3. Airhorns
+More sounds:
  4. Toilet Flush
  5. Sup
  6. Yee
  7. Nice La
+ animal
+ WAOW
+ 
+Photoshop old speaker away
+ 
+ color bomb image
+ 
+fix iwatch
+ 
+ remote push notifcations
  */
 
 @end

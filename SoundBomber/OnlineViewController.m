@@ -10,6 +10,7 @@
 #import "SAFParseHelper.h"
 #import "FriendTableViewCell.h"
 #import "UIView+Explode.h"
+#import "AudioHelper.h"
 
 @interface OnlineViewController ()
 
@@ -309,6 +310,8 @@
     
     [plane.layer addAnimation:planeAnim forKey:@"planeAnim"];
     [bomb.layer addAnimation:bombAnim forKey:@"bombAnim"];
+        
+    [[AudioHelper sharedInstance] playBombingSound];
 }
 
 - (UIImage *)imageFromLayer:(CALayer *)layer

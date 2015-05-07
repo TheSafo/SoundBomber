@@ -49,19 +49,27 @@
 }
 */
 
-
-- (void)didReceiveRemoteNotification:(NSDictionary *)remoteNotification withCompletion:(void (^)(WKUserNotificationInterfaceType))completionHandler {
-    // This method is called when a remote notification needs to be presented.
-    // Implement it if you use a dynamic notification interface.
-    // Populate your dynamic notification interface as quickly as possible.
-    //
-    // After populating your dynamic notification interface call the completion block.
-    
-    
-    NSString* cat = remoteNotification[@"aps"][@"category"];
-    
-    completionHandler(WKUserNotificationInterfaceTypeCustom);
+-(void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)remoteNotification
+{
+    if([identifier isEqualToString:@"revenge"]) {
+#warning push back
+    }
+    else {
+        NSLog(@"cant handle action");
+    }
 }
+
+//- (void)didReceiveRemoteNotification:(NSDictionary *)remoteNotification withCompletion:(void (^)(WKUserNotificationInterfaceType))completionHandler {
+//    // This method is called when a remote notification needs to be presented.
+//    // Implement it if you use a dynamic notification interface.
+//    // Populate your dynamic notification interface as quickly as possible.
+//    //
+//    // After populating your dynamic notification interface call the completion block.
+//    
+//    
+//    
+//    completionHandler(WKUserNotificationInterfaceTypeCustom);
+//}
 
 
 @end

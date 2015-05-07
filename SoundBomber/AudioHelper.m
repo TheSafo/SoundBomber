@@ -29,6 +29,17 @@ SINGLETON_IMPL(AudioHelper);
     return self;
 }
 
+-(void)playBombingSound
+{
+    
+    NSString* fileName = @"airstrike";
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
+    NSURL* fileURL = [NSURL fileURLWithPath:filePath];
+    _curPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
+    
+    [_curPlayer play];
+}
+
 +(NSString *)randomSoundName
 {
     NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
