@@ -10,6 +10,7 @@
 		15C1AB3D04D5B0115FA57789 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19920590E97860DB56B1A8D9 /* libPods.a */; };
 		43096DD51AF54B6D00BB817B /* bigSpeaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD41AF54B6D00BB817B /* bigSpeaker.png */; };
 		43096DD71AF594C900BB817B /* AppIcons in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD61AF594C900BB817B /* AppIcons */; };
+		431309741AFBC506009D668E /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 431309731AFBC506009D668E /* explosion.wav */; };
 		432B0C531AD3B3A80086B4A3 /* cameraBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C511AD3B3A80086B4A3 /* cameraBtn.png */; };
 		432B0C541AD3B3A80086B4A3 /* settingsBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C521AD3B3A80086B4A3 /* settingsBtn.png */; };
 		432B0C571AD3BA770086B4A3 /* speaker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C561AD3BA770086B4A3 /* speaker1.png */; };
@@ -115,6 +116,7 @@
 		343B2E21D762127757DE397A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		43096DD41AF54B6D00BB817B /* bigSpeaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigSpeaker.png; sourceTree = "<group>"; };
 		43096DD61AF594C900BB817B /* AppIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcons; sourceTree = "<group>"; };
+		431309731AFBC506009D668E /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 		432B0C511AD3B3A80086B4A3 /* cameraBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraBtn.png; sourceTree = "<group>"; };
 		432B0C521AD3B3A80086B4A3 /* settingsBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsBtn.png; sourceTree = "<group>"; };
 		432B0C551AD3B3D80086B4A3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		432B0C621AD48B3E0086B4A3 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				431309731AFBC506009D668E /* explosion.wav */,
 				439238F21AEFF4CE00644E1B /* Horn4.caf */,
 				439238F31AEFF4CE00644E1B /* Horn5.caf */,
 				439238F41AEFF4CE00644E1B /* Horn6.caf */,
@@ -574,6 +577,7 @@
 				436EB9621AD37E8100A404B7 /* LaunchScreen.xib in Resources */,
 				439238EF1AEFF3E300644E1B /* Scream5.caf in Resources */,
 				432B0C6B1AD48B3E0086B4A3 /* airstrike.mp3 in Resources */,
+				431309741AFBC506009D668E /* explosion.wav in Resources */,
 				437AECA71AF441B0009EE056 /* speakerIcon3x.png in Resources */,
 				432B0C6E1AD48B3E0086B4A3 /* Fart3.caf in Resources */,
 				437AECAA1AF44467009EE056 /* bomb2x.png in Resources */,

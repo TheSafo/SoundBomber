@@ -12,6 +12,10 @@
 
 @property (nonatomic,strong) AVAudioPlayer *curPlayer;
 
+@property (nonatomic,strong) AVAudioPlayer *bombPlyr;
+@property (nonatomic,strong) AVAudioPlayer *planePlyr;
+
+
 
 @end
 
@@ -23,21 +27,24 @@ SINGLETON_IMPL(AudioHelper);
 {
     if(self = [super init])
     {
-
+        NSString* fileName = @"airstrike";
+        NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
+        NSURL* fileURL = [NSURL fileURLWithPath:filePath];
+        _planePlyr = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
         
+        NSString* fileName2 = @"explosion";
+        NSString* filePath2 = [[NSBundle mainBundle] pathForResource:fileName2 ofType:@"wav"];
+        NSURL* fileURL2 = [NSURL fileURLWithPath:filePath2];
+        _bombPlyr = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL2 error:nil];
     }
     return self;
 }
 
 -(void)playBombingSound
 {
+    [_planePlyr play];
     
-    NSString* fileName = @"airstrike";
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
-    NSURL* fileURL = [NSURL fileURLWithPath:filePath];
-    _curPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
-    
-    [_curPlayer play];
+    [_bombPlyr performSelector:@selector(play) withObject:nil afterDelay:1.4];
 }
 
 +(NSString *)randomSoundName
