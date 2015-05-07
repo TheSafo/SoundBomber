@@ -16,6 +16,11 @@
 @property (nonatomic) NSMutableArray* userList;
 @property (nonatomic) MMWormhole* wormHole;
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *placeholderLabel;
+@property (nonatomic) NSString* userId;
+@property (strong, nonatomic) IBOutlet WKInterfaceTimer *timer;
+@property (nonatomic) BOOL timerOn;
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *sentLabel;
+
 
 
 @end
@@ -25,6 +30,9 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
+    _timerOn = NO;
+    
+    [self.sentLabel setHidden:YES];
 //    self.table.is
 //    
 //    [Parse setApplicationId:@"uMliPzHbld4jXu2ioup34R072sw1ZXICsH9dGfQf"
@@ -37,6 +45,10 @@
         return;
     }
     
+    [RecentInterfaceController openParentApplication:@{@"operation":@"getUserId"} reply:^(NSDictionary *replyInfo, NSError *error) {
+        _userId = replyInfo[@"response"];
+    }];
+    
     
     PFQuery* usrQry = [PFUser query];
     [usrQry whereKey:@"objectId" containedIn:recentIds];
@@ -44,7 +56,6 @@
     [usrQry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         _userList = [NSMutableArray arrayWithArray:objects];
-//        [self loadTable];
     }];
 
 }
@@ -54,6 +65,23 @@
 {
     [self.placeholderLabel setHidden:NO];
     [self.table setHidden:YES];
+    [self.timer setHidden:YES];
+}
+
+-(void)timerDone
+{
+    [self.timer setHidden:YES];
+    [self.sentLabel setHidden:NO];
+    
+    [self performSelector:@selector(reshowTable) withObject:nil afterDelay:3];
+}
+
+-(void)reshowTable
+{
+    [self.sentLabel setHidden:YES];
+    [self.table setHidden:NO];
+    [self loadTable];
+    _timerOn = NO;
 }
 
 
@@ -66,6 +94,7 @@
     }
     
     [self.placeholderLabel setHidden:YES];
+    [self.timer setHidden:YES];
     [self.table setHidden:NO];
     
     [self.table setNumberOfRows:_userList.count withRowType:@"SAFRowController"];
@@ -87,7 +116,10 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
-    
+    if(_timerOn)
+    {
+        return;
+    }
     if (_userList.count == 0) {
         [self showPlaceholder];
     }
@@ -122,8 +154,60 @@
 
 -(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
 {
-#warning send push online pls
-        
+#warning send push online pls, update both revenge lists
+    [self updateAfterPushTo: _userList[rowIndex]];
+}
+
+
+-(void)updateAfterPushTo: (PFUser *)toSend
+{
+    [self.table setHidden:YES];
+    [self.placeholderLabel setHidden:YES];
+    [self.timer setHidden:NO];
+    
+    
+    int x = arc4random_uniform(4) + 2;
+    
+    [NSTimer scheduledTimerWithTimeInterval:x target:self selector:@selector(timerDone) userInfo:nil repeats:NO];
+    [self.timer setDate:[NSDate dateWithTimeIntervalSinceNow:x]];
+    [self.timer start];
+    _timerOn = YES;
+    
+    
+//    NSMutableArray* revenge = [PFUser currentUser];
+    NSMutableArray* recent = _userList;
+    //    NSMutableArray* friends = _friendsLists[2];
+//    
+//    if([revenge containsObject:toSend])
+//    {
+//        [revenge removeObject:toSend];
+//    }
+//    
+    
+    if([recent containsObject:toSend])
+    {
+        [recent removeObject:toSend];
+    }
+    if (recent.count == 5) {
+        [recent removeLastObject];
+    }
+    [recent insertObject:toSend atIndex:0];
+    
+    //Save recent + revenge list
+    
+    NSMutableArray* recentIds = [NSMutableArray array];
+    for (int x = 0; x < recent.count; x++) {
+        recentIds[x] = ((PFUser *)recent[x]).objectId;
+    }
+    
+    [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setObject:recentIds forKey:@"recent"];
+    _userList = recent;
+    
+//    [PFUser currentUser][@"revenge"] = revenge;
+//    [[PFUser currentUser] saveInBackground];
+//    
+    
+//    [self loadTable];
 }
 
 

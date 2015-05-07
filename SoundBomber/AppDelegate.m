@@ -191,23 +191,23 @@
 
 -(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
 {
-    __block UIBackgroundTaskIdentifier identifier = UIBackgroundTaskInvalid;
-    dispatch_block_t endBlock = ^{
-        if (identifier != UIBackgroundTaskInvalid) {
-            [application endBackgroundTask:identifier];
-        }
-        identifier = UIBackgroundTaskInvalid;
-    };
+//    __block UIBackgroundTaskIdentifier identifier = UIBackgroundTaskInvalid;
+//    dispatch_block_t endBlock = ^{
+//        if (identifier != UIBackgroundTaskInvalid) {
+//            [application endBackgroundTask:identifier];
+//        }
+//        identifier = UIBackgroundTaskInvalid;
+//    };
     
-    identifier = [application beginBackgroundTaskWithExpirationHandler:endBlock];
+//    identifier = [application beginBackgroundTaskWithExpirationHandler:endBlock];
     
     // Wacky but the block will capture the outer reply inside but then later we can still simply call reply - Thanks Dave D!
-    reply = ^(NSDictionary* replyInfo) {
-        reply(replyInfo);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
-            endBlock();
-        });
-    };
+//    reply = ^(NSDictionary* replyInfo) {
+//        reply(replyInfo);
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+//            endBlock();
+//        });
+//    };
     
     
     if([userInfo[@"operation"] isEqualToString:@"localFart"]) {
@@ -218,17 +218,11 @@
     else if([userInfo[@"operation"] isEqualToString:@"getRecent"]) {
         
         reply(@{@"response":[PFUser currentUser].objectId});
-
+        return;
+    }
+    else if ([userInfo[@"operation"] isEqualToString:@"getUserId"]) {
         
-//        NSArray* recentIDs = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"recent"];
-//        
-//        PFQuery* usrQry = [PFUser query];
-//        
-//        [usrQry whereKey:@"objectId" containedIn:recentIDs];
-//        [usrQry findObjectsInBackgroundWithBlock:^(NSArray * objects, NSError *PF_NULLABLE_S error) {
-//            [_wormHole passMessageObject:objects identifier:@"recentUsers"];
-//        }];
-//        
+        reply(@{@"response":[PFUser currentUser].objectId});
         return;
     }
 }

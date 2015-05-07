@@ -31,11 +31,14 @@ SINGLETON_IMPL(AudioHelper);
         NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
         NSURL* fileURL = [NSURL fileURLWithPath:filePath];
         _planePlyr = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
+        _planePlyr.volume = .2;
         
         NSString* fileName2 = @"explosion";
         NSString* filePath2 = [[NSBundle mainBundle] pathForResource:fileName2 ofType:@"wav"];
         NSURL* fileURL2 = [NSURL fileURLWithPath:filePath2];
         _bombPlyr = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL2 error:nil];
+        
+        _bombPlyr.volume = 1;
     }
     return self;
 }
@@ -73,24 +76,6 @@ SINGLETON_IMPL(AudioHelper);
 
 -(double)playRandomApprovedSound
 {
-//    NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
-//    
-//    NSMutableArray* toChooseFrom = [NSMutableArray array];
-//    for (NSString* str in enabledSounds.allKeys) {
-//        id isEnabled = enabledSounds[str];
-//        
-//        if([isEnabled boolValue])
-//        {
-//            [toChooseFrom addObject:str];
-//        }
-//    }
-//    
-//    int x = arc4random_uniform((int) toChooseFrom.count);
-//    NSString* chosen = toChooseFrom[x];
-//    
-//    int y = arc4random_uniform(7) + 1; //7 random sounds per sound
-    
-    
     NSString* fileName = [AudioHelper randomSoundName];
     NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"caf"];
     NSURL* fileURL = [NSURL fileURLWithPath:filePath];

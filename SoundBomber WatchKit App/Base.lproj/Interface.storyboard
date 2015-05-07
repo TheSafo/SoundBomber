@@ -46,10 +46,16 @@
                             </items>
                         </table>
                         <label width="1" alignment="center" verticalAlignment="center" text="No users in recent list." textAlignment="center" numberOfLines="3" id="w8q-UZ-5M1"/>
+                        <timer alignment="center" verticalAlignment="center" textAlignment="center" format="abbreviated" previewedSeconds="15" id="tz4-kI-CDa">
+                            <calendarUnit key="units" second="YES"/>
+                        </timer>
+                        <label alignment="center" verticalAlignment="center" text="Sound Bombed!" id="mDp-Wv-9I3"/>
                     </items>
                     <connections>
                         <outlet property="placeholderLabel" destination="w8q-UZ-5M1" id="kxg-NP-mi6"/>
+                        <outlet property="sentLabel" destination="mDp-Wv-9I3" id="n5p-QS-hHK"/>
                         <outlet property="table" destination="B8f-Jx-og6" id="4ch-MB-Yyo"/>
+                        <outlet property="timer" destination="tz4-kI-CDa" id="RqE-pZ-rM5"/>
                     </connections>
                 </controller>
             </objects>
