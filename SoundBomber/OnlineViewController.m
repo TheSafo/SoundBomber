@@ -186,6 +186,7 @@
 
 - (void)didSelectSegmentAtIndex:(NSUInteger)segmentIndex segmentedControl:(RS3DSegmentedControl *)segmentedControl
 {
+    segmentedControl.selectedSegmentIndex = segmentIndex;
     _curSound = [self titleForSegmentAtIndex:segmentIndex segmentedControl:_soundPicker];
 }
 

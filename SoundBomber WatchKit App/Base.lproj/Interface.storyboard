@@ -29,6 +29,7 @@
             <objects>
                 <controller identifier="RecentInterfaceController" id="opd-kc-Qhi" customClass="RecentInterfaceController">
                     <items>
+                        <label alignment="center" text="Recents" textAlignment="left" id="cua-CL-bai"/>
                         <table alignment="left" id="B8f-Jx-og6">
                             <items>
                                 <tableRow identifier="SAFRowController" id="sG7-C6-XEe" customClass="SAFRowController">
