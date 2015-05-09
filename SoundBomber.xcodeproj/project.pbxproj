@@ -63,7 +63,6 @@
 		43BD38601AF7D348001243BF /* RecentInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BD385F1AF7D348001243BF /* RecentInterfaceController.m */; };
 		43D456B61AFC18E100127E64 /* colorBomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D456B51AFC18E100127E64 /* colorBomb.png */; };
 		43DE053E1AF7C30F00BDA4A2 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE053D1AF7C30F00BDA4A2 /* InterfaceController.m */; };
-		43DE05411AF7C30F00BDA4A2 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE05401AF7C30F00BDA4A2 /* NotificationController.m */; };
 		43DE05431AF7C30F00BDA4A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05421AF7C30F00BDA4A2 /* Images.xcassets */; };
 		43DE05471AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05461AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app */; };
 		43DE054F1AF7C30F00BDA4A2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DE054D1AF7C30F00BDA4A2 /* Interface.storyboard */; };
@@ -190,8 +189,6 @@
 		43DE053B1AF7C30F00BDA4A2 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		43DE053C1AF7C30F00BDA4A2 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
 		43DE053D1AF7C30F00BDA4A2 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
-		43DE053F1AF7C30F00BDA4A2 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
-		43DE05401AF7C30F00BDA4A2 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		43DE05421AF7C30F00BDA4A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		43DE05461AF7C30F00BDA4A2 /* SoundBomber WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoundBomber WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DE054C1AF7C30F00BDA4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -380,8 +377,6 @@
 				43BD385F1AF7D348001243BF /* RecentInterfaceController.m */,
 				439C727B1AF7DE1F00ABD158 /* SAFRowController.h */,
 				439C727C1AF7DE1F00ABD158 /* SAFRowController.m */,
-				43DE053F1AF7C30F00BDA4A2 /* NotificationController.h */,
-				43DE05401AF7C30F00BDA4A2 /* NotificationController.m */,
 				43DE05421AF7C30F00BDA4A2 /* Images.xcassets */,
 				43DE05391AF7C30F00BDA4A2 /* Supporting Files */,
 			);
@@ -743,7 +738,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43DE05411AF7C30F00BDA4A2 /* NotificationController.m in Sources */,
 				43DE053E1AF7C30F00BDA4A2 /* InterfaceController.m in Sources */,
 				43BD38601AF7D348001243BF /* RecentInterfaceController.m in Sources */,
 				439C727D1AF7DE1F00ABD158 /* SAFRowController.m in Sources */,

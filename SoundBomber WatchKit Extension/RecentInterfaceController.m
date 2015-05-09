@@ -166,7 +166,7 @@
     [self.timer setHidden:NO];
     
     
-    int x = arc4random_uniform(4) + 2;
+    int x = arc4random_uniform(4) + 3;
     
     [NSTimer scheduledTimerWithTimeInterval:x target:self selector:@selector(timerDone) userInfo:nil repeats:NO];
     [self.timer setDate:[NSDate dateWithTimeIntervalSinceNow:x]];
