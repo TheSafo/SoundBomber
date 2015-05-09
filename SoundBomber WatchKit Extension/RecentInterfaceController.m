@@ -128,7 +128,7 @@
     }
 }
 
-+(NSString *)randomSoundName
+-(NSString *)randomSoundName
 {
     NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
     
@@ -154,8 +154,18 @@
 
 -(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
 {
-#warning send push online pls, update both revenge lists
     [self updateAfterPushTo: _userList[rowIndex]];
+    
+    NSString* toSendId = ((PFUser *)_userList[rowIndex]).objectId;
+    NSString* senderId = _userId;
+    NSString* soundName = [self randomSoundName];
+    
+    NSDictionary* params = @{ @"senderId": senderId, @"toSendId": toSendId, @"soundName": soundName };
+    
+    [PFCloud callFunctionInBackground:@"sendPush" withParameters:params block:^(id object, NSError *error) {
+        if(error) { NSLog(@"Cloud error: %@", error); }
+    }];
+        
 }
 
 
