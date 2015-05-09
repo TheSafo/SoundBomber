@@ -35,7 +35,7 @@
         
         _blendView = [[UIImageView alloc] init];
 
-        _mainView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"bigSpeaker"]];
+        _mainView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"bigSpeaker2"]];
         
         _mainView.frame = self.bounds;
         
