@@ -308,7 +308,8 @@
 
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    
+    [_bomb removeFromSuperview];
+    [_plane removeFromSuperview];
 }
 
 - (UIImage *)imageFromLayer:(CALayer *)layer
