@@ -50,35 +50,27 @@
         if(ADS_ON) {
             h = self.view.frame.size.height - 49 - 50;
             adOffset = 50;
-            [self.view addSubview:[AdSingleton sharedInstance].adBanner];
         }
         else {
             h = self.view.frame.size.height - 49;
             adOffset = 0;
         }
         
-//        _settingsButton.frame = CGRectMake(w*13/16, 25 + 10, w/16, w/16);
-//        _cameraButton.frame = CGRectMake(w/8, 25 + 10, w/16, w/16);
-        
-        
         _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, 20 + adOffset , w*7/8, h - (20)) andCamBut:_cameraButton andSetBut:_settingsButton];
-        
-//        _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, h/32 + w/16 + 20, w*7/8, h - (h/32 + w/16 + 20 + 20))];
-        
-//        _mainView.backgroundColor = [UIColor yellowColor];
-//        _settingsButton.backgroundColor = [UIColor greenColor];
-//        _cameraButton.backgroundColor = [UIColor blueColor];
 
         [self.view addSubview:_mainView];
-        
-//        [self.view addSubview:_settingsButton];
-//        [self.view addSubview:_cameraButton];
-        
-        
-//        _audioHelper = [[AudioHelper alloc] init];
     }
     
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if(ADS_ON) {
+        [self.view addSubview:[AdSingleton sharedInstance].adBanner];
+    }
 }
 
 #pragma mark - Camera Button Stuffs
@@ -167,13 +159,12 @@
 
 -(void)settingsPressed
 {
-    UINavigationController* navCtrlr = [[UINavigationController alloc] initWithRootViewController:[[SettingsViewController alloc] init]];
+//    UINavigationController* navCtrlr = [[UINavigationController alloc] initWithRootViewController:[[SettingsViewController alloc] init]];
 //    navCtrlr.navigationBar.backgroundColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];//[UIColor yellowColor];
-    navCtrlr.navigationBar.translucent = YES;
-    navCtrlr.navigationBar.barTintColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
+//    navCtrlr.navigationBar.translucent = YES;
+//    navCtrlr.navigationBar.barTintColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
     
-    
-    [self presentViewController:navCtrlr  animated:YES completion:^{
+    [self presentViewController: [[SettingsViewController alloc] init]  animated:YES completion:^{
         NSLog(@"Presented Settings");
     }];
 }

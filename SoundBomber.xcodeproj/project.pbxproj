@@ -10,7 +10,6 @@
 		15C1AB3D04D5B0115FA57789 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19920590E97860DB56B1A8D9 /* libPods.a */; };
 		4302B4541AFDB03300A7529E /* AdSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4511AFDB03300A7529E /* AdSingleton.m */; };
 		4302B4551AFDB03300A7529E /* StoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4531AFDB03300A7529E /* StoreManager.m */; };
-		4302B4581AFDB51700A7529E /* RemoveAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4571AFDB51700A7529E /* RemoveAdsViewController.m */; };
 		4302B45B1AFDB6F700A7529E /* remove2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4302B4591AFDB6F700A7529E /* remove2x.png */; };
 		4302B45C1AFDB6F700A7529E /* remove3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4302B45A1AFDB6F700A7529E /* remove3x.png */; };
 		4302B45E1AFDC01800A7529E /* atomicColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 4302B45D1AFDC01800A7529E /* atomicColor.png */; };
@@ -132,8 +131,6 @@
 		4302B4511AFDB03300A7529E /* AdSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSingleton.m; sourceTree = "<group>"; };
 		4302B4521AFDB03300A7529E /* StoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreManager.h; sourceTree = "<group>"; };
 		4302B4531AFDB03300A7529E /* StoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreManager.m; sourceTree = "<group>"; };
-		4302B4561AFDB51700A7529E /* RemoveAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveAdsViewController.h; sourceTree = "<group>"; };
-		4302B4571AFDB51700A7529E /* RemoveAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveAdsViewController.m; sourceTree = "<group>"; };
 		4302B4591AFDB6F700A7529E /* remove2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remove2x.png; sourceTree = "<group>"; };
 		4302B45A1AFDB6F700A7529E /* remove3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remove3x.png; sourceTree = "<group>"; };
 		4302B45D1AFDC01800A7529E /* atomicColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atomicColor.png; sourceTree = "<group>"; };
@@ -350,8 +347,6 @@
 				432B0C731AD4D4520086B4A3 /* SoundBomber.entitlements */,
 				436EB9551AD37E8100A404B7 /* AppDelegate.h */,
 				436EB9561AD37E8100A404B7 /* AppDelegate.m */,
-				4302B4561AFDB51700A7529E /* RemoveAdsViewController.h */,
-				4302B4571AFDB51700A7529E /* RemoveAdsViewController.m */,
 				4367B7501AD3ADC50032C4F8 /* OfflineViewController.h */,
 				4367B7511AD3ADC50032C4F8 /* OfflineViewController.m */,
 				439CC2221AF1440500B74EA1 /* SettingsViewController.h */,
@@ -778,7 +773,6 @@
 				436EB9571AD37E8100A404B7 /* AppDelegate.m in Sources */,
 				4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */,
 				436EB9541AD37E8100A404B7 /* main.m in Sources */,
-				4302B4581AFDB51700A7529E /* RemoveAdsViewController.m in Sources */,
 				4302B4551AFDB03300A7529E /* StoreManager.m in Sources */,
 				43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */,
 				439CC2241AF1440500B74EA1 /* SettingsViewController.m in Sources */,

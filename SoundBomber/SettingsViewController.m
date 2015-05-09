@@ -25,13 +25,14 @@
         int w = self.view.bounds.size.width;
         int h = self.view.bounds.size.height;
         
-        UIView* fakeTabBar = [[UIView alloc] initWithFrame:CGRectMake(0, h-49, w, 49)];
+        UIView* fakeNavBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 100)];
+        fakeNavBar.backgroundColor =[UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
+        
+        UIView* fakeTabBar = [[UIView alloc] initWithFrame:CGRectMake(0, h-100, w, 100)];
         fakeTabBar.backgroundColor =[UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];// [UIColor colorWithRed:1 green:1 blue:0 alpha:.3];
         
-//        self.view.backgroundColor = [UIColor redColor];
-        
         UIButton* back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        back.frame = CGRectMake(w/4, (h - 49) + 4.5, w/2, 40);
+        back.frame = CGRectMake(w/4, h - 45, w/2, 40);
         back.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1]; //FB blue
         back.layer.borderWidth = 2;
         back.layer.cornerRadius = 4;
@@ -39,15 +40,68 @@
         [back setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [back addTarget:self action:@selector(backPressed) forControlEvents:UIControlEventTouchUpInside];
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, w, h-49) style:UITableViewStylePlain];
+        
+        UIButton* purchButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        purchButton.frame = CGRectMake(w/8 - 5, h - 50 - 45, w*3/8, 40);
+        [purchButton addTarget:self action:@selector(purchasePressed) forControlEvents:UIControlEventTouchUpInside];
+        [purchButton setTitle:@"Remove Ads" forState:UIControlStateNormal];
+        [purchButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        purchButton.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1]; //FB blue
+        purchButton.layer.cornerRadius = 5;
+        purchButton.layer.borderWidth = 2;
+        
+        
+        UIButton* restorePurchase = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        if(ADS_ON) {
+            restorePurchase.frame = CGRectMake(w/2 + 5, h - 50 - 45, w*3/8, 40);
+        }
+        else {
+            restorePurchase.frame = CGRectMake(w/4, h - 45 - 50, w/2, 40);
+        }
+        [restorePurchase addTarget:self action:@selector(restorePressed) forControlEvents:UIControlEventTouchUpInside];
+        [restorePurchase setTitle:@"Restore Purchase" forState:UIControlStateNormal];
+        [restorePurchase setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        restorePurchase.backgroundColor = [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1]; //FB blue
+        restorePurchase.layer.cornerRadius = 5;
+        restorePurchase.layer.borderWidth = 2;
+
+
+        
+        
+        UILabel* lbl = [[UILabel alloc] init];
+        lbl.frame = CGRectMake(0, 70, w, 30);
+        lbl.textAlignment = NSTextAlignmentCenter;
+        lbl.text = @"Enabled Sounds";
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, w, h-100-100) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-
+        
         [self.view addSubview:_tableView];
+        [self.view addSubview:fakeNavBar];
         [self.view addSubview:fakeTabBar];
+        if(ADS_ON) {
+            [self.view addSubview:[AdSingleton sharedInstance].adBanner];
+        }
+        [self.view addSubview:lbl];
         [self.view addSubview:back];
+        
+        if(ADS_ON) {
+            [self.view addSubview:purchButton];
+        }
+        [self.view addSubview:restorePurchase];
     }
     return self;
+}
+
+-(void) purchasePressed
+{
+    [[StoreManager sharedInstance] purchaseAds];
+}
+
+-(void) restorePressed
+{
+    [[StoreManager sharedInstance] restorePurchase];
 }
 
 -(void)backPressed
