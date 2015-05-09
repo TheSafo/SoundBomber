@@ -55,7 +55,20 @@
     
     [usrQry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        _userList = [NSMutableArray arrayWithArray:objects];
+        NSArray *sortedArray;
+        sortedArray = [objects sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            NSString *first = [(PFUser*)a objectId];
+            NSString *second = [(PFUser*)b objectId];
+            
+            NSUInteger firstIdx = [recentIds indexOfObject:first];
+            NSUInteger secondIdx = [recentIds indexOfObject:second];
+            
+            return firstIdx - secondIdx;
+        }];
+        
+        _userList = [NSMutableArray arrayWithArray:sortedArray];
+        
+        
     }];
 
 }
@@ -176,7 +189,7 @@
     [self.timer setHidden:NO];
     
     
-    int x = arc4random_uniform(4) + 3;
+    int x = arc4random_uniform(5) + 3;
     
     [NSTimer scheduledTimerWithTimeInterval:x target:self selector:@selector(timerDone) userInfo:nil repeats:NO];
     [self.timer setDate:[NSDate dateWithTimeIntervalSinceNow:x]];
