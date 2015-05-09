@@ -32,6 +32,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    [[StoreManager sharedInstance] updatePurchaseInfo];
+    
+    [AdSingleton sharedInstance].adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, -50, self.window.frame.size.width, 50)];
+    [AdSingleton sharedInstance].adBanner.delegate = [AdSingleton sharedInstance];
+    
     /* Start Audio for the app */
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     
@@ -123,6 +128,7 @@
     if(![[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] valueForKey:@"enabledSounds"]) {
         NSMutableDictionary* enabledSounds = [NSMutableDictionary dictionaryWithDictionary:@{ @"Fart":@YES, @"Scream":@YES, @"Horn":@YES }];
         [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setValue:enabledSounds forKey:@"enabledSounds"];
+        [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setValue:@(1) forKey:@"soundVersion"];
     }
     
 

@@ -42,7 +42,13 @@
         int w = _mainView.frame.size.width;
         int h = _mainView.frame.size.height;
         
-        _blendView.frame = CGRectMake(w/16, h*.375, w*7/8, w*7/8);
+        
+        if(ADS_ON) {
+            _blendView.frame = CGRectMake(w/16, h*.35, w*7/8, w*7/8);
+        }
+        else {
+            _blendView.frame = CGRectMake(w/16, h*.375, w*7/8, w*7/8);
+        }
         
         
         

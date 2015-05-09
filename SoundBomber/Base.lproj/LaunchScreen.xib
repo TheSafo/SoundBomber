@@ -24,7 +24,7 @@
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="barTintColor" red="0.58431372550000005" green="0.80392156859999997" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                 </tabBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigSpeaker2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-Em-iKF">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-Em-iKF">
                     <rect key="frame" x="30" y="25" width="420" height="396"/>
                 </imageView>
             </subviews>
@@ -58,7 +58,6 @@
         </view>
     </objects>
     <resources>
-        <image name="bigSpeaker2.png" width="1053" height="1603"/>
         <image name="bombIcon" width="25" height="25"/>
         <image name="speakerIcon" width="25" height="25"/>
     </resources>

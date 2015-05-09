@@ -21,21 +21,14 @@
 #import <RS3DSegmentedControl/RS3DSegmentedControl.h>
 #import <Blockskit/UIAlertView+BlocksKit.h>
 #import <Pop/POP.h>
+#import "StoreManager.h"
+#import "AdSingleton.h"
+
+
+#define ADS_ON ![StoreManager sharedInstance].adsPurchased
 
 
 
-
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-
-//[StoreManager sharedInstance].adsPurchased;
-//[StoreManger sharedInstance].customPurchased;
-//#define ADS_ON ![StoreManager sharedInstance].adsPurchased
-//#define CUSTOM_MSG_ON [StoreManager sharedInstance].customPurchased
-//#define ADS_ON 0
 
 // DLog is almost a drop-in replacement for NSLog
 // DLog();

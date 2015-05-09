@@ -21,15 +21,18 @@ SINGLETON_INTR(AudioHelper);
 
 #warning TODO
 /*
-More sounds:
- 4. Toilet Flush
- 5. Sup
- 6. Yee
- 7. Nice La
- animal
- WAOW
-  
- remote push notifcations
+ Explosion animation
+ 
+ Ads and removal of ads
+ 
+ Possibly more sounds:
+     Toilet Flush
+     Sup
+     Yee
+     Nice La
+     animal
+     WAOW
+ 
  */
 
 @end

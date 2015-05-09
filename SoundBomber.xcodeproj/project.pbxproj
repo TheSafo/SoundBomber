@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		15C1AB3D04D5B0115FA57789 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19920590E97860DB56B1A8D9 /* libPods.a */; };
+		4302B4541AFDB03300A7529E /* AdSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4511AFDB03300A7529E /* AdSingleton.m */; };
+		4302B4551AFDB03300A7529E /* StoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4531AFDB03300A7529E /* StoreManager.m */; };
 		43096DD51AF54B6D00BB817B /* bigSpeaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD41AF54B6D00BB817B /* bigSpeaker.png */; };
 		43096DD71AF594C900BB817B /* AppIcons in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD61AF594C900BB817B /* AppIcons */; };
 		431309741AFBC506009D668E /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 431309731AFBC506009D668E /* explosion.wav */; };
@@ -115,6 +117,10 @@
 /* Begin PBXFileReference section */
 		19920590E97860DB56B1A8D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		343B2E21D762127757DE397A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4302B4501AFDB03300A7529E /* AdSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSingleton.h; sourceTree = "<group>"; };
+		4302B4511AFDB03300A7529E /* AdSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSingleton.m; sourceTree = "<group>"; };
+		4302B4521AFDB03300A7529E /* StoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreManager.h; sourceTree = "<group>"; };
+		4302B4531AFDB03300A7529E /* StoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreManager.m; sourceTree = "<group>"; };
 		43096DD41AF54B6D00BB817B /* bigSpeaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigSpeaker.png; sourceTree = "<group>"; };
 		43096DD61AF594C900BB817B /* AppIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcons; sourceTree = "<group>"; };
 		431309731AFBC506009D668E /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
@@ -331,6 +337,10 @@
 				43FC78EA1ADC18A5007CB16B /* SAFParseHelper.m */,
 				432B0C5F1AD48A600086B4A3 /* AudioHelper.h */,
 				432B0C601AD48A600086B4A3 /* AudioHelper.m */,
+				4302B4501AFDB03300A7529E /* AdSingleton.h */,
+				4302B4511AFDB03300A7529E /* AdSingleton.m */,
+				4302B4521AFDB03300A7529E /* StoreManager.h */,
+				4302B4531AFDB03300A7529E /* StoreManager.m */,
 				43FC78EC1ADC2CFE007CB16B /* Singleton.h */,
 				43FC78ED1ADC2CFE007CB16B /* Singleton.m */,
 				436EB95E1AD37E8100A404B7 /* Images.xcassets */,
@@ -716,12 +726,14 @@
 			files = (
 				43FC78EB1ADC18A5007CB16B /* SAFParseHelper.m in Sources */,
 				4367B7521AD3ADC50032C4F8 /* OfflineViewController.m in Sources */,
+				4302B4541AFDB03300A7529E /* AdSingleton.m in Sources */,
 				432B0C5A1AD3BBFF0086B4A3 /* SAFView.m in Sources */,
 				4344BAB71AFA703600E6C3B1 /* UIView+Explode.m in Sources */,
 				43801A171AE758FE009B717B /* FriendTableViewCell.m in Sources */,
 				436EB9571AD37E8100A404B7 /* AppDelegate.m in Sources */,
 				4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */,
 				436EB9541AD37E8100A404B7 /* main.m in Sources */,
+				4302B4551AFDB03300A7529E /* StoreManager.m in Sources */,
 				43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */,
 				439CC2241AF1440500B74EA1 /* SettingsViewController.m in Sources */,
 				432B0C611AD48A600086B4A3 /* AudioHelper.m in Sources */,
