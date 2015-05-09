@@ -25,8 +25,8 @@
 #import "AdSingleton.h"
 
 
-//#define ADS_ON ![StoreManager sharedInstance].adsPurchased
-#define ADS_ON 0
+#define ADS_ON ![StoreManager sharedInstance].adsPurchased
+//#define ADS_ON 0
 
 
 
