@@ -19,6 +19,8 @@
 @property(nonatomic) RS3DSegmentedControl* soundPicker;
 @property (nonatomic) NSString* curSound;
 
+@property (nonatomic) ADInterstitialAd* theAd;
+
 @property (nonatomic) UIImageView* plane;
 @property (nonatomic) UIImageView* bomb;
 
@@ -38,6 +40,7 @@
         //149 205 222
 
         self.view.backgroundColor =  [UIColor colorWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];//FB blue
+        
         
 
         if([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) /* If logged in */ {
@@ -146,6 +149,12 @@
     
     [self.view addSubview:_tableView];
     [self.view addSubview:_soundPicker];
+    
+    if(ADS_ON)
+    {
+        _theAd = [[ADInterstitialAd alloc] init];
+        _theAd.delegate = self;
+    }
 }
 
 -(void)refreshData
@@ -262,14 +271,19 @@
     
     _plane = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomber.png"]];
     _bomb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorBomb.png"]];
+//    _explosion = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"atomicColor.png"]];
     
 
     
     _plane.frame = CGRectMake(w, h/4, 100, 100);
     _bomb.frame = CGRectMake(w, h/4, 40, 40);
+//    _explosion.frame = CGRectMake(w/4 - 10, h*3/4 - 10, 20, 20);
     
+//    [_explosion setHidden:YES];
+
     [self.view addSubview:_bomb];
     [self.view addSubview:_plane];
+//    [self.view addSubview:_explosion];
     
     UIBezierPath* bombPath = [[UIBezierPath alloc] init];
     [bombPath moveToPoint:CGPointMake(w, h/4)];
@@ -277,14 +291,13 @@
     [bombPath addQuadCurveToPoint:CGPointMake(w/4, h*3/4) controlPoint:CGPointMake(w/2, h/4+50)];
     
     
-    double delay = 0;
     
     CAKeyframeAnimation *bombAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     bombAnim.path = bombPath.CGPath;
     bombAnim.rotationMode = kCAAnimationRotateAutoReverse;
     bombAnim.repeatCount = 0;
     bombAnim.duration = 1.5;
-    bombAnim.beginTime = CACurrentMediaTime() + delay;
+    bombAnim.beginTime = CACurrentMediaTime();
     bombAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
     
@@ -300,9 +313,19 @@
     planeAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     planeAnim.delegate = self;
     
+//    CABasicAnimation *explAnim = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+//    explAnim.fromValue = @1;
+//    explAnim.toValue = @5;
+//    explAnim.duration = .5;
+//    explAnim.removedOnCompletion = NO;
+//    explAnim.beginTime = CACurrentMediaTime() + 1.5;
+//    explAnim.delegate = self;
+
+    
     [_plane.layer addAnimation:planeAnim forKey:@"planeAnim"];
     [_bomb.layer addAnimation:bombAnim forKey:@"bombAnim"];
-        
+//    [_explosion.layer addAnimation:explAnim forKey:@"explAnim"];
+    
     [[AudioHelper sharedInstance] playBombingSound];
 }
 
@@ -310,18 +333,30 @@
 {
     [_bomb removeFromSuperview];
     [_plane removeFromSuperview];
+//    [_explosion removeFromSuperview];
+    
+    if (ADS_ON && _theAd.loaded)
+    {
+        
+        [_theAd performSelector:@selector(presentFromViewController:) withObject:self afterDelay:.2];
+    }
 }
 
-- (UIImage *)imageFromLayer:(CALayer *)layer
+#pragma mark - Ad delegate
+
+-(void)interstitialAdDidLoad:(ADInterstitialAd *)interstitialAd
 {
-    UIGraphicsBeginImageContext([layer frame].size);
-    
-    [layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return outputImage;
+    NSLog(@"Ad loaded");
+}
+
+-(void)interstitialAdDidUnload:(ADInterstitialAd *)interstitialAd
+{
+    NSLog(@"Ad unloaded");
+}
+
+-(void)interstitialAd:(ADInterstitialAd *)interstitialAd didFailWithError:(NSError *)error
+{
+    NSLog(@"Ad failed to load");
 }
 
 

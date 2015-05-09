@@ -7,6 +7,6 @@
 //
 
 
-@interface OnlineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RS3DSegmentedControlDelegate>
+@interface OnlineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RS3DSegmentedControlDelegate, ADInterstitialAdDelegate>
 
 @end
