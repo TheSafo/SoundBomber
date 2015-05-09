@@ -98,7 +98,7 @@ SINGLETON_IMPL(AudioHelper);
 
 -(void)vibe:(id)sender
 {
-    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+//    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
 }
 
 @end

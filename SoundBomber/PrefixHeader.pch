@@ -26,7 +26,7 @@
 
 
 #define ADS_ON ![StoreManager sharedInstance].adsPurchased
-
+//#define ADS_ON 0
 
 
 

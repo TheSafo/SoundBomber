@@ -17,10 +17,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="rIO-oy-M0c"/>
                     </constraints>
-                    <items>
-                        <tabBarItem title="Speaker" image="speakerIcon" id="J2M-rF-VsE"/>
-                        <tabBarItem title="Friends" image="bombIcon" id="Ppv-mC-tGU"/>
-                    </items>
+                    <items/>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="barTintColor" red="0.58431372550000005" green="0.80392156859999997" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                 </tabBar>
@@ -57,8 +54,4 @@
             <point key="canvasLocation" x="577" y="442"/>
         </view>
     </objects>
-    <resources>
-        <image name="bombIcon" width="25" height="25"/>
-        <image name="speakerIcon" width="25" height="25"/>
-    </resources>
 </document>

@@ -12,6 +12,7 @@
 #import "OnlineViewController.h"
 #import "AudioHelper.h"
 #import "SAFParseHelper.h"
+#import "RemoveAdsViewController.h"
 
 @interface AppDelegate ()
 
@@ -119,9 +120,20 @@
     UIImage* img2 = [UIImage imageNamed:@"bombIcon"];
     ctlr2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Friends" image:img2 tag:1];
     
-
+    if(ADS_ON) {
+        RemoveAdsViewController* ctlr3 = [[RemoveAdsViewController alloc] init];
+        ctlr3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Remove Ads" image:[UIImage imageNamed:@"adIcon"] tag:2];
+        
+        [_rootCtrlr setViewControllers:@[ctlr1, ctlr2, ctlr3]];
+    }
+    else {
+        
+        [_rootCtrlr setViewControllers:@[ctlr1, ctlr2]];
+    }
     
-    [_rootCtrlr setViewControllers:@[ctlr1, ctlr2]];
+    
+    
+    
     [self.window setRootViewController:_rootCtrlr];
     
     

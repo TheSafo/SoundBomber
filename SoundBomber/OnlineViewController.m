@@ -19,6 +19,10 @@
 @property(nonatomic) RS3DSegmentedControl* soundPicker;
 @property (nonatomic) NSString* curSound;
 
+@property (nonatomic) UIImageView* plane;
+@property (nonatomic) UIImageView* bomb;
+
+
 @property (nonatomic) UIRefreshControl* refreshControl;
 
 @property (nonatomic) BOOL doneLoggingIn;
@@ -165,21 +169,7 @@
 {
     NSMutableDictionary* enabledSounds = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] objectForKey:@"enabledSounds"];
 
-//
-//    switch (segmentIndex) {
-//        case 0:
-//            return @"Fart";
-//            break;
-//        case 1:
-//            return @"Scream";
-//            break;
-//        case 2:
-//            return @"Horn";
-//            break;
-//            
-//        default:
-//            break;
-//    }
+
     return enabledSounds.allKeys[segmentIndex];
 }
 
@@ -270,16 +260,16 @@
     [blurredEffectView performSelector:@selector(lp_explodeWithCompletion:) withObject:block afterDelay:1.5];
     
     
-    UIImageView* plane = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomber.png"]];
-    UIImageView* bomb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorBomb.png"]];
+    _plane = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomber.png"]];
+    _bomb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorBomb.png"]];
     
 
     
-    plane.frame = CGRectMake(w, h/4, 100, 100);
-    bomb.frame = CGRectMake(w, h/4, 40, 40);
+    _plane.frame = CGRectMake(w, h/4, 100, 100);
+    _bomb.frame = CGRectMake(w, h/4, 40, 40);
     
-    [self.view addSubview:bomb];
-    [self.view addSubview:plane];
+    [self.view addSubview:_bomb];
+    [self.view addSubview:_plane];
     
     UIBezierPath* bombPath = [[UIBezierPath alloc] init];
     [bombPath moveToPoint:CGPointMake(w, h/4)];
@@ -297,6 +287,7 @@
     bombAnim.beginTime = CACurrentMediaTime() + delay;
     bombAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
+    
     UIBezierPath* planePath = [[UIBezierPath alloc] init];
     [planePath moveToPoint:CGPointMake(w, h/4)];
     [planePath addLineToPoint:CGPointMake(-100, h/4)];
@@ -307,11 +298,17 @@
     planeAnim.duration = 2;
     planeAnim.beginTime = CACurrentMediaTime();
     planeAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    planeAnim.delegate = self;
     
-    [plane.layer addAnimation:planeAnim forKey:@"planeAnim"];
-    [bomb.layer addAnimation:bombAnim forKey:@"bombAnim"];
+    [_plane.layer addAnimation:planeAnim forKey:@"planeAnim"];
+    [_bomb.layer addAnimation:bombAnim forKey:@"bombAnim"];
         
     [[AudioHelper sharedInstance] playBombingSound];
+}
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    
 }
 
 - (UIImage *)imageFromLayer:(CALayer *)layer

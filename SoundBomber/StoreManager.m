@@ -129,7 +129,7 @@ SINGLETON_IMPL(StoreManager);
             {
                 self.adsPurchased = YES;
                 
-                [UIAlertView bk_showAlertViewWithTitle:@"Ads Removed" message:@"Removed all ads from the app!" cancelButtonTitle:@"Awesome!" otherButtonTitles:nil handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                [UIAlertView bk_showAlertViewWithTitle:@"Ads Removed" message:@"Removed all ads from the app! Thanks for support Sound Bomber!" cancelButtonTitle:@"Awesome!" otherButtonTitles:nil handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
                     NSLog(@"Ads Purchased");
                 }];
                 

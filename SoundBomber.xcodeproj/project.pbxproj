@@ -10,6 +10,9 @@
 		15C1AB3D04D5B0115FA57789 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19920590E97860DB56B1A8D9 /* libPods.a */; };
 		4302B4541AFDB03300A7529E /* AdSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4511AFDB03300A7529E /* AdSingleton.m */; };
 		4302B4551AFDB03300A7529E /* StoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4531AFDB03300A7529E /* StoreManager.m */; };
+		4302B4581AFDB51700A7529E /* RemoveAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4302B4571AFDB51700A7529E /* RemoveAdsViewController.m */; };
+		4302B45B1AFDB6F700A7529E /* remove2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4302B4591AFDB6F700A7529E /* remove2x.png */; };
+		4302B45C1AFDB6F700A7529E /* remove3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4302B45A1AFDB6F700A7529E /* remove3x.png */; };
 		43096DD51AF54B6D00BB817B /* bigSpeaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD41AF54B6D00BB817B /* bigSpeaker.png */; };
 		43096DD71AF594C900BB817B /* AppIcons in Resources */ = {isa = PBXBuildFile; fileRef = 43096DD61AF594C900BB817B /* AppIcons */; };
 		431309741AFBC506009D668E /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 431309731AFBC506009D668E /* explosion.wav */; };
@@ -121,6 +124,10 @@
 		4302B4511AFDB03300A7529E /* AdSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSingleton.m; sourceTree = "<group>"; };
 		4302B4521AFDB03300A7529E /* StoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreManager.h; sourceTree = "<group>"; };
 		4302B4531AFDB03300A7529E /* StoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreManager.m; sourceTree = "<group>"; };
+		4302B4561AFDB51700A7529E /* RemoveAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveAdsViewController.h; sourceTree = "<group>"; };
+		4302B4571AFDB51700A7529E /* RemoveAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveAdsViewController.m; sourceTree = "<group>"; };
+		4302B4591AFDB6F700A7529E /* remove2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remove2x.png; sourceTree = "<group>"; };
+		4302B45A1AFDB6F700A7529E /* remove3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remove3x.png; sourceTree = "<group>"; };
 		43096DD41AF54B6D00BB817B /* bigSpeaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigSpeaker.png; sourceTree = "<group>"; };
 		43096DD61AF594C900BB817B /* AppIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcons; sourceTree = "<group>"; };
 		431309731AFBC506009D668E /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
@@ -240,6 +247,8 @@
 		432B0C4E1AD3B36F0086B4A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4302B4591AFDB6F700A7529E /* remove2x.png */,
+				4302B45A1AFDB6F700A7529E /* remove3x.png */,
 				43D456B71AFDA87A00127E64 /* bigSpeaker2.png */,
 				43D456B51AFC18E100127E64 /* colorBomb.png */,
 				4344BAB31AFA622000E6C3B1 /* bomber.png */,
@@ -315,10 +324,10 @@
 			isa = PBXGroup;
 			children = (
 				432B0C731AD4D4520086B4A3 /* SoundBomber.entitlements */,
-				4344BAB51AFA703600E6C3B1 /* UIView+Explode.h */,
-				4344BAB61AFA703600E6C3B1 /* UIView+Explode.m */,
 				436EB9551AD37E8100A404B7 /* AppDelegate.h */,
 				436EB9561AD37E8100A404B7 /* AppDelegate.m */,
+				4302B4561AFDB51700A7529E /* RemoveAdsViewController.h */,
+				4302B4571AFDB51700A7529E /* RemoveAdsViewController.m */,
 				4367B7501AD3ADC50032C4F8 /* OfflineViewController.h */,
 				4367B7511AD3ADC50032C4F8 /* OfflineViewController.m */,
 				439CC2221AF1440500B74EA1 /* SettingsViewController.h */,
@@ -341,6 +350,8 @@
 				4302B4511AFDB03300A7529E /* AdSingleton.m */,
 				4302B4521AFDB03300A7529E /* StoreManager.h */,
 				4302B4531AFDB03300A7529E /* StoreManager.m */,
+				4344BAB51AFA703600E6C3B1 /* UIView+Explode.h */,
+				4344BAB61AFA703600E6C3B1 /* UIView+Explode.m */,
 				43FC78EC1ADC2CFE007CB16B /* Singleton.h */,
 				43FC78ED1ADC2CFE007CB16B /* Singleton.m */,
 				436EB95E1AD37E8100A404B7 /* Images.xcassets */,
@@ -598,8 +609,10 @@
 				432B0C6C1AD48B3E0086B4A3 /* Fart1.caf in Resources */,
 				432B0C6D1AD48B3E0086B4A3 /* Fart2.caf in Resources */,
 				43096DD71AF594C900BB817B /* AppIcons in Resources */,
+				4302B45C1AFDB6F700A7529E /* remove3x.png in Resources */,
 				439238FD1AEFF4CE00644E1B /* Horn1.caf in Resources */,
 				439238FA1AEFF4CE00644E1B /* Horn5.caf in Resources */,
+				4302B45B1AFDB6F700A7529E /* remove2x.png in Resources */,
 				439238FE1AEFF4CE00644E1B /* Horn2.caf in Resources */,
 				439238F11AEFF3E300644E1B /* Scream7.caf in Resources */,
 				432B0C6F1AD48B3E0086B4A3 /* Fart4.caf in Resources */,
@@ -733,6 +746,7 @@
 				436EB9571AD37E8100A404B7 /* AppDelegate.m in Sources */,
 				4367B74F1AD3A8B10032C4F8 /* SAFTabBarController.m in Sources */,
 				436EB9541AD37E8100A404B7 /* main.m in Sources */,
+				4302B4581AFDB51700A7529E /* RemoveAdsViewController.m in Sources */,
 				4302B4551AFDB03300A7529E /* StoreManager.m in Sources */,
 				43FC78EE1ADC2CFE007CB16B /* Singleton.m in Sources */,
 				439CC2241AF1440500B74EA1 /* SettingsViewController.m in Sources */,
