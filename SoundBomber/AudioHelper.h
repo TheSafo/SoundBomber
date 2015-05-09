@@ -28,13 +28,7 @@ More sounds:
  7. Nice La
  animal
  WAOW
- 
-Photoshop old speaker away
- 
- color bomb image
- 
-fix iwatch
- 
+  
  remote push notifcations
  */
 

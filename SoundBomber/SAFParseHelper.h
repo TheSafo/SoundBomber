@@ -20,7 +20,7 @@ SINGLETON_INTR(SAFParseHelper);
 
 -(void) loginWithBlock:(void (^)(NSMutableArray *friendArrs)) loginCompletion;
 
--(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundName;
+-(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundType;
 
 -(void)updateDataWithBlock:(void (^)(NSMutableArray *friendArrs)) updateCompletion;
 

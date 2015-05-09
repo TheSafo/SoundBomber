@@ -28,49 +28,58 @@ SINGLETON_IMPL(SAFParseHelper);
     return self;
 }
 
--(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundName
+-(void)sendPushFromUser: (PFUser *)sender touser: (PFUser *)toSend withSoundName: (NSString *)soundType
 {
-#warning change pushes to online only
-    
-    PFQuery *qry = [PFInstallation query];
-    [qry whereKey:@"user" equalTo:toSend];
-    
-    NSString* realMsg = [NSString stringWithFormat:@"from %@", sender[@"fullname"]];
-    
     int x = arc4random_uniform(7) + 1;
-    NSString* sound = [NSString stringWithFormat:@"%@%i.caf", soundName, x]; ///Randomizes sound!!!
+    NSString* sound = [NSString stringWithFormat:@"%@%i.caf", soundType, x]; ///Randomizes sound!!!
     
-    NSDictionary *data = @{ @"alert" : realMsg,
-                            @"sound" : sound,
-                            @"senderID" : sender.objectId,
-                            };
+    NSDictionary* params = @{ @"senderId": sender.objectId, @"toSendId": toSend.objectId, @"soundName": sound   };
     
-    PFPush *push = [[PFPush alloc] init];
-    [push setQuery:qry];
-    [push setData:data];
-    [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(error)
-        {
-            NSLog(@"Push Error: %@", error);
-        }
-    }];
-    
-    NSMutableArray* sendArr = [toSend objectForKey:@"revenge"];
-    NSString* userStr = sender.objectId;
-    
-    if([sendArr containsObject:userStr])
-    {
-        [sendArr removeObject:userStr];
-    }
-    if (sendArr.count == 5) {
-        [sendArr removeLastObject];
-    }
-    [sendArr insertObject:userStr atIndex:0];
-    
-    [PFCloud callFunctionInBackground:@"updateRevenge" withParameters:@{@"userId": toSend.objectId, @"newRev":sendArr} block:^(id object, NSError *error) {
+    [PFCloud callFunctionInBackground:@"sendPush" withParameters:params block:^(id object, NSError *error) {
         if(error) { NSLog(@"Cloud error: %@", error); }
     }];
 }
+//    var senderId = request.params.userId;
+//    var toSendId = request.params.toSendId;
+//    var soundName = request.params.soundName;
+    
+    
+//    PFQuery *qry = [PFInstallation query];
+//    [qry whereKey:@"user" equalTo:toSend];
+//    
+//    NSString* realMsg = [NSString stringWithFormat:@"from %@", sender[@"fullname"]];
+//    
+//    int x = arc4random_uniform(7) + 1;
+//    NSString* sound = [NSString stringWithFormat:@"%@%i.caf", soundName, x]; ///Randomizes sound!!!
+//    
+//    NSDictionary *data = @{ @"alert" : realMsg,
+//                            @"sound" : sound,
+//                            @"senderID" : sender.objectId,
+//                            };
+//    
+//    PFPush *push = [[PFPush alloc] init];
+//    [push setQuery:qry];
+//    [push setData:data];
+//    [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if(error)
+//        {
+//            NSLog(@"Push Error: %@", error);
+//        }
+//    }];
+//    
+//    NSMutableArray* sendArr = [toSend objectForKey:@"revenge"];
+//    NSString* userStr = sender.objectId;
+//    
+//    if([sendArr containsObject:userStr])
+//    {
+//        [sendArr removeObject:userStr];
+//    }
+//    if (sendArr.count == 5) {
+//        [sendArr removeLastObject];
+//    }
+//    [sendArr insertObject:userStr atIndex:0];
+//    
+
 
 -(void)updateDataWithBlock:(void (^)(NSMutableArray *friendArrs)) updateCompletion
 {

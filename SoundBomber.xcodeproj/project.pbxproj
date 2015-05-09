@@ -61,6 +61,7 @@
 		43BD385C1AF7C700001243BF /* speaker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C561AD3BA770086B4A3 /* speaker1.png */; };
 		43BD385D1AF7C701001243BF /* speaker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 432B0C561AD3BA770086B4A3 /* speaker1.png */; };
 		43BD38601AF7D348001243BF /* RecentInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BD385F1AF7D348001243BF /* RecentInterfaceController.m */; };
+		43D456B61AFC18E100127E64 /* colorBomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D456B51AFC18E100127E64 /* colorBomb.png */; };
 		43DE053E1AF7C30F00BDA4A2 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE053D1AF7C30F00BDA4A2 /* InterfaceController.m */; };
 		43DE05411AF7C30F00BDA4A2 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE05401AF7C30F00BDA4A2 /* NotificationController.m */; };
 		43DE05431AF7C30F00BDA4A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DE05421AF7C30F00BDA4A2 /* Images.xcassets */; };
@@ -183,6 +184,7 @@
 		43BD385B1AF7C545001243BF /* SoundBomber WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SoundBomber WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		43BD385E1AF7D348001243BF /* RecentInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentInterfaceController.h; sourceTree = "<group>"; };
 		43BD385F1AF7D348001243BF /* RecentInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentInterfaceController.m; sourceTree = "<group>"; };
+		43D456B51AFC18E100127E64 /* colorBomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBomb.png; sourceTree = "<group>"; };
 		43DE05371AF7C30F00BDA4A2 /* SoundBomber WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SoundBomber WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DE053A1AF7C30F00BDA4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43DE053B1AF7C30F00BDA4A2 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		432B0C4E1AD3B36F0086B4A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				43D456B51AFC18E100127E64 /* colorBomb.png */,
 				4344BAB31AFA622000E6C3B1 /* bomber.png */,
 				43096DD41AF54B6D00BB817B /* bigSpeaker.png */,
 				437AECA81AF44467009EE056 /* bomb2x.png */,
@@ -603,6 +606,7 @@
 				439238FC1AEFF4CE00644E1B /* Horn7.caf in Resources */,
 				437AECA61AF441B0009EE056 /* speakerIcon2x.png in Resources */,
 				436EB95F1AD37E8100A404B7 /* Images.xcassets in Resources */,
+				43D456B61AFC18E100127E64 /* colorBomb.png in Resources */,
 				439238ED1AEFF3E300644E1B /* Scream3.caf in Resources */,
 				439238EB1AEFF3E300644E1B /* Scream1.caf in Resources */,
 				432B0C711AD48B3E0086B4A3 /* Fart6.caf in Resources */,

@@ -271,7 +271,7 @@
     
     
     UIImageView* plane = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomber.png"]];
-    UIImageView* bomb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomb3x.png"]];
+    UIImageView* bomb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorBomb.png"]];
     
 
     
