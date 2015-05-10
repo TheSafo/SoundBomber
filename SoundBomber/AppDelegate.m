@@ -25,7 +25,35 @@
 @end
 
 @implementation AppDelegate
-
+//
+//-(void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)remoteNotification
+//{
+//    if([identifier isEqualToString:@"revenge"]) {
+//        
+//        NSString* toSendId = remoteNotification[@"senderId"];
+//        
+//        [InterfaceController openParentApplication:@{@"operation":@"getUserId"} reply:^(NSDictionary *replyInfo, NSError *error) {
+//            NSString* senderId = replyInfo[@"response"];
+//            
+//            if(senderId.length == 0) {
+//                NSLog(@"Error retrieving cur user");
+//                return;
+//            }
+//            
+//            NSString* soundName = [self randomSoundName];
+//            
+//            NSDictionary* params = @{ @"senderId": senderId, @"toSendId": toSendId, @"soundName": soundName };
+//            
+//            [PFCloud callFunctionInBackground:@"sendPush" withParameters:params block:^(id object, NSError *error) {
+//                if(error) { NSLog(@"Cloud error: %@", error); }
+//            }];
+//            
+//        }];
+//    }
+//    else {
+//        NSLog(@"cant handle action");
+//    }
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -174,6 +202,35 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+}
+
+-(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler
+{
+    if([identifier isEqualToString:@"revenge"]) {
+        
+        NSString* toSendId = userInfo[@"senderId"];
+        
+        NSString* senderId =  [PFUser currentUser].objectId;
+        
+        if(senderId.length == 0) {
+            NSLog(@"Error retrieving cur user");
+            return;
+        }
+        
+        NSString* soundName = [AudioHelper randomSoundName];
+        
+        NSDictionary* params = @{ @"senderId": senderId, @"toSendId": toSendId, @"soundName": soundName };
+        
+        [PFCloud callFunctionInBackground:@"sendPush" withParameters:params block:^(id object, NSError *error) {
+            if(error) { NSLog(@"Cloud error: %@", error); }
+            completionHandler();
+        }];
+            
+    }
+    else {
+        NSLog(@"cant handle action");
+        completionHandler();
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
