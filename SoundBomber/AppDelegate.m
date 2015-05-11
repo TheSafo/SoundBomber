@@ -81,7 +81,7 @@
     revenge.title = @"Get Revenge!";
     
     // If you need to show UI, choose foreground
-    revenge.activationMode = UIUserNotificationActivationModeForeground;
+    revenge.activationMode = UIUserNotificationActivationModeBackground;
     
     // Destructive actions display in red
     revenge.destructive = NO;
