@@ -165,10 +165,10 @@
     
     NSNumber* num = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] valueForKey:@"soundVersion"];
     
-    if([num intValue] != 1) {
-        NSMutableDictionary* enabledSounds = [NSMutableDictionary dictionaryWithDictionary:@{ @"Fart":@YES, @"Scream":@YES, @"Horn":@YES, @"Animal":@YES }];
+    if([num intValue] != 2) {
+        NSMutableDictionary* enabledSounds = [NSMutableDictionary dictionaryWithDictionary:@{ @"Greeting":@YES, @"Scream":@YES, @"Horn":@YES, @"Animal":@YES }];
         [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setValue:enabledSounds forKey:@"enabledSounds"];
-        [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setValue:@(1) forKey:@"soundVersion"];
+        [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.gmail.jakesafo.SoundBomber"] setValue:@(2) forKey:@"soundVersion"];
     }
     
 

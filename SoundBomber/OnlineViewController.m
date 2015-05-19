@@ -126,7 +126,6 @@
     _tableView.delegate = self;
     
     _tableView.separatorColor = [UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
-    ///[UIColor yellowColor];
     
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -271,30 +270,25 @@
     
     [blurredEffectView performSelector:@selector(lp_explodeWithCompletion:) withObject:block afterDelay:1.5];
     
-    
+    /* Create the bomb + plane to animate */
     _plane = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bomber.png"]];
     _bomb = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorBomb.png"]];
-//    _explosion = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"atomicColor.png"]];
-    
 
     
     _plane.frame = CGRectMake(w, h/4, 100, 100);
     _bomb.frame = CGRectMake(w, h/4, 40, 40);
-//    _explosion.frame = CGRectMake(w/4 - 10, h*3/4 - 10, 20, 20);
     
-//    [_explosion setHidden:YES];
-
+    /* Add them to view*/
     [self.view addSubview:_bomb];
     [self.view addSubview:_plane];
-//    [self.view addSubview:_explosion];
     
+    /* Create bomb path */
     UIBezierPath* bombPath = [[UIBezierPath alloc] init];
     [bombPath moveToPoint:CGPointMake(w, h/4)];
     [bombPath addLineToPoint:CGPointMake(w*14/16, h/4)];
     [bombPath addQuadCurveToPoint:CGPointMake(w/4, h*3/4) controlPoint:CGPointMake(w/2, h/4+50)];
     
-    
-    
+    /* Create bomb animation using the path */
     CAKeyframeAnimation *bombAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     bombAnim.path = bombPath.CGPath;
     bombAnim.rotationMode = kCAAnimationRotateAutoReverse;
@@ -303,11 +297,12 @@
     bombAnim.beginTime = CACurrentMediaTime();
     bombAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
-    
+    /* Create path for the Plane */
     UIBezierPath* planePath = [[UIBezierPath alloc] init];
     [planePath moveToPoint:CGPointMake(w, h/4)];
     [planePath addLineToPoint:CGPointMake(-100, h/4)];
     
+    /* Create plane animation using the path */
     CAKeyframeAnimation* planeAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     planeAnim.path = planePath.CGPath;
     planeAnim.repeatCount = 0;
@@ -316,19 +311,9 @@
     planeAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     planeAnim.delegate = self;
     
-//    CABasicAnimation *explAnim = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//    explAnim.fromValue = @1;
-//    explAnim.toValue = @5;
-//    explAnim.duration = .5;
-//    explAnim.removedOnCompletion = NO;
-//    explAnim.beginTime = CACurrentMediaTime() + 1.5;
-//    explAnim.delegate = self;
-
-    
+    /* Add Animations and play sounds */
     [_plane.layer addAnimation:planeAnim forKey:@"planeAnim"];
     [_bomb.layer addAnimation:bombAnim forKey:@"bombAnim"];
-//    [_explosion.layer addAnimation:explAnim forKey:@"explAnim"];
-    
     [[AudioHelper sharedInstance] playBombingSound];
 }
 
