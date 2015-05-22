@@ -121,7 +121,7 @@
     int w = self.view.bounds.size.width;
     int h = self.view.bounds.size.height;
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, w, h-60) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, w, h-60 - 50) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     

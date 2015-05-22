@@ -25,7 +25,7 @@
         int w = self.view.bounds.size.width;
         int h = self.view.bounds.size.height;
         
-        UIView* fakeNavBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 100)];
+        UIView* fakeNavBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 64)];
         fakeNavBar.backgroundColor =[UIColor colorWithRed:149.0/255.0 green:205.0/255.0 blue:222.0/255.0 alpha:1];
         
         UIView* fakeTabBar = [[UIView alloc] initWithFrame:CGRectMake(0, h-100, w, 100)];
@@ -69,20 +69,21 @@
         
         
         UILabel* lbl = [[UILabel alloc] init];
-        lbl.frame = CGRectMake(0, 70, w, 30);
+        lbl.frame = CGRectMake(0, 20, w, 44);
         lbl.textAlignment = NSTextAlignmentCenter;
         lbl.text = @"Enabled Sounds";
+        lbl.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17];
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, w, h-100-100) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, w, h-64-100) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
         [self.view addSubview:_tableView];
         [self.view addSubview:fakeNavBar];
         [self.view addSubview:fakeTabBar];
-        if(ADS_ON) {
-            [self.view addSubview:[AdSingleton sharedInstance].adBanner];
-        }
+//        if(ADS_ON) {
+//            [self.view addSubview:[AdSingleton sharedInstance].adBanner];
+//        }
         [self.view addSubview:lbl];
         [self.view addSubview:back];
         

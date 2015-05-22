@@ -25,35 +25,6 @@
 @end
 
 @implementation AppDelegate
-//
-//-(void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)remoteNotification
-//{
-//    if([identifier isEqualToString:@"revenge"]) {
-//        
-//        NSString* toSendId = remoteNotification[@"senderId"];
-//        
-//        [InterfaceController openParentApplication:@{@"operation":@"getUserId"} reply:^(NSDictionary *replyInfo, NSError *error) {
-//            NSString* senderId = replyInfo[@"response"];
-//            
-//            if(senderId.length == 0) {
-//                NSLog(@"Error retrieving cur user");
-//                return;
-//            }
-//            
-//            NSString* soundName = [self randomSoundName];
-//            
-//            NSDictionary* params = @{ @"senderId": senderId, @"toSendId": toSendId, @"soundName": soundName };
-//            
-//            [PFCloud callFunctionInBackground:@"sendPush" withParameters:params block:^(id object, NSError *error) {
-//                if(error) { NSLog(@"Cloud error: %@", error); }
-//            }];
-//            
-//        }];
-//    }
-//    else {
-//        NSLog(@"cant handle action");
-//    }
-//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -62,8 +33,8 @@
     
     [[StoreManager sharedInstance] updatePurchaseInfo];
     
-    [AdSingleton sharedInstance].adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, -50, self.window.frame.size.width, 50)];
-    [AdSingleton sharedInstance].adBanner.delegate = [AdSingleton sharedInstance];
+//    [AdSingleton sharedInstance].adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, -50, self.window.frame.size.width, 50)];
+//    [AdSingleton sharedInstance].adBanner.delegate = [AdSingleton sharedInstance];
     
     /* Start Audio for the app */
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
@@ -266,25 +237,6 @@
 
 -(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
 {
-//    __block UIBackgroundTaskIdentifier identifier = UIBackgroundTaskInvalid;
-//    dispatch_block_t endBlock = ^{
-//        if (identifier != UIBackgroundTaskInvalid) {
-//            [application endBackgroundTask:identifier];
-//        }
-//        identifier = UIBackgroundTaskInvalid;
-//    };
-    
-//    identifier = [application beginBackgroundTaskWithExpirationHandler:endBlock];
-    
-    // Wacky but the block will capture the outer reply inside but then later we can still simply call reply - Thanks Dave D!
-//    reply = ^(NSDictionary* replyInfo) {
-//        reply(replyInfo);
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
-//            endBlock();
-//        });
-//    };
-    
-    
     if([userInfo[@"operation"] isEqualToString:@"localFart"]) {
         [self localFart];
         reply(@{@"response":@"Farted Locally"});

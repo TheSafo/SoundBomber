@@ -22,7 +22,7 @@
 #import <Blockskit/UIAlertView+BlocksKit.h>
 #import <Pop/POP.h>
 #import "StoreManager.h"
-#import "AdSingleton.h"
+//#import "AdSingleton.h"
 
 
 #define ADS_ON ![StoreManager sharedInstance].adsPurchased

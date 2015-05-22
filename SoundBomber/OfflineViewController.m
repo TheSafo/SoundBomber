@@ -47,14 +47,14 @@
         int h;
         int adOffset;
         
-        if(ADS_ON) {
-            h = self.view.frame.size.height - 49 - 50;
-            adOffset = 50;
-        }
-        else {
+//        if(ADS_ON) {
+//            h = self.view.frame.size.height - 49 - 50;
+//            adOffset = 50;
+//        }
+//        else {
             h = self.view.frame.size.height - 49;
             adOffset = 0;
-        }
+//        }
         
         _mainView = [[SAFView alloc] initWithSpeakerImage:speakerImg andOtherImg:otherImg andFrame:CGRectMake(w/16, 20 + adOffset , w*7/8, h - (20)) andCamBut:_cameraButton andSetBut:_settingsButton];
 
@@ -68,9 +68,9 @@
 {
     [super viewWillAppear:animated];
     
-    if(ADS_ON) {
-        [self.view addSubview:[AdSingleton sharedInstance].adBanner];
-    }
+//    if(ADS_ON) {
+//        [self.view addSubview:[AdSingleton sharedInstance].adBanner];
+//    }
 }
 
 #pragma mark - Camera Button Stuffs

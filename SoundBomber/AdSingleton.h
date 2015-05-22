@@ -13,7 +13,7 @@
 
 @interface AdSingleton : NSObject <ADBannerViewDelegate>
 
-SINGLETON_INTR(AdSingleton);
+//SINGLETON_INTR(AdSingleton);
 
 @property (nonatomic) BOOL bannerIsVisible;
 
